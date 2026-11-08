@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""far6.py OUTDIR: area 6's storm (stage6.md 2.1, 2.6; stage6_bavmorda.md 7):
+the far layer behind the chamber's columns is scroll3 palettes 28 and 29,
+which controllers 1 and 2 step through colour frames (tables 0xECE60 /
+0xECF40, 7 frames) by sequences 19 and 20 (ROM 0x0D80 table: 19 steps of
+3 updates). Frame 0 is black, frames 2-5 light a few pens each (the bolt's
+segments in turn), frame 1 lights the bolt white and every other pen a dim
+blue (0x0007), frame 6 only the dim blue.
+
+Native, pen-exact: the dim blue is the backdrop (CRAM 0, shown where the
+far layer has no tile); each lit state's bright pixels are tiles on the
+stage's sprite line 1 (the chamber holds both scenery lines), all states'
+tiles resident at once from STAGE_BD_BASE; a step rewrites the plane words
+of the cells any state lights. Writes bd_tiles.bin, bd_map.bin (all blank),
+far6_cells.bin (u8 column, u8 row per cell), far6_words.bin (per state, a
+word per cell), far6.h (FAR6_TILES, FAR6_CELLS, step -> state table, the
+backdrop's dark / glow words)."""
+import struct, sys, zipfile
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from cps1_gfx import assemble_region  # noqa: E402
+from cps1_source_layers import SourceLayers  # noqa: E402
+from cps1_palette import cps_rgb  # noqa: E402
+from intropack import q3, flip, pack_tile, cram_word  # noqa: E402
+
+BASE = 596
+SEQ = {28: [0, 1, 2, 3, 4, 5, 0, 6, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 0],    # 0x0E4E (sequence 19)
+       29: [0, 6, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0]}    # 0x0E62 (sequence 20)
+TAB = {28: 0xECE60, 29: 0xECF40}
+DIM = 0x0007
+
+
+def main():
+    out = Path(sys.argv[1])
+    rom = (ROOT / "build/reference_maincpu.bin").read_bytes()
+    with zipfile.ZipFile(ROOT / "willow.zip") as z:
+        gfx = assemble_region(z)
+    sl = SourceLayers(rom, gfx, 5)
+    word = lambda g, f, p: struct.unpack_from(">H", rom, TAB[g] + f * 32 + p * 2)[0]
+    cells = {}
+    for j in range(224):
+        for x in range(440):
+            pen, g = sl.pen(3, x + 512, j - 240 - 1536)
+            if pen != 15 and g in TAB: cells.setdefault((x // 8, j // 8), {})[(x % 8, j % 8)] = (pen, g)
+    cw = lambda v: ((v >> 1) & 7, (v >> 5) & 7, (v >> 9) & 7)
+    spr = struct.unpack(">32H", (ROOT / "game/data/s6spr/sprpal.bin").read_bytes())
+    wil = struct.unpack(">16H", (ROOT / "game/data/willow/pal.bin").read_bytes())
+    # The stage's sprite line 1, fitted with the storm's colours too. The job
+    # writes the colours at full brightness (0xF000).
+    cand = {1: [cw(v) for v in spr[16:32]]}      # line 1 only: tools/pack_stage6.sh fits it with the storm's blues (EXTRA)
+    dist = lambda a, b: sum(k * (x - y) ** 2 for k, x, y in zip((2, 4, 3), a, b))
+    rgb = lambda w: q3(cps_rgb(w | 0xF000))
+    bright = lambda w: (w & 0xFFF) not in (0, DIM)
+    states, step_state = [], []
+    for s in range(19):
+        f = (SEQ[28][s], SEQ[29][s])
+        if f == (0, 0): step_state.append(255); continue
+        if f not in states: states.append(f)
+        step_state.append(states.index(f))
+    lit = [{c for c, px in cells.items() if any(bright(word(g, f[0] if g == 28 else f[1], p)) for (p, g) in px.values())} for f in states]
+    union = sorted(set().union(*lit), key=lambda c: (c[0], c[1]))
+    union = [c for c in union if c[1] >= 9]          # rows 2-8 of plane B hold text (none lit there)
+    tiles, index, words = [[0] * 64], {}, []
+    for k, f in enumerate(states):
+        for c in union:
+            px = cells[c]
+            cols = {}
+            for (x, y), (p, g) in px.items():
+                w = word(g, f[0] if g == 28 else f[1], p)
+                if bright(w): cols[(x, y)] = rgb(w)
+            if not cols: words.append(0); continue
+            best = None
+            for li, line in cand.items():
+                t = [0] * 64
+                err = 0
+                for (x, y), c in cols.items():
+                    j = min(range(1, 16), key=lambda j: dist(c, line[j]))
+                    t[y * 8 + x] = j; err += dist(c, line[j])
+                if best is None or err < best[0]: best = (err, li, t)
+            _, li, t = best
+            for fl in range(4):
+                key = (li, tuple(flip(t, fl)))
+                if key in index: words.append((BASE + index[key]) | (fl << 11) | (li << 13)); break
+            else:
+                index[(li, tuple(t))] = len(tiles); tiles.append(t); words.append((BASE + index[(li, tuple(t))]) | (li << 13))
+    (out / "bd_tiles.bin").write_bytes(b"".join(pack_tile(t) for t in tiles))
+    (out / "bd_map.bin").write_bytes(bytes(55 * 28 * 2))
+    (out / "far6_cells.bin").write_bytes(bytes(v for c in union for v in c))
+    (out / "far6_words.bin").write_bytes(struct.pack(">%dH" % len(words), *words))
+    glow = cram_word(rgb(DIM))
+    (out / "far6.h").write_text("/* generated by tools/far6.py */\n"
+                                f"#define FAR6_TILES {len(tiles)}\n#define FAR6_CELLS {len(union)}\n#define FAR6_STATES {len(states)}\n"
+                                f"#define FAR6_GLOW 0x{glow:04X}\n"
+                                "static const u8 far6_step[19] = { " + ", ".join(map(str, step_state)) + " };\n"
+                                "static const u8 far6_glow[19] = { " + ", ".join('1' if 1 in (SEQ[28][s], SEQ[29][s]) or 6 in (SEQ[28][s], SEQ[29][s]) else '0' for s in range(19)) + " };\n")
+    print(f"area 6 storm: {len(states)} states, {len(union)} cells, {len(tiles)} tiles, glow {glow:04x}")
+
+
+if __name__ == "__main__":
+    main()

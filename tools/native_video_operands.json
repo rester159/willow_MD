@@ -1,0 +1,2154 @@
+{
+  "source_sha256": "0b66efe85aec1e94fcaf722de9401cc7e4ec09647daf5f9f0232116861240cc1",
+  "purpose": "Explicit video address loads beyond the older selected-region diagnostic. Catalogue entries are guarded by original instruction word and address; they are not a runtime scan/rewrite rule. Full execution parity remains required.",
+  "operands": [
+    {
+      "offset": "0004d4",
+      "instruction_word": "207c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "000506",
+      "instruction_word": "207c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "000540",
+      "instruction_word": "207c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00057a",
+      "instruction_word": "207c",
+      "source": "00900000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0006ce",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00070a",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000710",
+      "instruction_word": "43f9",
+      "source": "00913fff",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000720",
+      "instruction_word": "41f9",
+      "source": "00918000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000726",
+      "instruction_word": "43f9",
+      "source": "0091bfff",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000736",
+      "instruction_word": "41f9",
+      "source": "00914000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00073c",
+      "instruction_word": "43f9",
+      "source": "00917fff",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000752",
+      "instruction_word": "41f9",
+      "source": "00900000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000774",
+      "instruction_word": "43f9",
+      "source": "0091c000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000788",
+      "instruction_word": "43f9",
+      "source": "0091c400",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00079c",
+      "instruction_word": "43f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0007b0",
+      "instruction_word": "43f9",
+      "source": "0091cc00",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0007c4",
+      "instruction_word": "43f9",
+      "source": "0091d000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0007d8",
+      "instruction_word": "43f9",
+      "source": "0091d400",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000916",
+      "instruction_word": "43f9",
+      "source": "0091c000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000926",
+      "instruction_word": "43f9",
+      "source": "0091c400",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000936",
+      "instruction_word": "43f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000946",
+      "instruction_word": "43f9",
+      "source": "0091cc00",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000956",
+      "instruction_word": "43f9",
+      "source": "0091c400",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "000b5e",
+      "instruction_word": "43f9",
+      "source": "0091c200",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0018aa",
+      "instruction_word": "207c",
+      "source": "00911780",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "004ab2",
+      "instruction_word": "207c",
+      "source": "00910314",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "004aba",
+      "instruction_word": "207c",
+      "source": "00910314",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "004ad0",
+      "instruction_word": "207c",
+      "source": "00910310",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "004ad8",
+      "instruction_word": "207c",
+      "source": "00910310",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00514a",
+      "instruction_word": "41f9",
+      "source": "0091c000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0051b2",
+      "instruction_word": "41f9",
+      "source": "0091c000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0052e4",
+      "instruction_word": "41f9",
+      "source": "0091c000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00546a",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00557a",
+      "instruction_word": "43f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0055d4",
+      "instruction_word": "207c",
+      "source": "00911674",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0055fc",
+      "instruction_word": "207c",
+      "source": "0091026c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "005618",
+      "instruction_word": "207c",
+      "source": "00910268",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "005640",
+      "instruction_word": "207c",
+      "source": "0091056c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "005668",
+      "instruction_word": "207c",
+      "source": "00910924",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00574a",
+      "instruction_word": "207c",
+      "source": "009115ec",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "005764",
+      "instruction_word": "207c",
+      "source": "009116ec",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00577e",
+      "instruction_word": "207c",
+      "source": "0091136c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "005798",
+      "instruction_word": "207c",
+      "source": "009110ec",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "005920",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "005936",
+      "instruction_word": "41f9",
+      "source": "00918000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00594c",
+      "instruction_word": "41f9",
+      "source": "00914000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "005b38",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "005b7c",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "006200",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0062a2",
+      "instruction_word": "207c",
+      "source": "00910208",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0062ae",
+      "instruction_word": "207c",
+      "source": "00911388",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0062cc",
+      "instruction_word": "207c",
+      "source": "00910a88",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0063a8",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00642a",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0064b4",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "006518",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0065a6",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0065ba",
+      "instruction_word": "41f9",
+      "source": "00918000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0065ce",
+      "instruction_word": "41f9",
+      "source": "00914000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0065ec",
+      "instruction_word": "41f9",
+      "source": "00900000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0065f6",
+      "instruction_word": "41f9",
+      "source": "00908000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "006692",
+      "instruction_word": "41f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00669e",
+      "instruction_word": "41f9",
+      "source": "00918000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0066e6",
+      "instruction_word": "207c",
+      "source": "00910008",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "006716",
+      "instruction_word": "207c",
+      "source": "00910008",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "006746",
+      "instruction_word": "207c",
+      "source": "00910010",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "006772",
+      "instruction_word": "207c",
+      "source": "00910010",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "006838",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "00686a",
+      "instruction_word": "41f9",
+      "source": "00910e00",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "006896",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0068a4",
+      "instruction_word": "41f9",
+      "source": "00911000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0068b2",
+      "instruction_word": "41f9",
+      "source": "00910800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0068c0",
+      "instruction_word": "41f9",
+      "source": "00910858",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "007daa",
+      "instruction_word": "227c",
+      "source": "00910200",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0083fe",
+      "instruction_word": "207c",
+      "source": "0091790c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00883c",
+      "instruction_word": "207c",
+      "source": "00911330",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00884a",
+      "instruction_word": "207c",
+      "source": "00911430",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008858",
+      "instruction_word": "207c",
+      "source": "00911530",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008866",
+      "instruction_word": "207c",
+      "source": "00911630",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008bf8",
+      "instruction_word": "207c",
+      "source": "0091116c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c08",
+      "instruction_word": "207c",
+      "source": "00911170",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c1c",
+      "instruction_word": "207c",
+      "source": "00911164",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c2c",
+      "instruction_word": "207c",
+      "source": "00911168",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c3c",
+      "instruction_word": "207c",
+      "source": "0091116c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c4c",
+      "instruction_word": "207c",
+      "source": "00911170",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c70",
+      "instruction_word": "207c",
+      "source": "00911164",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c80",
+      "instruction_word": "207c",
+      "source": "00911168",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c8c",
+      "instruction_word": "207c",
+      "source": "0091116c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "008c98",
+      "instruction_word": "207c",
+      "source": "00911170",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "009a4a",
+      "instruction_word": "207c",
+      "source": "00910bac",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00a4e2",
+      "instruction_word": "207c",
+      "source": "00910930",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00a55a",
+      "instruction_word": "227c",
+      "source": "00910200",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00a566",
+      "instruction_word": "227c",
+      "source": "00910c00",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00a5d8",
+      "instruction_word": "207c",
+      "source": "00910d30",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00a9c2",
+      "instruction_word": "207c",
+      "source": "00910734",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00a9d8",
+      "instruction_word": "207c",
+      "source": "00910834",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00aa1a",
+      "instruction_word": "207c",
+      "source": "00910844",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00aa2a",
+      "instruction_word": "207c",
+      "source": "00910b34",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00aa42",
+      "instruction_word": "207c",
+      "source": "00910b44",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00aac4",
+      "instruction_word": "207c",
+      "source": "00910f34",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00aada",
+      "instruction_word": "207c",
+      "source": "00911134",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00aaee",
+      "instruction_word": "207c",
+      "source": "00911334",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ab02",
+      "instruction_word": "207c",
+      "source": "00911534",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ab88",
+      "instruction_word": "207c",
+      "source": "00910f44",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ab9e",
+      "instruction_word": "207c",
+      "source": "00911144",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00abb2",
+      "instruction_word": "207c",
+      "source": "00911344",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00abc6",
+      "instruction_word": "207c",
+      "source": "00911544",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00abee",
+      "instruction_word": "207c",
+      "source": "0091095c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ac04",
+      "instruction_word": "207c",
+      "source": "00910b5c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ac18",
+      "instruction_word": "207c",
+      "source": "00910d5c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ac2c",
+      "instruction_word": "207c",
+      "source": "00910f5c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b308",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b34c",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b3fc",
+      "instruction_word": "227c",
+      "source": "00910800",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b408",
+      "instruction_word": "227c",
+      "source": "00912800",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b8de",
+      "instruction_word": "207c",
+      "source": "00910d40",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b8ee",
+      "instruction_word": "207c",
+      "source": "00910d44",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b902",
+      "instruction_word": "207c",
+      "source": "00910d4c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b912",
+      "instruction_word": "207c",
+      "source": "00910d50",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b922",
+      "instruction_word": "207c",
+      "source": "00910d54",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b932",
+      "instruction_word": "207c",
+      "source": "00910d58",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00b9e6",
+      "instruction_word": "207c",
+      "source": "009103b0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ba32",
+      "instruction_word": "207c",
+      "source": "00910d98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ba44",
+      "instruction_word": "207c",
+      "source": "00910e50",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ba5e",
+      "instruction_word": "207c",
+      "source": "00910adc",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00ba6c",
+      "instruction_word": "207c",
+      "source": "009114b8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00be18",
+      "instruction_word": "207c",
+      "source": "00910f44",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "00be72",
+      "instruction_word": "207c",
+      "source": "00910720",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "033eda",
+      "instruction_word": "207c",
+      "source": "00910e58",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "034952",
+      "instruction_word": "207c",
+      "source": "00910f58",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "034962",
+      "instruction_word": "207c",
+      "source": "00911158",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "034970",
+      "instruction_word": "207c",
+      "source": "00911358",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0349a0",
+      "instruction_word": "41f9",
+      "source": "00900000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "034a00",
+      "instruction_word": "41f9",
+      "source": "00900000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "034a6c",
+      "instruction_word": "41f9",
+      "source": "00900020",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "034b0a",
+      "instruction_word": "207c",
+      "source": "00917aa8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041280",
+      "instruction_word": "207c",
+      "source": "0091150c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04136e",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04138e",
+      "instruction_word": "227c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0414ee",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04150e",
+      "instruction_word": "227c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04154a",
+      "instruction_word": "207c",
+      "source": "0091100c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041592",
+      "instruction_word": "207c",
+      "source": "00918408",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04162c",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "04163e",
+      "instruction_word": "41f9",
+      "source": "00918000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "041650",
+      "instruction_word": "41f9",
+      "source": "00914000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "04166a",
+      "instruction_word": "41f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "04167c",
+      "instruction_word": "41f9",
+      "source": "00918000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "041724",
+      "instruction_word": "207c",
+      "source": "0091022c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041788",
+      "instruction_word": "207c",
+      "source": "0091022c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04182c",
+      "instruction_word": "207c",
+      "source": "0091022c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041882",
+      "instruction_word": "207c",
+      "source": "0091150c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0418c8",
+      "instruction_word": "207c",
+      "source": "0091844c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041a0a",
+      "instruction_word": "43f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "041a9e",
+      "instruction_word": "207c",
+      "source": "00914104",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041b9e",
+      "instruction_word": "207c",
+      "source": "0091858c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041bc6",
+      "instruction_word": "207c",
+      "source": "00911568",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041bde",
+      "instruction_word": "207c",
+      "source": "00911460",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041bfa",
+      "instruction_word": "207c",
+      "source": "00911114",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041c28",
+      "instruction_word": "207c",
+      "source": "00911018",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041c5e",
+      "instruction_word": "207c",
+      "source": "00911270",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041c78",
+      "instruction_word": "207c",
+      "source": "00911274",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041d10",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041d3c",
+      "instruction_word": "227c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041eea",
+      "instruction_word": "207c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "041f0e",
+      "instruction_word": "207c",
+      "source": "00911390",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04200c",
+      "instruction_word": "207c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0420f6",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "042116",
+      "instruction_word": "227c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0421de",
+      "instruction_word": "41f9",
+      "source": "00900000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "042278",
+      "instruction_word": "207c",
+      "source": "009115ec",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "042376",
+      "instruction_word": "207c",
+      "source": "00911570",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0423c0",
+      "instruction_word": "227c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "042408",
+      "instruction_word": "207c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "042466",
+      "instruction_word": "207c",
+      "source": "0091150c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "042544",
+      "instruction_word": "207c",
+      "source": "00911568",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "042584",
+      "instruction_word": "227c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0425ca",
+      "instruction_word": "207c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0431f8",
+      "instruction_word": "43f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "04323e",
+      "instruction_word": "43f9",
+      "source": "0091c800",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "04339e",
+      "instruction_word": "207c",
+      "source": "00916000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0433aa",
+      "instruction_word": "207c",
+      "source": "00916800",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0433e2",
+      "instruction_word": "207c",
+      "source": "00917000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0433ee",
+      "instruction_word": "207c",
+      "source": "00917800",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0433fa",
+      "instruction_word": "207c",
+      "source": "00915800",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04340a",
+      "instruction_word": "41f9",
+      "source": "00900000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0434c6",
+      "instruction_word": "207c",
+      "source": "00910564",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0434d0",
+      "instruction_word": "207c",
+      "source": "0091056c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0434da",
+      "instruction_word": "207c",
+      "source": "00910864",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0434e4",
+      "instruction_word": "207c",
+      "source": "0091086c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0434ee",
+      "instruction_word": "207c",
+      "source": "00910274",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043610",
+      "instruction_word": "207c",
+      "source": "00910a64",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04363a",
+      "instruction_word": "207c",
+      "source": "00910a6c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0439b8",
+      "instruction_word": "43f9",
+      "source": "0091cc00",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0439fc",
+      "instruction_word": "43f9",
+      "source": "0091cc00",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "043a0e",
+      "instruction_word": "227c",
+      "source": "0091ce00",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043b48",
+      "instruction_word": "207c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043b54",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043ba0",
+      "instruction_word": "207c",
+      "source": "0091a000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043bac",
+      "instruction_word": "207c",
+      "source": "0091b000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043cbc",
+      "instruction_word": "207c",
+      "source": "009113e4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043cc4",
+      "instruction_word": "207c",
+      "source": "009113ec",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043ccc",
+      "instruction_word": "207c",
+      "source": "009116e4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043cd4",
+      "instruction_word": "207c",
+      "source": "009116ec",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043cdc",
+      "instruction_word": "207c",
+      "source": "009110f4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043f12",
+      "instruction_word": "207c",
+      "source": "00911508",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "043f62",
+      "instruction_word": "207c",
+      "source": "00914124",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044098",
+      "instruction_word": "43f9",
+      "source": "0091cc00",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0440da",
+      "instruction_word": "41f9",
+      "source": "00918400",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0440e4",
+      "instruction_word": "207c",
+      "source": "00918488",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044204",
+      "instruction_word": "207c",
+      "source": "00914164",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04422c",
+      "instruction_word": "207c",
+      "source": "0091120c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044256",
+      "instruction_word": "207c",
+      "source": "00911110",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04430a",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044334",
+      "instruction_word": "227c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044474",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04448e",
+      "instruction_word": "207c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04459e",
+      "instruction_word": "207c",
+      "source": "00918000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044672",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04468c",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0446a6",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0446c4",
+      "instruction_word": "227c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0447ce",
+      "instruction_word": "207c",
+      "source": "00911508",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0447f0",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0448f0",
+      "instruction_word": "227c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044936",
+      "instruction_word": "207c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044a5c",
+      "instruction_word": "227c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044aa0",
+      "instruction_word": "207c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044ae8",
+      "instruction_word": "207c",
+      "source": "0091150c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044b1a",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044bd6",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044bf4",
+      "instruction_word": "227c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044d5a",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044d78",
+      "instruction_word": "227c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044dd4",
+      "instruction_word": "207c",
+      "source": "00911508",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044e24",
+      "instruction_word": "207c",
+      "source": "00911110",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "044fcc",
+      "instruction_word": "43f9",
+      "source": "0091c400",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "044fee",
+      "instruction_word": "207c",
+      "source": "00914104",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0450f0",
+      "instruction_word": "207c",
+      "source": "00911690",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045118",
+      "instruction_word": "207c",
+      "source": "0091110c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045142",
+      "instruction_word": "207c",
+      "source": "00911010",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0451f6",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045222",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045372",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04538e",
+      "instruction_word": "207c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04549e",
+      "instruction_word": "207c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045554",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04556e",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04558a",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0455ae",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04568c",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045770",
+      "instruction_word": "207c",
+      "source": "00914000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0457b0",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0457ca",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045802",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045822",
+      "instruction_word": "207c",
+      "source": "00910230",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045956",
+      "instruction_word": "207c",
+      "source": "00919000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045982",
+      "instruction_word": "227c",
+      "source": "00910000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0459de",
+      "instruction_word": "207c",
+      "source": "0091402c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045a12",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045a2c",
+      "instruction_word": "207c",
+      "source": "009113d4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045af6",
+      "instruction_word": "207c",
+      "source": "00910320",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045b00",
+      "instruction_word": "227c",
+      "source": "00910350",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045c80",
+      "instruction_word": "207c",
+      "source": "00910424",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045d1c",
+      "instruction_word": "207c",
+      "source": "00911134",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045d32",
+      "instruction_word": "207c",
+      "source": "00911144",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045d48",
+      "instruction_word": "207c",
+      "source": "00911154",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045d7a",
+      "instruction_word": "207c",
+      "source": "00911134",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045d90",
+      "instruction_word": "207c",
+      "source": "00911144",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045da6",
+      "instruction_word": "207c",
+      "source": "00911154",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045dfa",
+      "instruction_word": "227c",
+      "source": "00910618",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045e0c",
+      "instruction_word": "227c",
+      "source": "0091061c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045e48",
+      "instruction_word": "227c",
+      "source": "009106a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045ea4",
+      "instruction_word": "227c",
+      "source": "009106ac",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045ec6",
+      "instruction_word": "227c",
+      "source": "00910730",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045f9e",
+      "instruction_word": "227c",
+      "source": "009105b8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045fc4",
+      "instruction_word": "227c",
+      "source": "009105bc",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "045fea",
+      "instruction_word": "227c",
+      "source": "009105c0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046062",
+      "instruction_word": "227c",
+      "source": "00910538",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046088",
+      "instruction_word": "207c",
+      "source": "0091043c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0460ac",
+      "instruction_word": "207c",
+      "source": "00910450",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0460c0",
+      "instruction_word": "207c",
+      "source": "009105d8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0460d0",
+      "instruction_word": "207c",
+      "source": "00910bc8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0460e4",
+      "instruction_word": "207c",
+      "source": "009103e0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046110",
+      "instruction_word": "207c",
+      "source": "00910320",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046124",
+      "instruction_word": "227c",
+      "source": "00910338",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0461d4",
+      "instruction_word": "207c",
+      "source": "00910aa4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046208",
+      "instruction_word": "207c",
+      "source": "009107e0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046232",
+      "instruction_word": "207c",
+      "source": "00910ac4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046292",
+      "instruction_word": "227c",
+      "source": "00910a34",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0462b8",
+      "instruction_word": "227c",
+      "source": "00910a38",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0462de",
+      "instruction_word": "207c",
+      "source": "00910948",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0463b6",
+      "instruction_word": "227c",
+      "source": "00910a34",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0463c8",
+      "instruction_word": "227c",
+      "source": "00910a38",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0463ec",
+      "instruction_word": "227c",
+      "source": "00910a38",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046410",
+      "instruction_word": "207c",
+      "source": "00910948",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046458",
+      "instruction_word": "207c",
+      "source": "00910da0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046462",
+      "instruction_word": "207c",
+      "source": "00911140",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046498",
+      "instruction_word": "207c",
+      "source": "00910da0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0464c8",
+      "instruction_word": "207c",
+      "source": "00911140",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0465b0",
+      "instruction_word": "207c",
+      "source": "00910008",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046622",
+      "instruction_word": "207c",
+      "source": "00910008",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0466d4",
+      "instruction_word": "207c",
+      "source": "00910320",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0466e8",
+      "instruction_word": "227c",
+      "source": "00910344",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0467ca",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0467e4",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0467f6",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04681e",
+      "instruction_word": "207c",
+      "source": "00910a10",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04682c",
+      "instruction_word": "207c",
+      "source": "00910514",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046912",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04692c",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04697e",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04698c",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0469a2",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0469bc",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046a22",
+      "instruction_word": "207c",
+      "source": "00910f0c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046a34",
+      "instruction_word": "207c",
+      "source": "0091148c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046b36",
+      "instruction_word": "207c",
+      "source": "0091148c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046b44",
+      "instruction_word": "207c",
+      "source": "00910f0c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046b98",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046bb0",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046bbc",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046c94",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046cb6",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046cde",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046cec",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046d26",
+      "instruction_word": "207c",
+      "source": "009103a8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046d3e",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046d4a",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046df4",
+      "instruction_word": "207c",
+      "source": "009103a8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046e0e",
+      "instruction_word": "207c",
+      "source": "009103a8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046e28",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046e36",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046e4c",
+      "instruction_word": "207c",
+      "source": "009103a8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046e66",
+      "instruction_word": "207c",
+      "source": "009103a8",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046e96",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046eae",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046eba",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046f64",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046f7e",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046f98",
+      "instruction_word": "207c",
+      "source": "00911198",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046fa6",
+      "instruction_word": "207c",
+      "source": "00910b98",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046fbc",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "046fd6",
+      "instruction_word": "207c",
+      "source": "009103a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "047166",
+      "instruction_word": "207c",
+      "source": "0091038c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0471c8",
+      "instruction_word": "207c",
+      "source": "00910014",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "047208",
+      "instruction_word": "207c",
+      "source": "00910094",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04723c",
+      "instruction_word": "207c",
+      "source": "009104a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "047286",
+      "instruction_word": "207c",
+      "source": "009107b0",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0472d0",
+      "instruction_word": "207c",
+      "source": "00918114",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04731a",
+      "instruction_word": "207c",
+      "source": "00914048",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "047364",
+      "instruction_word": "207c",
+      "source": "00900000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0473aa",
+      "instruction_word": "207c",
+      "source": "00900000",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "0473f8",
+      "instruction_word": "207c",
+      "source": "00910518",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "047436",
+      "instruction_word": "207c",
+      "source": "00910a0c",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04753e",
+      "instruction_word": "207c",
+      "source": "009104a4",
+      "kind": "MOVEA immediate long to address register"
+    },
+    {
+      "offset": "04758a",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    },
+    {
+      "offset": "0475ce",
+      "instruction_word": "43f9",
+      "source": "00910000",
+      "kind": "LEA absolute long to address register"
+    }
+  ]
+}

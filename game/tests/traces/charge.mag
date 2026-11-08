@@ -1,0 +1,825 @@
+-5 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+-4 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+-3 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+-2 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+-1 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+0 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+1 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+2 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+3 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+4 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+5 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+6 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+7 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+8 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+9 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+10 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+11 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+12 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+13 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+14 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+15 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+16 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+17 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+18 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+19 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+20 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+21 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+22 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+23 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+24 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+25 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+26 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+27 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+28 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+29 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+30 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+31 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+32 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+33 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+34 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+35 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+36 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+37 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+38 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+39 cnt 0 spk 0 cd 0 pend 0 meter 0000 act 0 rel 00 | 
+40 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 
+41 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 
+42 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 
+43 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 
+44 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 
+45 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x252y80
+46 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x256y80
+47 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x260y80
+48 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x264y80
+49 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x268y80
+50 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x272y80
+51 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x276y80
+52 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x280y80
+53 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x284y80
+54 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x288y80
+55 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x292y80
+56 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x296y80
+57 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x300y80
+58 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x304y80
+59 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x308y80
+60 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x312y80
+61 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x316y80
+62 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x320y80
+63 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x324y80
+64 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x328y80
+65 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x332y80
+66 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x336y80
+67 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x340y80
+68 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x344y80
+69 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x348y80
+70 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x352y80
+71 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x356y80
+72 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x360y80
+73 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x364y80
+74 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x368y80
+75 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x372y80
+76 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x376y80
+77 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x380y80
+78 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x384y80
+79 cnt 0 spk 0 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x388y80
+80 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x392y80
+81 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x396y80
+82 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x400y80
+83 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x404y80
+84 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x408y80
+85 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x252y80 19:a1k1v0s2x412y80
+86 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x256y80 19:a1k1v0s2x416y80
+87 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x260y80 19:a1k1v0s2x420y80
+88 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x264y80 19:a1k1v0s2x424y80
+89 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x268y80 19:a1k1v0s2x428y80
+90 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x272y80 19:a1k1v0s2x432y80
+91 cnt 1 spk 1 cd 9 pend 0 meter 011f act 1 rel 00 | 18:a1k1v0s2x276y80 19:a1k1v0s2x436y80
+92 cnt 2 spk 1 cd 8 pend 0 meter 023e act 1 rel 00 | 18:a1k1v0s2x280y80 19:a1k1v0s2x440y80
+93 cnt 3 spk 1 cd 7 pend 0 meter 035d act 1 rel 00 | 18:a1k1v0s2x284y80 19:a1k1v0s2x444y80
+94 cnt 4 spk 1 cd 6 pend 0 meter 047c act 1 rel 00 | 18:a1k1v0s2x288y80 19:a1k1v0s2x448y80
+95 cnt 5 spk 1 cd 5 pend 0 meter 059b act 1 rel 00 | 18:a1k1v0s2x292y80 19:a1k1v0s2x452y80
+96 cnt 6 spk 1 cd 4 pend 0 meter 06ba act 1 rel 00 | 18:a1k1v0s2x296y80 19:a1k1v0s2x456y80
+97 cnt 7 spk 1 cd 3 pend 0 meter 07d9 act 1 rel 00 | 18:a1k1v0s2x300y80 19:a1k1v0s2x460y80
+98 cnt 8 spk 1 cd 2 pend 0 meter 08f8 act 1 rel 00 | 18:a1k1v0s2x304y80 19:a1k1v0s2x464y80
+99 cnt 9 spk 1 cd 1 pend 0 meter 0a17 act 1 rel 00 | 18:a1k1v0s2x308y80 19:a1k1v0s2x468y80
+100 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x312y80 19:a1k1v0s2x472y80
+101 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x316y80 19:a1k1v0s2x476y80
+102 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x320y80 19:a1k1v0s2x480y80
+103 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x324y80 19:a1k1v0s2x484y80
+104 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x328y80 19:a1k1v0s2x488y80
+105 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x332y80 19:a1k1v0s2x492y80
+106 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x336y80 19:a1k1v0s6x496y80
+107 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x340y80
+108 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x344y80
+109 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x348y80
+110 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x352y80
+111 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x356y80
+112 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x360y80
+113 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x364y80
+114 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x368y80
+115 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x372y80
+116 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x376y80
+117 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x380y80
+118 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x384y80
+119 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x388y80
+120 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x392y80
+121 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x396y80
+122 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x400y80
+123 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x404y80
+124 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x408y80
+125 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x412y80
+126 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x416y80
+127 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x420y80
+128 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x424y80
+129 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x428y80
+130 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x432y80
+131 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x436y80
+132 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x440y80
+133 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x444y80
+134 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x448y80
+135 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x452y80
+136 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x456y80
+137 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x460y80
+138 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x464y80
+139 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x468y80
+140 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x472y80
+141 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x476y80
+142 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x480y80
+143 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x484y80
+144 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x488y80
+145 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s6x492y80 19:a1k1v0s2x252y80
+146 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x256y80
+147 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x260y80
+148 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x264y80
+149 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x268y80
+150 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x272y80
+151 cnt 1 spk 1 cd 9 pend 0 meter 011f act 1 rel 00 | 19:a1k1v0s2x276y80
+152 cnt 2 spk 1 cd 8 pend 0 meter 023e act 1 rel 00 | 19:a1k1v0s2x280y80
+153 cnt 3 spk 1 cd 7 pend 0 meter 035d act 1 rel 00 | 19:a1k1v0s2x284y80
+154 cnt 4 spk 1 cd 6 pend 0 meter 047c act 1 rel 00 | 19:a1k1v0s2x288y80
+155 cnt 5 spk 1 cd 5 pend 0 meter 059b act 1 rel 00 | 19:a1k1v0s2x292y80
+156 cnt 6 spk 1 cd 4 pend 0 meter 06ba act 1 rel 00 | 19:a1k1v0s2x296y80
+157 cnt 7 spk 1 cd 3 pend 0 meter 07d9 act 1 rel 00 | 19:a1k1v0s2x300y80
+158 cnt 8 spk 1 cd 2 pend 0 meter 08f8 act 1 rel 00 | 19:a1k1v0s2x304y80
+159 cnt 9 spk 1 cd 1 pend 0 meter 0a17 act 1 rel 00 | 19:a1k1v0s2x308y80
+160 cnt 10 spk 1 cd 10 pend 0 meter 0b36 act 1 rel 00 | 19:a1k1v0s2x312y80
+161 cnt 11 spk 1 cd 9 pend 0 meter 0c55 act 1 rel 00 | 19:a1k1v0s2x316y80
+162 cnt 12 spk 1 cd 8 pend 0 meter 0d74 act 1 rel 00 | 19:a1k1v0s2x320y80
+163 cnt 13 spk 1 cd 7 pend 0 meter 0e93 act 1 rel 00 | 19:a1k1v0s2x324y80
+164 cnt 14 spk 1 cd 6 pend 0 meter 0fb2 act 1 rel 00 | 19:a1k1v0s2x328y80
+165 cnt 15 spk 1 cd 5 pend 0 meter 10d1 act 1 rel 00 | 19:a1k1v0s2x332y80
+166 cnt 16 spk 1 cd 4 pend 0 meter 11f0 act 1 rel 00 | 19:a1k1v0s2x336y80
+167 cnt 17 spk 1 cd 3 pend 0 meter 130f act 1 rel 00 | 19:a1k1v0s2x340y80
+168 cnt 18 spk 1 cd 2 pend 0 meter 142e act 1 rel 00 | 19:a1k1v0s2x344y80
+169 cnt 19 spk 1 cd 1 pend 0 meter 154d act 1 rel 00 | 19:a1k1v0s2x348y80
+170 cnt 20 spk 1 cd 6 pend 0 meter 166c act 1 rel 00 | 19:a1k1v0s2x352y80
+171 cnt 21 spk 1 cd 5 pend 0 meter 178b act 1 rel 00 | 19:a1k1v0s2x356y80
+172 cnt 22 spk 1 cd 4 pend 0 meter 18aa act 1 rel 00 | 19:a1k1v0s2x360y80
+173 cnt 23 spk 1 cd 3 pend 0 meter 19c9 act 1 rel 00 | 19:a1k1v0s2x364y80
+174 cnt 24 spk 1 cd 2 pend 0 meter 1ae8 act 1 rel 00 | 19:a1k1v0s2x368y80
+175 cnt 25 spk 1 cd 1 pend 0 meter 1c07 act 1 rel 00 | 19:a1k1v0s2x372y80
+176 cnt 26 spk 1 cd 6 pend 0 meter 1d26 act 1 rel 00 | 19:a1k1v0s2x376y80
+177 cnt 27 spk 1 cd 5 pend 0 meter 1e45 act 1 rel 00 | 19:a1k1v0s2x380y80
+178 cnt 28 spk 1 cd 4 pend 0 meter 1f64 act 1 rel 00 | 19:a1k1v0s2x384y80
+179 cnt 29 spk 1 cd 3 pend 0 meter 2083 act 1 rel 00 | 19:a1k1v0s2x388y80
+180 cnt 30 spk 1 cd 2 pend 0 meter 21a2 act 1 rel 00 | 19:a1k1v0s2x392y80
+181 cnt 31 spk 1 cd 1 pend 0 meter 22c1 act 1 rel 00 | 19:a1k1v0s2x396y80
+182 cnt 32 spk 1 cd 5 pend 0 meter 23e0 act 1 rel 00 | 19:a1k1v0s2x400y80
+183 cnt 33 spk 1 cd 4 pend 0 meter 24ff act 1 rel 00 | 19:a1k1v0s2x404y80
+184 cnt 34 spk 1 cd 3 pend 0 meter 261e act 1 rel 00 | 19:a1k1v0s2x408y80
+185 cnt 35 spk 1 cd 2 pend 0 meter 273d act 1 rel 00 | 19:a1k1v0s2x412y80
+186 cnt 36 spk 1 cd 1 pend 0 meter 285c act 1 rel 00 | 19:a1k1v0s2x416y80
+187 cnt 37 spk 1 cd 5 pend 0 meter 297b act 1 rel 00 | 19:a1k1v0s2x420y80
+188 cnt 38 spk 1 cd 4 pend 0 meter 2a9a act 1 rel 00 | 19:a1k1v0s2x424y80
+189 cnt 39 spk 1 cd 3 pend 0 meter 2bb9 act 1 rel 00 | 19:a1k1v0s2x428y80
+190 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 19:a1k1v0s2x432y80
+191 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 19:a1k1v0s2x436y80
+192 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 19:a1k1v0s2x440y80
+193 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 19:a1k1v0s2x444y80
+194 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 19:a1k1v0s2x448y80
+195 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 18:a1k1v1s2x252y80 19:a1k1v0s2x452y80
+196 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 18:a1k1v1s2x256y80 19:a1k1v0s2x456y80
+197 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 18:a1k1v1s2x260y80 19:a1k1v0s2x460y80
+198 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 18:a1k1v1s2x264y80 19:a1k1v0s2x464y80
+199 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 2b | 18:a1k1v1s2x269y80 19:a1k1v0s2x468y80
+200 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 2b | 18:a1k1v1s2x273y80 19:a1k1v0s2x472y80
+201 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x277y80 19:a1k1v0s2x476y80
+202 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x281y80 19:a1k1v0s2x480y80
+203 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x286y80 19:a1k1v0s2x484y80
+204 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x290y80 19:a1k1v0s2x488y80
+205 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x294y80 19:a1k1v0s2x492y80
+206 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x298y80 19:a1k1v0s6x496y80
+207 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x303y80
+208 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x307y80
+209 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x311y80
+210 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x315y80
+211 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x320y80
+212 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x324y80
+213 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x328y80
+214 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x332y80
+215 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x337y80
+216 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x341y80
+217 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x345y80
+218 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x349y80
+219 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x354y80
+220 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x358y80
+221 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x362y80
+222 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x366y80
+223 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x371y80
+224 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x375y80
+225 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x379y80
+226 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x383y80
+227 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x388y80
+228 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x392y80
+229 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x396y80
+230 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x400y80
+231 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x405y80
+232 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x409y80
+233 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x413y80
+234 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x417y80
+235 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x422y80
+236 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x426y80
+237 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x430y80
+238 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x434y80
+239 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x439y80
+240 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x443y80
+241 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x447y80
+242 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x451y80
+243 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x456y80
+244 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x460y80
+245 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x464y80 19:a1k1v0s2x252y80
+246 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x468y80 19:a1k1v0s2x256y80
+247 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x473y80 19:a1k1v0s2x260y80
+248 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x477y80 19:a1k1v0s2x264y80
+249 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s6x481y80 19:a1k1v0s2x268y80
+250 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x272y80
+251 cnt 1 spk 1 cd 9 pend 0 meter 011f act 1 rel 00 | 19:a1k1v0s2x276y80
+252 cnt 2 spk 1 cd 8 pend 0 meter 023e act 1 rel 00 | 19:a1k1v0s2x280y80
+253 cnt 3 spk 1 cd 7 pend 0 meter 035d act 1 rel 00 | 19:a1k1v0s2x284y80
+254 cnt 4 spk 1 cd 6 pend 0 meter 047c act 1 rel 00 | 19:a1k1v0s2x288y80
+255 cnt 5 spk 1 cd 5 pend 0 meter 059b act 1 rel 00 | 19:a1k1v0s2x292y80
+256 cnt 6 spk 1 cd 4 pend 0 meter 06ba act 1 rel 00 | 19:a1k1v0s2x296y80
+257 cnt 7 spk 1 cd 3 pend 0 meter 07d9 act 1 rel 00 | 19:a1k1v0s2x300y80
+258 cnt 8 spk 1 cd 2 pend 0 meter 08f8 act 1 rel 00 | 19:a1k1v0s2x304y80
+259 cnt 9 spk 1 cd 1 pend 0 meter 0a17 act 1 rel 00 | 19:a1k1v0s2x308y80
+260 cnt 10 spk 1 cd 10 pend 0 meter 0b36 act 1 rel 00 | 19:a1k1v0s2x312y80
+261 cnt 11 spk 1 cd 9 pend 0 meter 0c55 act 1 rel 00 | 19:a1k1v0s2x316y80
+262 cnt 12 spk 1 cd 8 pend 0 meter 0d74 act 1 rel 00 | 19:a1k1v0s2x320y80
+263 cnt 13 spk 1 cd 7 pend 0 meter 0e93 act 1 rel 00 | 19:a1k1v0s2x324y80
+264 cnt 14 spk 1 cd 6 pend 0 meter 0fb2 act 1 rel 00 | 19:a1k1v0s2x328y80
+265 cnt 15 spk 1 cd 5 pend 0 meter 10d1 act 1 rel 00 | 19:a1k1v0s2x332y80
+266 cnt 16 spk 1 cd 4 pend 0 meter 11f0 act 1 rel 00 | 19:a1k1v0s2x336y80
+267 cnt 17 spk 1 cd 3 pend 0 meter 130f act 1 rel 00 | 19:a1k1v0s2x340y80
+268 cnt 18 spk 1 cd 2 pend 0 meter 142e act 1 rel 00 | 19:a1k1v0s2x344y80
+269 cnt 19 spk 1 cd 1 pend 0 meter 154d act 1 rel 00 | 19:a1k1v0s2x348y80
+270 cnt 20 spk 1 cd 6 pend 0 meter 166c act 1 rel 00 | 19:a1k1v0s2x352y80
+271 cnt 21 spk 1 cd 5 pend 0 meter 178b act 1 rel 00 | 19:a1k1v0s2x356y80
+272 cnt 22 spk 1 cd 4 pend 0 meter 18aa act 1 rel 00 | 19:a1k1v0s2x360y80
+273 cnt 23 spk 1 cd 3 pend 0 meter 19c9 act 1 rel 00 | 19:a1k1v0s2x364y80
+274 cnt 24 spk 1 cd 2 pend 0 meter 1ae8 act 1 rel 00 | 19:a1k1v0s2x368y80
+275 cnt 25 spk 1 cd 1 pend 0 meter 1c07 act 1 rel 00 | 19:a1k1v0s2x372y80
+276 cnt 26 spk 1 cd 6 pend 0 meter 1d26 act 1 rel 00 | 19:a1k1v0s2x376y80
+277 cnt 27 spk 1 cd 5 pend 0 meter 1e45 act 1 rel 00 | 19:a1k1v0s2x380y80
+278 cnt 28 spk 1 cd 4 pend 0 meter 1f64 act 1 rel 00 | 19:a1k1v0s2x384y80
+279 cnt 29 spk 1 cd 3 pend 0 meter 2083 act 1 rel 00 | 19:a1k1v0s2x388y80
+280 cnt 30 spk 1 cd 2 pend 0 meter 21a2 act 1 rel 00 | 19:a1k1v0s2x392y80
+281 cnt 31 spk 1 cd 1 pend 0 meter 22c1 act 1 rel 00 | 19:a1k1v0s2x396y80
+282 cnt 32 spk 1 cd 5 pend 0 meter 23e0 act 1 rel 00 | 19:a1k1v0s2x400y80
+283 cnt 33 spk 1 cd 4 pend 0 meter 24ff act 1 rel 00 | 19:a1k1v0s2x404y80
+284 cnt 34 spk 1 cd 3 pend 0 meter 261e act 1 rel 00 | 19:a1k1v0s2x408y80
+285 cnt 35 spk 1 cd 2 pend 0 meter 273d act 1 rel 00 | 19:a1k1v0s2x412y80
+286 cnt 36 spk 1 cd 1 pend 0 meter 285c act 1 rel 00 | 19:a1k1v0s2x416y80
+287 cnt 37 spk 1 cd 5 pend 0 meter 297b act 1 rel 00 | 19:a1k1v0s2x420y80
+288 cnt 38 spk 1 cd 4 pend 0 meter 2a9a act 1 rel 00 | 19:a1k1v0s2x424y80
+289 cnt 39 spk 1 cd 3 pend 0 meter 2bb9 act 1 rel 00 | 19:a1k1v0s2x428y80
+290 cnt 40 spk 1 cd 2 pend 0 meter 2cd8 act 1 rel 00 | 19:a1k1v0s2x432y80
+291 cnt 41 spk 1 cd 1 pend 0 meter 2df7 act 1 rel 00 | 19:a1k1v0s2x436y80
+292 cnt 42 spk 1 cd 5 pend 0 meter 2f16 act 1 rel 00 | 19:a1k1v0s2x440y80
+293 cnt 43 spk 1 cd 4 pend 0 meter 3035 act 1 rel 00 | 19:a1k1v0s2x444y80
+294 cnt 44 spk 1 cd 3 pend 0 meter 3154 act 1 rel 00 | 19:a1k1v0s2x448y80
+295 cnt 45 spk 1 cd 2 pend 0 meter 3273 act 1 rel 00 | 19:a1k1v0s2x452y80
+296 cnt 46 spk 1 cd 1 pend 0 meter 3392 act 1 rel 00 | 19:a1k1v0s2x456y80
+297 cnt 47 spk 1 cd 5 pend 0 meter 34b1 act 1 rel 00 | 19:a1k1v0s2x460y80
+298 cnt 48 spk 1 cd 4 pend 0 meter 35d0 act 1 rel 00 | 19:a1k1v0s2x464y80
+299 cnt 49 spk 1 cd 3 pend 0 meter 36ef act 1 rel 00 | 19:a1k1v0s2x468y80
+300 cnt 50 spk 1 cd 2 pend 0 meter 380e act 1 rel 00 | 19:a1k1v0s2x472y80
+301 cnt 51 spk 1 cd 1 pend 0 meter 392d act 1 rel 00 | 19:a1k1v0s2x476y80
+302 cnt 52 spk 1 cd 4 pend 0 meter 3a4c act 1 rel 00 | 19:a1k1v0s2x480y80
+303 cnt 53 spk 1 cd 3 pend 0 meter 3b6b act 1 rel 00 | 19:a1k1v0s2x484y80
+304 cnt 54 spk 1 cd 2 pend 0 meter 3c8a act 1 rel 00 | 19:a1k1v0s2x488y80
+305 cnt 55 spk 1 cd 1 pend 0 meter 3da9 act 1 rel 00 | 19:a1k1v0s2x492y80
+306 cnt 56 spk 1 cd 4 pend 0 meter 3ec8 act 1 rel 00 | 19:a1k1v0s6x496y80
+307 cnt 57 spk 1 cd 3 pend 0 meter 3fe7 act 1 rel 00 | 
+308 cnt 58 spk 1 cd 2 pend 0 meter 4106 act 1 rel 00 | 
+309 cnt 59 spk 1 cd 1 pend 0 meter 4225 act 1 rel 00 | 
+310 cnt 60 spk 1 cd 4 pend 0 meter 4344 act 1 rel 00 | 
+311 cnt 61 spk 1 cd 3 pend 0 meter 4463 act 1 rel 00 | 
+312 cnt 62 spk 1 cd 2 pend 0 meter 4582 act 1 rel 00 | 
+313 cnt 63 spk 1 cd 1 pend 0 meter 46a1 act 1 rel 00 | 
+314 cnt 64 spk 1 cd 3 pend 0 meter 47c0 act 1 rel 00 | 
+315 cnt 65 spk 1 cd 2 pend 0 meter 48df act 1 rel 00 | 
+316 cnt 66 spk 1 cd 1 pend 0 meter 49fe act 1 rel 00 | 
+317 cnt 67 spk 1 cd 3 pend 0 meter 4b1d act 1 rel 00 | 
+318 cnt 68 spk 1 cd 2 pend 0 meter 4c3c act 1 rel 00 | 
+319 cnt 69 spk 1 cd 1 pend 0 meter 4d5b act 1 rel 00 | 
+320 cnt 70 spk 1 cd 3 pend 0 meter 4e7a act 1 rel 00 | 
+321 cnt 71 spk 1 cd 2 pend 0 meter 4f99 act 1 rel 00 | 
+322 cnt 72 spk 1 cd 1 pend 0 meter 50b8 act 1 rel 00 | 
+323 cnt 73 spk 1 cd 3 pend 0 meter 51d7 act 1 rel 00 | 
+324 cnt 74 spk 1 cd 2 pend 0 meter 52f6 act 1 rel 00 | 
+325 cnt 75 spk 1 cd 1 pend 0 meter 5415 act 1 rel 00 | 
+326 cnt 76 spk 1 cd 3 pend 0 meter 5534 act 1 rel 00 | 
+327 cnt 77 spk 1 cd 2 pend 0 meter 5653 act 1 rel 00 | 
+328 cnt 78 spk 1 cd 1 pend 0 meter 5772 act 1 rel 00 | 
+329 cnt 79 spk 1 cd 3 pend 0 meter 5891 act 1 rel 00 | 
+330 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+331 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+332 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+333 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+334 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+335 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x252y80
+336 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x256y80
+337 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x261y80
+338 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x265y80
+339 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x270y80
+340 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 58 | 19:a1k1v2s2x274y80
+341 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x279y80
+342 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x283y80
+343 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x288y80
+344 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x292y80
+345 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x297y80
+346 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x301y80
+347 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x306y80
+348 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x310y80
+349 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x315y80
+350 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x319y80
+351 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x324y80
+352 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x328y80
+353 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x333y80
+354 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x337y80
+355 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x342y80
+356 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x346y80
+357 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x351y80
+358 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x355y80
+359 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x360y80
+360 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x364y80
+361 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x369y80
+362 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x373y80
+363 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x378y80
+364 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x382y80
+365 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x387y80
+366 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x391y80
+367 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x396y80
+368 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x400y80
+369 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x405y80
+370 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x409y80
+371 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x414y80
+372 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x418y80
+373 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x423y80
+374 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x427y80
+375 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x432y80
+376 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x436y80
+377 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x441y80
+378 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x445y80
+379 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x450y80
+380 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v2s2x454y80
+381 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v2s2x459y80
+382 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v2s2x463y80
+383 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v2s2x468y80
+384 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v2s2x472y80
+385 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x252y80 19:a1k1v2s2x477y80
+386 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x256y80 19:a1k1v2s6x481y80
+387 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x260y80
+388 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x264y80
+389 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v0s2x268y80
+390 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v0s2x272y80
+391 cnt 1 spk 1 cd 9 pend 0 meter 011f act 1 rel 00 | 18:a1k1v0s2x276y80
+392 cnt 2 spk 1 cd 8 pend 0 meter 023e act 1 rel 00 | 18:a1k1v0s2x280y80
+393 cnt 3 spk 1 cd 7 pend 0 meter 035d act 1 rel 00 | 18:a1k1v0s2x284y80
+394 cnt 4 spk 1 cd 6 pend 0 meter 047c act 1 rel 00 | 18:a1k1v0s2x288y80
+395 cnt 5 spk 1 cd 5 pend 0 meter 059b act 1 rel 00 | 18:a1k1v0s2x292y80
+396 cnt 6 spk 1 cd 4 pend 0 meter 06ba act 1 rel 00 | 18:a1k1v0s2x296y80
+397 cnt 7 spk 1 cd 3 pend 0 meter 07d9 act 1 rel 00 | 18:a1k1v0s2x300y80
+398 cnt 8 spk 1 cd 2 pend 0 meter 08f8 act 1 rel 00 | 18:a1k1v0s2x304y80
+399 cnt 9 spk 1 cd 1 pend 0 meter 0a17 act 1 rel 00 | 18:a1k1v0s2x308y80
+400 cnt 10 spk 1 cd 10 pend 0 meter 0b36 act 1 rel 00 | 18:a1k1v0s2x312y80
+401 cnt 11 spk 1 cd 9 pend 0 meter 0c55 act 1 rel 00 | 18:a1k1v0s2x316y80
+402 cnt 12 spk 1 cd 8 pend 0 meter 0d74 act 1 rel 00 | 18:a1k1v0s2x320y80
+403 cnt 13 spk 1 cd 7 pend 0 meter 0e93 act 1 rel 00 | 18:a1k1v0s2x324y80
+404 cnt 14 spk 1 cd 6 pend 0 meter 0fb2 act 1 rel 00 | 18:a1k1v0s2x328y80
+405 cnt 15 spk 1 cd 5 pend 0 meter 10d1 act 1 rel 00 | 18:a1k1v0s2x332y80
+406 cnt 16 spk 1 cd 4 pend 0 meter 11f0 act 1 rel 00 | 18:a1k1v0s2x336y80
+407 cnt 17 spk 1 cd 3 pend 0 meter 130f act 1 rel 00 | 18:a1k1v0s2x340y80
+408 cnt 18 spk 1 cd 2 pend 0 meter 142e act 1 rel 00 | 18:a1k1v0s2x344y80
+409 cnt 19 spk 1 cd 1 pend 0 meter 154d act 1 rel 00 | 18:a1k1v0s2x348y80
+410 cnt 20 spk 1 cd 6 pend 0 meter 166c act 1 rel 00 | 18:a1k1v0s2x352y80
+411 cnt 21 spk 1 cd 5 pend 0 meter 178b act 1 rel 00 | 18:a1k1v0s2x356y80
+412 cnt 22 spk 1 cd 4 pend 0 meter 18aa act 1 rel 00 | 18:a1k1v0s2x360y80
+413 cnt 23 spk 1 cd 3 pend 0 meter 19c9 act 1 rel 00 | 18:a1k1v0s2x364y80
+414 cnt 24 spk 1 cd 2 pend 0 meter 1ae8 act 1 rel 00 | 18:a1k1v0s2x368y80
+415 cnt 25 spk 1 cd 1 pend 0 meter 1c07 act 1 rel 00 | 18:a1k1v0s2x372y80
+416 cnt 26 spk 1 cd 6 pend 0 meter 1d26 act 1 rel 00 | 18:a1k1v0s2x376y80
+417 cnt 27 spk 1 cd 5 pend 0 meter 1e45 act 1 rel 00 | 18:a1k1v0s2x380y80
+418 cnt 28 spk 1 cd 4 pend 0 meter 1f64 act 1 rel 00 | 18:a1k1v0s2x384y80
+419 cnt 29 spk 1 cd 3 pend 0 meter 2083 act 1 rel 00 | 18:a1k1v0s2x388y80
+420 cnt 30 spk 1 cd 2 pend 0 meter 21a2 act 1 rel 00 | 18:a1k1v0s2x392y80
+421 cnt 31 spk 1 cd 1 pend 0 meter 22c1 act 1 rel 00 | 18:a1k1v0s2x396y80
+422 cnt 32 spk 1 cd 5 pend 0 meter 23e0 act 1 rel 00 | 18:a1k1v0s2x400y80
+423 cnt 33 spk 1 cd 4 pend 0 meter 24ff act 1 rel 00 | 18:a1k1v0s2x404y80
+424 cnt 34 spk 1 cd 3 pend 0 meter 261e act 1 rel 00 | 18:a1k1v0s2x408y80
+425 cnt 35 spk 1 cd 2 pend 0 meter 273d act 1 rel 00 | 18:a1k1v0s2x412y80
+426 cnt 36 spk 1 cd 1 pend 0 meter 285c act 1 rel 00 | 18:a1k1v0s2x416y80
+427 cnt 37 spk 1 cd 5 pend 0 meter 297b act 1 rel 00 | 18:a1k1v0s2x420y80
+428 cnt 38 spk 1 cd 4 pend 0 meter 2a9a act 1 rel 00 | 18:a1k1v0s2x424y80
+429 cnt 39 spk 1 cd 3 pend 0 meter 2bb9 act 1 rel 00 | 18:a1k1v0s2x428y80
+430 cnt 40 spk 1 cd 2 pend 0 meter 2cd8 act 1 rel 00 | 18:a1k1v0s2x432y80
+431 cnt 41 spk 1 cd 1 pend 0 meter 2df7 act 1 rel 00 | 18:a1k1v0s2x436y80
+432 cnt 42 spk 1 cd 5 pend 0 meter 2f16 act 1 rel 00 | 18:a1k1v0s2x440y80
+433 cnt 43 spk 1 cd 4 pend 0 meter 3035 act 1 rel 00 | 18:a1k1v0s2x444y80
+434 cnt 44 spk 1 cd 3 pend 0 meter 3154 act 1 rel 00 | 18:a1k1v0s2x448y80
+435 cnt 45 spk 1 cd 2 pend 0 meter 3273 act 1 rel 00 | 18:a1k1v0s2x452y80
+436 cnt 46 spk 1 cd 1 pend 0 meter 3392 act 1 rel 00 | 18:a1k1v0s2x456y80
+437 cnt 47 spk 1 cd 5 pend 0 meter 34b1 act 1 rel 00 | 18:a1k1v0s2x460y80
+438 cnt 48 spk 1 cd 4 pend 0 meter 35d0 act 1 rel 00 | 18:a1k1v0s2x464y80
+439 cnt 49 spk 1 cd 3 pend 0 meter 36ef act 1 rel 00 | 18:a1k1v0s2x468y80
+440 cnt 50 spk 1 cd 2 pend 0 meter 380e act 1 rel 00 | 18:a1k1v0s2x472y80
+441 cnt 51 spk 1 cd 1 pend 0 meter 392d act 1 rel 00 | 18:a1k1v0s2x476y80
+442 cnt 52 spk 1 cd 4 pend 0 meter 3a4c act 1 rel 00 | 18:a1k1v0s2x480y80
+443 cnt 53 spk 1 cd 3 pend 0 meter 3b6b act 1 rel 00 | 18:a1k1v0s2x484y80
+444 cnt 54 spk 1 cd 2 pend 0 meter 3c8a act 1 rel 00 | 18:a1k1v0s2x488y80
+445 cnt 55 spk 1 cd 1 pend 0 meter 3da9 act 1 rel 00 | 18:a1k1v0s2x492y80
+446 cnt 56 spk 1 cd 4 pend 0 meter 3ec8 act 1 rel 00 | 18:a1k1v0s2x496y80
+447 cnt 57 spk 1 cd 3 pend 0 meter 3fe7 act 1 rel 00 | 18:a1k1v0s2x500y80
+448 cnt 58 spk 1 cd 2 pend 0 meter 4106 act 1 rel 00 | 18:a1k1v0s2x504y80
+449 cnt 59 spk 1 cd 1 pend 0 meter 4225 act 1 rel 00 | 18:a1k1v0s6x508y80
+450 cnt 60 spk 1 cd 4 pend 0 meter 4344 act 1 rel 00 | 
+451 cnt 61 spk 1 cd 3 pend 0 meter 4463 act 1 rel 00 | 
+452 cnt 62 spk 1 cd 2 pend 0 meter 4582 act 1 rel 00 | 
+453 cnt 63 spk 1 cd 1 pend 0 meter 46a1 act 1 rel 00 | 
+454 cnt 64 spk 1 cd 3 pend 0 meter 47c0 act 1 rel 00 | 
+455 cnt 65 spk 1 cd 2 pend 0 meter 48df act 1 rel 00 | 
+456 cnt 66 spk 1 cd 1 pend 0 meter 49fe act 1 rel 00 | 
+457 cnt 67 spk 1 cd 3 pend 0 meter 4b1d act 1 rel 00 | 
+458 cnt 68 spk 1 cd 2 pend 0 meter 4c3c act 1 rel 00 | 
+459 cnt 69 spk 1 cd 1 pend 0 meter 4d5b act 1 rel 00 | 
+460 cnt 70 spk 1 cd 3 pend 0 meter 4e7a act 1 rel 00 | 
+461 cnt 71 spk 1 cd 2 pend 0 meter 4f99 act 1 rel 00 | 
+462 cnt 72 spk 1 cd 1 pend 0 meter 50b8 act 1 rel 00 | 
+463 cnt 73 spk 1 cd 3 pend 0 meter 51d7 act 1 rel 00 | 
+464 cnt 74 spk 1 cd 2 pend 0 meter 52f6 act 1 rel 00 | 
+465 cnt 75 spk 1 cd 1 pend 0 meter 5415 act 1 rel 00 | 
+466 cnt 76 spk 1 cd 3 pend 0 meter 5534 act 1 rel 00 | 
+467 cnt 77 spk 1 cd 2 pend 0 meter 5653 act 1 rel 00 | 
+468 cnt 78 spk 1 cd 1 pend 0 meter 5772 act 1 rel 00 | 
+469 cnt 79 spk 1 cd 3 pend 0 meter 5891 act 1 rel 00 | 
+470 cnt 80 spk 1 cd 2 pend 0 meter 59b0 act 1 rel 00 | 
+471 cnt 81 spk 1 cd 1 pend 0 meter 5acf act 1 rel 00 | 
+472 cnt 82 spk 1 cd 2 pend 0 meter 5bee act 1 rel 00 | 
+473 cnt 83 spk 1 cd 1 pend 0 meter 5d0d act 1 rel 00 | 
+474 cnt 84 spk 1 cd 2 pend 0 meter 5e2c act 1 rel 00 | 
+475 cnt 85 spk 1 cd 1 pend 0 meter 5f4b act 1 rel 00 | 
+476 cnt 86 spk 1 cd 2 pend 0 meter 606a act 1 rel 00 | 
+477 cnt 87 spk 1 cd 1 pend 0 meter 6189 act 1 rel 00 | 
+478 cnt 88 spk 1 cd 2 pend 0 meter 62a8 act 1 rel 00 | 
+479 cnt 89 spk 1 cd 1 pend 0 meter 63c7 act 1 rel 00 | 
+480 cnt 90 spk 1 cd 2 pend 0 meter 64e6 act 1 rel 00 | 
+481 cnt 91 spk 1 cd 1 pend 0 meter 6605 act 1 rel 00 | 
+482 cnt 92 spk 1 cd 2 pend 0 meter 6724 act 1 rel 00 | 
+483 cnt 93 spk 1 cd 1 pend 0 meter 6843 act 1 rel 00 | 
+484 cnt 94 spk 1 cd 2 pend 0 meter 6962 act 1 rel 00 | 
+485 cnt 95 spk 1 cd 1 pend 0 meter 6a81 act 1 rel 00 | 
+486 cnt 96 spk 1 cd 2 pend 0 meter 6ba0 act 1 rel 00 | 
+487 cnt 97 spk 1 cd 1 pend 0 meter 6cbf act 1 rel 00 | 
+488 cnt 98 spk 1 cd 2 pend 0 meter 6dde act 1 rel 00 | 
+489 cnt 99 spk 1 cd 1 pend 0 meter 6efd act 1 rel 00 | 
+490 cnt 100 spk 1 cd 2 pend 0 meter 701c act 1 rel 00 | 
+491 cnt 101 spk 1 cd 1 pend 0 meter 713b act 1 rel 00 | 
+492 cnt 102 spk 1 cd 2 pend 0 meter 725a act 1 rel 00 | 
+493 cnt 103 spk 1 cd 1 pend 0 meter 7379 act 1 rel 00 | 
+494 cnt 104 spk 1 cd 2 pend 0 meter 7498 act 1 rel 00 | 
+495 cnt 105 spk 1 cd 1 pend 0 meter 75b7 act 1 rel 00 | 
+496 cnt 106 spk 1 cd 2 pend 0 meter 76d6 act 1 rel 00 | 
+497 cnt 107 spk 1 cd 1 pend 0 meter 77f5 act 1 rel 00 | 
+498 cnt 108 spk 1 cd 2 pend 0 meter 7914 act 1 rel 00 | 
+499 cnt 109 spk 1 cd 1 pend 0 meter 7a33 act 1 rel 00 | 
+500 cnt 110 spk 1 cd 2 pend 0 meter 7b52 act 1 rel 00 | 
+501 cnt 111 spk 1 cd 1 pend 0 meter 7c71 act 1 rel 00 | 
+502 cnt 112 spk 1 cd 1 pend 0 meter 7d90 act 1 rel 00 | 
+503 cnt 113 spk 1 cd 1 pend 0 meter 7eaf act 1 rel 00 | 
+504 cnt 114 spk 1 cd 1 pend 0 meter 7fce act 1 rel 00 | 
+505 cnt 115 spk 1 cd 1 pend 0 meter 80ed act 1 rel 00 | 
+506 cnt 116 spk 1 cd 1 pend 0 meter 820c act 1 rel 00 | 
+507 cnt 117 spk 1 cd 1 pend 0 meter 832b act 1 rel 00 | 
+508 cnt 118 spk 1 cd 1 pend 0 meter 844a act 1 rel 00 | 
+509 cnt 119 spk 1 cd 1 pend 0 meter 8569 act 1 rel 00 | 
+510 cnt 120 spk 1 cd 1 pend 0 meter 8688 act 1 rel 00 | 
+511 cnt 121 spk 1 cd 1 pend 0 meter 87a7 act 1 rel 00 | 
+512 cnt 122 spk 1 cd 1 pend 0 meter 88c6 act 1 rel 00 | 
+513 cnt 123 spk 1 cd 1 pend 0 meter 89e5 act 1 rel 00 | 
+514 cnt 124 spk 1 cd 1 pend 0 meter 8b04 act 1 rel 00 | 
+515 cnt 125 spk 1 cd 1 pend 0 meter 8c23 act 1 rel 00 | 
+516 cnt 126 spk 1 cd 1 pend 0 meter 8d42 act 1 rel 00 | 
+517 cnt 127 spk 1 cd 1 pend 0 meter 8e61 act 1 rel 00 | 
+518 cnt 127 spk 1 cd 1 pend 0 meter 8f80 act 1 rel 00 | 
+519 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+520 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+521 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+522 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+523 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+524 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+525 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+526 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+527 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+528 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+529 cnt 127 spk 1 cd 1 pend 0 meter 8fff act 1 rel 00 | 
+530 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 
+531 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 
+532 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 
+533 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 
+534 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 
+535 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 18:a1k1v3s2x310y80
+536 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 18:a1k1v3s2x315y80
+537 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 18:a1k1v3s2x320y80
+538 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 18:a1k1v3s2x324y80
+539 cnt 0 spk 0 cd 1 pend 1 meter 0000 act 0 rel 8f | 18:a1k1v3s2x329y80
+540 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 8f | 18:a1k1v3s2x334y80
+541 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x339y80
+542 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x343y80
+543 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x348y80
+544 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x353y80
+545 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x358y80
+546 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x362y80
+547 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x367y80
+548 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x372y80
+549 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x377y80
+550 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x381y80
+551 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x386y80
+552 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x391y80
+553 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x396y80
+554 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x400y80
+555 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x405y80
+556 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x410y80
+557 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x415y80
+558 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x419y80
+559 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x424y80
+560 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x429y80
+561 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x434y80
+562 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x438y80
+563 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x443y80
+564 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x448y80
+565 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x453y80
+566 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x457y80
+567 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x462y80
+568 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x467y80
+569 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x472y80
+570 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x476y80
+571 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x481y80
+572 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x486y80
+573 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x491y80
+574 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x495y80
+575 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x500y80
+576 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x505y80
+577 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x510y80
+578 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x514y80
+579 cnt 0 spk 0 cd 1 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v3s2x519y80
+580 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v3s2x524y80
+581 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v3s2x529y80
+582 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v3s2x533y80
+583 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v3s2x538y80
+584 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v3s2x543y80
+585 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v3s6x548y80 19:a1k1v0s2x310y72
+586 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x314y72
+587 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x318y72
+588 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x322y72
+589 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 19:a1k1v0s2x326y72
+590 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v0s2x330y72
+591 cnt 1 spk 1 cd 9 pend 0 meter 011f act 1 rel 00 | 19:a1k1v0s2x334y72
+592 cnt 2 spk 1 cd 8 pend 0 meter 023e act 1 rel 00 | 19:a1k1v0s2x338y72
+593 cnt 3 spk 1 cd 7 pend 0 meter 035d act 1 rel 00 | 19:a1k1v0s2x342y72
+594 cnt 4 spk 1 cd 6 pend 0 meter 047c act 1 rel 00 | 19:a1k1v0s2x346y72
+595 cnt 5 spk 1 cd 5 pend 0 meter 059b act 1 rel 00 | 19:a1k1v0s2x350y72
+596 cnt 6 spk 1 cd 4 pend 0 meter 06ba act 1 rel 00 | 19:a1k1v0s2x354y72
+597 cnt 7 spk 1 cd 3 pend 0 meter 07d9 act 1 rel 00 | 19:a1k1v0s2x358y72
+598 cnt 8 spk 1 cd 2 pend 0 meter 08f8 act 1 rel 00 | 19:a1k1v0s2x362y72
+599 cnt 9 spk 1 cd 1 pend 0 meter 0a17 act 1 rel 00 | 19:a1k1v0s2x366y72
+600 cnt 10 spk 1 cd 10 pend 0 meter 0b36 act 1 rel 00 | 19:a1k1v0s2x370y72
+601 cnt 11 spk 1 cd 9 pend 0 meter 0c55 act 1 rel 00 | 19:a1k1v0s2x374y72
+602 cnt 12 spk 1 cd 8 pend 0 meter 0d74 act 1 rel 00 | 19:a1k1v0s2x378y72
+603 cnt 13 spk 1 cd 7 pend 0 meter 0e93 act 1 rel 00 | 19:a1k1v0s2x382y72
+604 cnt 14 spk 1 cd 6 pend 0 meter 0fb2 act 1 rel 00 | 19:a1k1v0s2x386y72
+605 cnt 15 spk 1 cd 5 pend 0 meter 10d1 act 1 rel 00 | 19:a1k1v0s2x390y72
+606 cnt 16 spk 1 cd 4 pend 0 meter 11f0 act 1 rel 00 | 19:a1k1v0s2x394y72
+607 cnt 17 spk 1 cd 3 pend 0 meter 130f act 1 rel 00 | 19:a1k1v0s2x398y72
+608 cnt 18 spk 1 cd 2 pend 0 meter 142e act 1 rel 00 | 19:a1k1v0s2x402y72
+609 cnt 19 spk 1 cd 1 pend 0 meter 154d act 1 rel 00 | 19:a1k1v0s2x406y72
+610 cnt 20 spk 1 cd 6 pend 0 meter 166c act 1 rel 00 | 19:a1k1v0s2x410y72
+611 cnt 21 spk 1 cd 5 pend 0 meter 178b act 1 rel 00 | 19:a1k1v0s2x414y72
+612 cnt 22 spk 1 cd 4 pend 0 meter 18aa act 1 rel 00 | 19:a1k1v0s2x418y72
+613 cnt 23 spk 1 cd 3 pend 0 meter 19c9 act 1 rel 00 | 19:a1k1v0s2x422y72
+614 cnt 24 spk 1 cd 2 pend 0 meter 1ae8 act 1 rel 00 | 19:a1k1v0s2x426y72
+615 cnt 25 spk 1 cd 1 pend 0 meter 1c07 act 1 rel 00 | 19:a1k1v0s2x430y72
+616 cnt 26 spk 1 cd 6 pend 0 meter 1d26 act 1 rel 00 | 19:a1k1v0s2x434y72
+617 cnt 27 spk 1 cd 5 pend 0 meter 1e45 act 1 rel 00 | 19:a1k1v0s2x438y72
+618 cnt 28 spk 1 cd 4 pend 0 meter 1f64 act 1 rel 00 | 19:a1k1v0s2x442y72
+619 cnt 29 spk 1 cd 3 pend 0 meter 2083 act 1 rel 00 | 19:a1k1v0s2x446y72
+620 cnt 30 spk 1 cd 2 pend 0 meter 21a2 act 1 rel 00 | 19:a1k1v0s2x450y72
+621 cnt 31 spk 1 cd 1 pend 0 meter 22c1 act 1 rel 00 | 19:a1k1v0s2x454y72
+622 cnt 32 spk 1 cd 5 pend 0 meter 23e0 act 1 rel 00 | 19:a1k1v0s2x458y72
+623 cnt 33 spk 1 cd 4 pend 0 meter 24ff act 1 rel 00 | 19:a1k1v0s2x462y72
+624 cnt 34 spk 1 cd 3 pend 0 meter 261e act 1 rel 00 | 19:a1k1v0s2x466y72
+625 cnt 35 spk 1 cd 2 pend 0 meter 273d act 1 rel 00 | 19:a1k1v0s2x470y72
+626 cnt 36 spk 1 cd 1 pend 0 meter 285c act 1 rel 00 | 19:a1k1v0s2x474y72
+627 cnt 37 spk 1 cd 5 pend 0 meter 297b act 1 rel 00 | 19:a1k1v0s2x478y72
+628 cnt 38 spk 1 cd 4 pend 0 meter 2a9a act 1 rel 00 | 19:a1k1v0s2x482y72
+629 cnt 39 spk 1 cd 3 pend 0 meter 2bb9 act 1 rel 00 | 19:a1k1v0s2x486y72
+630 cnt 40 spk 1 cd 2 pend 0 meter 2cd8 act 1 rel 00 | 19:a1k1v0s2x490y72
+631 cnt 41 spk 1 cd 1 pend 0 meter 2df7 act 1 rel 00 | 19:a1k1v0s2x494y72
+632 cnt 42 spk 1 cd 5 pend 0 meter 2f16 act 1 rel 00 | 19:a1k1v0s2x498y72
+633 cnt 43 spk 1 cd 4 pend 0 meter 3035 act 1 rel 00 | 19:a1k1v0s2x502y72
+634 cnt 44 spk 1 cd 3 pend 0 meter 3154 act 1 rel 00 | 19:a1k1v0s2x506y72
+635 cnt 45 spk 1 cd 2 pend 0 meter 3273 act 1 rel 00 | 19:a1k1v0s2x510y72
+636 cnt 46 spk 1 cd 1 pend 0 meter 3392 act 1 rel 00 | 19:a1k1v0s2x514y72
+637 cnt 47 spk 1 cd 5 pend 0 meter 34b1 act 1 rel 00 | 19:a1k1v0s2x518y72
+638 cnt 48 spk 1 cd 4 pend 0 meter 35d0 act 1 rel 00 | 19:a1k1v0s2x522y72
+639 cnt 49 spk 1 cd 3 pend 0 meter 36ef act 1 rel 00 | 19:a1k1v0s2x526y72
+640 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 19:a1k1v0s2x530y72
+641 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 19:a1k1v0s2x534y72
+642 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 19:a1k1v0s2x538y72
+643 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 19:a1k1v0s2x542y72
+644 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 19:a1k1v0s2x546y72
+645 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 18:a1k1v1s2x310y80 19:a1k1v0s2x550y72
+646 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 18:a1k1v1s2x314y80 19:a1k1v0s6x554y72
+647 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 18:a1k1v1s2x318y80
+648 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 18:a1k1v1s2x322y80
+649 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 36 | 18:a1k1v1s2x327y80
+650 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 36 | 18:a1k1v1s2x331y80
+651 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x335y80
+652 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x339y80
+653 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x344y80
+654 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x348y80
+655 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x352y80
+656 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x356y80
+657 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x361y80
+658 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x365y80
+659 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x369y80
+660 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x373y80
+661 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x378y80
+662 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x382y80
+663 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x386y80
+664 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x390y80
+665 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x395y80
+666 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x399y80
+667 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x403y80
+668 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x407y80
+669 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x412y80
+670 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x416y80
+671 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x420y80
+672 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x424y80
+673 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x429y80
+674 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x433y80
+675 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x437y80
+676 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x441y80
+677 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x446y80
+678 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x450y80
+679 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x454y80
+680 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x458y80
+681 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x463y80
+682 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x467y80
+683 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x471y80
+684 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x475y80
+685 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x480y80
+686 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x484y80
+687 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x488y80
+688 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x492y80
+689 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x497y80
+690 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x501y80
+691 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x505y80
+692 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x509y80
+693 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x514y80
+694 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x518y80
+695 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x522y80 19:a1k1v0s2x310y80
+696 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x526y80 19:a1k1v0s2x314y80
+697 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x531y80 19:a1k1v0s2x318y80
+698 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x535y80 19:a1k1v0s2x322y80
+699 cnt 0 spk 1 cd 10 pend 1 meter 0000 act 0 rel 00 | 18:a1k1v1s2x539y80 19:a1k1v0s2x326y80
+700 cnt 0 spk 1 cd 10 pend 0 meter 0000 act 0 rel 00 | 18:a1k1v1s2x543y80 19:a1k1v0s2x330y80
+701 cnt 1 spk 1 cd 9 pend 0 meter 011f act 1 rel 00 | 18:a1k1v1s6x548y80 19:a1k1v0s2x334y80
+702 cnt 2 spk 1 cd 8 pend 0 meter 023e act 1 rel 00 | 19:a1k1v0s2x338y80
+703 cnt 3 spk 1 cd 7 pend 0 meter 035d act 1 rel 00 | 19:a1k1v0s2x342y80
+704 cnt 4 spk 1 cd 6 pend 0 meter 047c act 1 rel 00 | 19:a1k1v0s2x346y80
+705 cnt 5 spk 1 cd 5 pend 0 meter 059b act 1 rel 00 | 19:a1k1v0s2x350y80
+706 cnt 6 spk 1 cd 4 pend 0 meter 06ba act 1 rel 00 | 19:a1k1v0s2x354y80
+707 cnt 7 spk 1 cd 3 pend 0 meter 07d9 act 1 rel 00 | 19:a1k1v0s2x358y80
+708 cnt 8 spk 1 cd 2 pend 0 meter 08f8 act 1 rel 00 | 19:a1k1v0s2x362y80
+709 cnt 9 spk 1 cd 1 pend 0 meter 0a17 act 1 rel 00 | 19:a1k1v0s2x366y80
+710 cnt 10 spk 1 cd 10 pend 0 meter 0b36 act 1 rel 00 | 19:a1k1v0s2x370y80
+711 cnt 11 spk 1 cd 9 pend 0 meter 0c55 act 1 rel 00 | 19:a1k1v0s2x374y80
+712 cnt 12 spk 1 cd 8 pend 0 meter 0d74 act 1 rel 00 | 19:a1k1v0s2x378y80
+713 cnt 13 spk 1 cd 7 pend 0 meter 0e93 act 1 rel 00 | 19:a1k1v0s2x382y80
+714 cnt 14 spk 1 cd 6 pend 0 meter 0fb2 act 1 rel 00 | 19:a1k1v0s2x386y80
+715 cnt 15 spk 1 cd 5 pend 0 meter 10d1 act 1 rel 00 | 19:a1k1v0s2x390y80
+716 cnt 16 spk 1 cd 4 pend 0 meter 11f0 act 1 rel 00 | 19:a1k1v0s2x394y80
+717 cnt 17 spk 1 cd 3 pend 0 meter 130f act 1 rel 00 | 19:a1k1v0s2x398y80
+718 cnt 18 spk 1 cd 2 pend 0 meter 142e act 1 rel 00 | 19:a1k1v0s2x402y80
+719 cnt 19 spk 1 cd 1 pend 0 meter 154d act 1 rel 00 | 19:a1k1v0s2x406y80
+720 cnt 20 spk 1 cd 6 pend 0 meter 166c act 1 rel 00 | 19:a1k1v0s2x410y80
+721 cnt 21 spk 1 cd 5 pend 0 meter 178b act 1 rel 00 | 19:a1k1v0s2x414y80
+722 cnt 22 spk 1 cd 4 pend 0 meter 18aa act 1 rel 00 | 19:a1k1v0s2x418y80
+723 cnt 23 spk 1 cd 3 pend 0 meter 19c9 act 1 rel 00 | 19:a1k1v0s2x422y80
+724 cnt 24 spk 1 cd 2 pend 0 meter 1ae8 act 1 rel 00 | 19:a1k1v0s2x426y80
+725 cnt 25 spk 1 cd 1 pend 0 meter 1c07 act 1 rel 00 | 19:a1k1v0s2x430y80
+726 cnt 26 spk 1 cd 6 pend 0 meter 1d26 act 1 rel 00 | 19:a1k1v0s2x434y80
+727 cnt 27 spk 1 cd 5 pend 0 meter 1e45 act 1 rel 00 | 19:a1k1v0s2x438y80
+728 cnt 28 spk 1 cd 4 pend 0 meter 1f64 act 1 rel 00 | 19:a1k1v0s2x442y80
+729 cnt 29 spk 1 cd 3 pend 0 meter 2083 act 1 rel 00 | 19:a1k1v0s2x446y80
+730 cnt 30 spk 1 cd 2 pend 0 meter 21a2 act 1 rel 00 | 19:a1k1v0s2x450y80
+731 cnt 31 spk 1 cd 1 pend 0 meter 22c1 act 1 rel 00 | 19:a1k1v0s2x454y80
+732 cnt 32 spk 1 cd 5 pend 0 meter 23e0 act 1 rel 00 | 19:a1k1v0s2x458y80
+733 cnt 33 spk 1 cd 4 pend 0 meter 24ff act 1 rel 00 | 19:a1k1v0s2x462y80
+734 cnt 34 spk 1 cd 3 pend 0 meter 261e act 1 rel 00 | 19:a1k1v0s2x466y80
+735 cnt 35 spk 1 cd 2 pend 0 meter 273d act 1 rel 00 | 19:a1k1v0s2x470y80
+736 cnt 36 spk 1 cd 1 pend 0 meter 285c act 1 rel 00 | 19:a1k1v0s2x474y80
+737 cnt 37 spk 1 cd 5 pend 0 meter 297b act 1 rel 00 | 19:a1k1v0s2x478y80
+738 cnt 38 spk 1 cd 4 pend 0 meter 2a9a act 1 rel 00 | 19:a1k1v0s2x482y80
+739 cnt 39 spk 1 cd 3 pend 0 meter 2bb9 act 1 rel 00 | 19:a1k1v0s2x486y80
+740 cnt 40 spk 1 cd 2 pend 0 meter 2cd8 act 1 rel 00 | 19:a1k1v0s2x490y80
+741 cnt 41 spk 1 cd 1 pend 0 meter 2df7 act 1 rel 00 | 19:a1k1v0s2x494y80
+742 cnt 42 spk 1 cd 5 pend 0 meter 2f16 act 1 rel 00 | 19:a1k1v0s2x498y80
+743 cnt 43 spk 1 cd 4 pend 0 meter 3035 act 1 rel 00 | 19:a1k1v0s2x502y80
+744 cnt 44 spk 1 cd 3 pend 0 meter 3154 act 1 rel 00 | 19:a1k1v0s2x506y80
+745 cnt 45 spk 1 cd 2 pend 0 meter 3273 act 1 rel 00 | 19:a1k1v0s2x510y80
+746 cnt 46 spk 1 cd 1 pend 0 meter 3392 act 1 rel 00 | 19:a1k1v0s2x514y80
+747 cnt 47 spk 1 cd 5 pend 0 meter 34b1 act 1 rel 00 | 19:a1k1v0s2x518y80
+748 cnt 48 spk 1 cd 4 pend 0 meter 35d0 act 1 rel 00 | 19:a1k1v0s2x522y80
+749 cnt 49 spk 1 cd 3 pend 0 meter 36ef act 1 rel 00 | 19:a1k1v0s2x526y80
+750 cnt 50 spk 1 cd 2 pend 0 meter 380e act 1 rel 00 | 19:a1k1v0s2x530y80
+751 cnt 51 spk 1 cd 1 pend 0 meter 392d act 1 rel 00 | 19:a1k1v0s2x534y80
+752 cnt 52 spk 1 cd 4 pend 0 meter 3a4c act 1 rel 00 | 19:a1k1v0s2x538y80
+753 cnt 53 spk 1 cd 3 pend 0 meter 3b6b act 1 rel 00 | 19:a1k1v0s2x542y80
+754 cnt 54 spk 1 cd 2 pend 0 meter 3c8a act 1 rel 00 | 19:a1k1v0s6x546y80
+755 cnt 55 spk 1 cd 1 pend 0 meter 3da9 act 1 rel 00 | 
+756 cnt 56 spk 1 cd 4 pend 0 meter 3ec8 act 1 rel 00 | 
+757 cnt 57 spk 1 cd 3 pend 0 meter 3fe7 act 1 rel 00 | 
+758 cnt 58 spk 1 cd 2 pend 0 meter 4106 act 1 rel 00 | 
+759 cnt 59 spk 1 cd 1 pend 0 meter 4225 act 1 rel 00 | 
+760 cnt 60 spk 1 cd 4 pend 0 meter 4344 act 1 rel 00 | 
+761 cnt 61 spk 1 cd 3 pend 0 meter 4463 act 1 rel 00 | 
+762 cnt 62 spk 1 cd 2 pend 0 meter 4582 act 1 rel 00 | 
+763 cnt 63 spk 1 cd 1 pend 0 meter 46a1 act 1 rel 00 | 
+764 cnt 64 spk 1 cd 3 pend 0 meter 47c0 act 1 rel 00 | 
+765 cnt 65 spk 1 cd 2 pend 0 meter 48df act 1 rel 00 | 
+766 cnt 66 spk 1 cd 1 pend 0 meter 49fe act 1 rel 00 | 
+767 cnt 67 spk 1 cd 3 pend 0 meter 4b1d act 1 rel 00 | 
+768 cnt 68 spk 1 cd 2 pend 0 meter 4c3c act 1 rel 00 | 
+769 cnt 69 spk 1 cd 1 pend 0 meter 4d5b act 1 rel 00 | 
+770 cnt 70 spk 1 cd 3 pend 0 meter 4e7a act 1 rel 00 | 
+771 cnt 71 spk 1 cd 2 pend 0 meter 4f99 act 1 rel 00 | 
+772 cnt 72 spk 1 cd 1 pend 0 meter 50b8 act 1 rel 00 | 
+773 cnt 73 spk 1 cd 3 pend 0 meter 51d7 act 1 rel 00 | 
+774 cnt 74 spk 1 cd 2 pend 0 meter 52f6 act 1 rel 00 | 
+775 cnt 75 spk 1 cd 1 pend 0 meter 5415 act 1 rel 00 | 
+776 cnt 76 spk 1 cd 3 pend 0 meter 5534 act 1 rel 00 | 
+777 cnt 77 spk 1 cd 2 pend 0 meter 5653 act 1 rel 00 | 
+778 cnt 78 spk 1 cd 1 pend 0 meter 5772 act 1 rel 00 | 
+779 cnt 79 spk 1 cd 3 pend 0 meter 5891 act 1 rel 00 | 
+780 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+781 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+782 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+783 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+784 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 
+785 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x310y80
+786 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x315y80
+787 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x319y80
+788 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x324y80
+789 cnt 0 spk 0 cd 3 pend 1 meter 0000 act 0 rel 58 | 19:a1k1v2s2x328y80
+790 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 58 | 19:a1k1v2s2x333y80
+791 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x337y80
+792 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x342y80
+793 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x346y80
+794 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x351y80
+795 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x355y80
+796 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x360y80
+797 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x364y80
+798 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x369y80
+799 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x373y80
+800 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x378y80
+801 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x382y80
+802 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x387y80
+803 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x391y80
+804 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x396y80
+805 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x400y80
+806 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x405y80
+807 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x409y80
+808 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x414y80
+809 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x418y80
+810 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x423y80
+811 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x427y80
+812 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x432y80
+813 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x436y80
+814 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x441y80
+815 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x445y80
+816 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x450y80
+817 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x454y80
+818 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x459y80
+819 cnt 0 spk 0 cd 3 pend 0 meter 0000 act 0 rel 00 | 19:a1k1v2s2x463y80

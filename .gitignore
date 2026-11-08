@@ -1,0 +1,29 @@
+# Source only: no arcade ROM, no built images, nothing bulk-derived from the ROM.
+# Whitelist: ignore everything, then allow the source and docs.
+/*
+!/.gitignore
+!/*.md
+!/Makefile
+!/dist/
+/dist/*
+!/dist/*.md
+!/game/
+/game/*
+!/game/*.md
+!/game/build.sh
+!/game/src/
+!/game/inc/
+!/game/res/
+!/game/tools/
+!/game/specs/
+!/game/tests/
+!/tools/
+*.bin
+*.zip
+*.state
+*.wav
+*.orig
+*.o
+*.log
+__pycache__/
+.DS_Store

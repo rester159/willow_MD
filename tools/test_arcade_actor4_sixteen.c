@@ -1,0 +1,103 @@
+/* Headless original-code comparison of selector sixteen full dispatch. */
+#include "vendor/libretro.h"
+#include "../src/willow_arcade_player_motion.h"
+#include "../src/willow_arcade_actor4_sixteen.h"
+#include "../src/willow_arcade_pool_init.h"
+#ifdef WILLOW_TEST_ACTOR18_POOL
+#include "../src/willow_arcade_actor18_pool.h"
+#endif
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <dlfcn.h>
+static uint8_t rom[0x200000];
+static bool env(unsigned cmd,void *data){
+ if(cmd==RETRO_ENVIRONMENT_GET_SYSTEM_DIRECTORY || cmd==RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY){*(const char**)data="/tmp";return true;}
+ if(cmd==RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE){*(bool*)data=false;return true;}
+ if(cmd==RETRO_ENVIRONMENT_GET_VARIABLE){((struct retro_variable*)data)->value=NULL;return false;}
+ if(cmd==RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION){*(unsigned*)data=0;return true;}
+ return cmd==RETRO_ENVIRONMENT_SET_PIXEL_FORMAT || cmd==RETRO_ENVIRONMENT_SET_VARIABLES || cmd==RETRO_ENVIRONMENT_SET_INPUT_DESCRIPTORS || cmd==RETRO_ENVIRONMENT_SET_CONTROLLER_INFO;
+}
+static void video(const void*d,unsigned w,unsigned h,size_t p){(void)d;(void)w;(void)h;(void)p;}
+static void audio(int16_t l,int16_t r){(void)l;(void)r;}
+static size_t batch(const int16_t*d,size_t n){(void)d;return n;}
+static void poll(void){}
+static int16_t input(unsigned p,unsigned d,unsigned i,unsigned id){(void)p;(void)d;(void)i;(void)id;return 0;}
+#define FN(ret,n,args) ret(*n)args=dlsym(core,#n);if(!n){fprintf(stderr,"Missing core symbol %s\n",#n);return 2;}
+
+static uint8_t expected[65536];
+
+static uint16_t rw(uint16_t a){return willowMotionWord(expected+a);}
+static uint8_t rb(uint16_t a){return expected[a];}
+static void ww(uint16_t a,uint16_t v){willowMotionPutWord(expected+a,v);}
+static void wb(uint16_t a,uint8_t v){expected[a]=v;}
+
+
+
+static uint16_t sourceWord(unsigned long at){return (at&0xff0000)==0xff0000?rw(at):willowMotionWord(rom+at);}
+static uint8_t attribute(uint16_t at){return rb(0x4000+at+2);}
+static uint8_t*resolve(uint16_t at){return expected+at;}
+
+
+int main(int argc,char**argv){
+ if(argc!=2)return 2;
+ FILE*f=fopen("build/reference_maincpu.bin","rb");if(!f||fread(rom,1,0x100000,f)!=0x100000)return 2;fclose(f);
+ willowMotionPutLong(rom,0xffff00);willowMotionPutLong(rom+4,0x100000);
+ memcpy(rom+0x100,"SEGA GENESIS    ",16);memcpy(rom+0x1f0,"U               ",16);
+ willowMotionPutWord(rom+0x100000,0x60fe);
+ if(willowMotionLong(rom+0x6772)!=0x910010)return 2;
+ willowMotionPutLong(rom+0x6772,0xff4010);willowMotionPutLong(rom+0x80,0x15d0);
+ willowMotionPutLong(rom+0x4ad0,0xff4310);willowMotionPutLong(rom+0x4ad8,0xff4310);
+ willowMotionPutLong(rom+0x3e44,0xff4000);
+ willowMotionPutLong(rom+0x4365a,0xff4000);
+ void*core=dlopen(argv[1],RTLD_NOW);if(!core){puts(dlerror());return 2;}
+ FN(void,retro_set_environment,(retro_environment_t));FN(void,retro_set_video_refresh,(retro_video_refresh_t));FN(void,retro_set_audio_sample,(retro_audio_sample_t));FN(void,retro_set_audio_sample_batch,(retro_audio_sample_batch_t));FN(void,retro_set_input_poll,(retro_input_poll_t));FN(void,retro_set_input_state,(retro_input_state_t));FN(void,retro_init,(void));FN(bool,retro_load_game,(const struct retro_game_info*));FN(void,retro_run,(void));FN(void,m68k_set_reg,(int,unsigned));FN(unsigned,m68k_get_reg,(int));
+ retro_set_environment(env);retro_set_video_refresh(video);retro_set_audio_sample(audio);retro_set_audio_sample_batch(batch);retro_set_input_poll(poll);retro_set_input_state(input);retro_init();
+ f=fopen("build/actor4-sixteen-oracle.bin","wb");if(!f||fwrite(rom,1,sizeof rom,f)!=sizeof rom)return 2;fclose(f);
+ struct retro_game_info game={"build/actor4-sixteen-oracle.bin",rom,sizeof rom,NULL};if(!retro_load_game(&game))return 2;
+ uint8_t*ram=dlsym(core,"work_ram");if(!ram)return 2;
+ const WillowVisibilityBus bus={rw,rb,ww,wb};
+
+ unsigned checks=0;
+ for(unsigned sample=0;sample<65536;sample++){
+  memset(expected,0,sizeof expected);willowArcadePoolsInit(&bus);
+  uint16_t actor=willowActor18Pop(&bus,0x9801,0x981c);uint8_t*r=resolve(actor);
+  unsigned mix=sample;
+  r[0]=1;r[32]=16;r[33]=(mix/3)%2*2;r[2]=4;r[3]=(mix/6)%5*2;r[15]=(mix/30)%2;r[34]=(mix/60)%4;
+  r[42]=(mix/240)%3;r[43]=(mix/720)%3;r[1]=(mix/2160)%2;
+  uint16_t x=mix%13?400:0xfff0,y=200;
+  willowMotionPutLong(r+6,((uint32_t)x<<16)|sample);willowMotionPutLong(r+10,((uint32_t)y<<16)|sample);
+  static const int offsets[]={-161,-160,-159,-31,-30,-29,0,29,30,31,159,160,161};
+  ww(0x984c,x+offsets[(mix/7)%13]);ww(0x9850,y+offsets[(mix/91)%13]);
+  ww(0x8408,x-160);ww(0x840c,y-100);wb(0x8019,mix/11);ww(0x8284,sample*997+1);wb(0x8346,mix);
+  ww(0x83d2,(mix/5)%2);wb(0x8290,(mix/17)%2);wb(0x8293,(mix/34)%2);ww(0x801e,mix%64*2);
+  if(mix%7==0)wb(0x980a,0);
+  willowPlayerAnimationSelect(r,0x19cde,sourceWord);
+  r[3]=(mix%11)*2;r[19]=(mix/11)%12;r[34]=(mix/132)%4;r[47]=mix;
+  static const uint16_t speeds[]={0,1,0xffff,1024,0xf880,0xf87f,0xf881,0x7fff};
+  willowMotionPutWord(r+48,speeds[(mix/528)%8]);willowMotionPutLong(r+24,0x19e8a);wb(0x9855,mix/4224);
+  if(r[3]==10)willowPlayerAnimationSet(r,0x19e72,sourceWord);
+  willowMotionPutWord(r+28,(mix/8448)%3);wb(0x801a,mix%64*4);wb(0x9810,(mix/7)%4);if(mix%5==0)wb(0x980d,0);
+  WillowPlayerCollision collision={sourceWord,attribute,0,0,0,0};
+  for(unsigned n=0;n<4096;n++)wb(0x4002+n*4,(uint8_t)((n*17+sample/7)%64*4));
+  r[2]=(mix/11)%4*2;if(r[2]==2)r[3]=(mix/44)%5*2;
+  willowArcadeVisibilityInit(&bus,0,0);
+  for(unsigned n=0;n<65536;n++)ram[n^1]=expected[n];
+  uint32_t entry=0x1995e,a4=0x123456;uint16_t d4=0x1234;
+  uint8_t ok=willowArcadeActor4Sixteen(&bus,r,actor,resolve,sample%50,sourceWord,&collision,&a4);
+  if(!ok)return 1;
+
+  ram[0xff00^1]=0;ram[0xff01^1]=0x10;ram[0xff02^1]=0;ram[0xff03^1]=0;
+  m68k_set_reg(17,0x2700);m68k_set_reg(13,0xff8000);m68k_set_reg(14,0xff0000|actor);
+  m68k_set_reg(7,sample%50);m68k_set_reg(0,0);m68k_set_reg(4,0x1234);m68k_set_reg(15,0xffff00);m68k_set_reg(12,0x123456);m68k_set_reg(16,entry);
+  for(unsigned slice=0;slice<16&&m68k_get_reg(16)!=0x100000;slice++)retro_run();
+  if(m68k_get_reg(16)!=0x100000||(m68k_get_reg(15)&65535)!=0xff04){fprintf(stderr,"Oracle sample %u PC %x SP %x\n",sample,m68k_get_reg(16),m68k_get_reg(15));return 1;}
+  for(unsigned n=0;n<65536;n++)if(!(n>=0xfe80&&n<0xff04)&&ram[n^1]!=expected[n]){
+   fprintf(stderr,"Class-4 actor sample %u at %x actual %x expected %x image %x timer %x A0 %x\n",sample,n,ram[n^1],expected[n],willowMotionLong(r+20),willowMotionWord(r+28),m68k_get_reg(8));return 1;
+  }
+  if((uint16_t)m68k_get_reg(4)!=d4||m68k_get_reg(12)!=a4){fprintf(stderr,"Register sample %u A4 %x expected %x\n",sample,m68k_get_reg(12),a4);return 1;}
+  checks++;
+ }
+ printf("Class-4 selector sixteen: %u original non-stack RAM/D4/A4 comparisons across both variants and entry, active, death and release dispatches\n",checks);
+ return 0;
+}

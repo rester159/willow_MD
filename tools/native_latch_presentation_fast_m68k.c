@@ -1,0 +1,11 @@
+/* Root fixture with optional native budget helpers and word-sized geometry. */
+#include "willow_native_object_sat_budget_m68k.h"
+#define WILLOW_OBJECT_SAT_FAST_VALIDATE willowNativeObjectSatBudgetValidateM68k
+#define WILLOW_OBJECT_SAT_FAST_CLEAR willowNativeObjectSatDeltaClearM68k
+#define WILLOW_OBJECT_SAT_FAST_COMMIT willowNativeObjectSatDeltaCommitM68k
+#include "willow_native_object_sat_fast.h"
+#define WILLOW_DEFERRED_OBJECT_BUDGET 1
+#define willowObjectSatBuildReaderDeferred willowObjectSatBuildReaderFast
+#define willowObjectSatBudgetInit willowNativeObjectSatBudgetInitM68k
+#define willowObjectSatReserve willowNativeObjectSatReserveM68k
+#include "native_latch_presentation.c"

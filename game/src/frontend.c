@@ -277,7 +277,7 @@ static void draw(void)
         /* Credit centred and version at the right on row 25 (lines
          * 200-207), inside the picture on displays that crop the edges. */
         text(12, 25, "RESTER159, 2026", FALSE);
-        text(35, 25, "V0.7", FALSE);
+        text(35, 25, "V0.8", FALSE);
     }
     else if (pg != P_HOME)                      /* Home: the big logo above */
     {

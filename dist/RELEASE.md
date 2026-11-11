@@ -1,9 +1,9 @@
-# Willow (arcade) for Sega Genesis / Mega Drive: release V0.7 (build 2026-11-08c)
+# Willow (arcade) for Sega Genesis / Mega Drive: release V0.8 (build 2026-11-11a)
 
-**File:** `dist/willow-v0.7.bin` (a copy of `game/willow-native-m2-20261108c.bin`)
+**File:** `dist/willow-v0.8.bin` (a copy of `game/willow-native-m2-20261111a.bin`)
 **Size:** 5,242,880 bytes (5 MiB / 40 Mbit, the agreed cartridge size)
-**SHA-1:** ec097c205116c37f8cdc3b16f7bfb0ef7360af87
-**Status:** published at the user's request ("increase the version number, push to Git, create the bin, post it on itch ... create the devlog", 2026-11-08). It is test build 08b with only the version text changed (2 bytes differ: the digit and the header checksum).
+**SHA-1:** 374f6afb04a9ecb5c28906607723467ac37c8498
+**Status:** published at the user's request ("create new v / merge, push, deploy to git. create bin, push to itch. Publish New devlog", 2026-11-11). It is test build 10a with only the version text changed (2 bytes differ: the digit and the header checksum).
 **Not confirmed on hardware.** No build since 06d has been run on a console: every check of this build is on emulators. The carts' mapper, boot and save changes in it are untested on real carts.
 
 A native Genesis game built from the arcade program's behaviour (not the
@@ -14,7 +14,7 @@ arcade code running on the Genesis).
 - All six stages, bosses, shops, story pages, the ending, continue and
   name entry, behaving as the arcade does.
 - Opening screen with the arcade's WILLOW title, ARCADE / HOME, credit
-  RESTER159, 2026 and V0.7.
+  RESTER159, 2026 and V0.8.
 - Arcade mode: attract loop, coin play, DIP switches, high scores.
 - Home mode: START GAME, 2 PLAYERS, OPTIONS (including CREDITS, default 3,
   music and CONTROLS); left idle, the attract's story pages and the Home
@@ -30,6 +30,22 @@ arcade code running on the Genesis).
   (smoother colours, no square patches), stage 1's intro and story text
   fixed, stage 1's first part and stage 3's meadow with 15 colours a line,
   the stage 1 boss in the arcade's colours. Gameplay unchanged.
+
+## Fixes since V0.7 (08c)
+
+- Stage 2 shopkeeper (player report "hard to reach"): stage 2's shop is the
+  arcade's second door type. As in the arcade, nothing shows at the door:
+  stand at it and hold Up (not Left or Right) and the shop opens after a
+  short wait, the player not hittable meanwhile. Before, it used stage 1's
+  touch rule, so a player on the gallery above the door could not reach it,
+  and a shopkeeper figure floated in the doorway (10a). The door-opening
+  animation is not included yet.
+- Stage 1 earth (player suggestion): the path's upper band is brown, apart
+  from the olive stone (56 tiles, 861 pixels; colours unchanged). The lower
+  band stays olive: its colour line has no free entry (10a).
+- Not done, by the user's decision: scenery in front of the characters on
+  stages 1 and 3. It covers the bottom HUD bar, and every way of keeping the
+  bar shown cost speed (bridge collapse 62 -> 48-54 frames drawn per 100).
 
 ## Fixes since V0.6 (06o)
 
@@ -109,25 +125,29 @@ Speed:
 
 - Movement traces against the arcade: 24 of 24 match.
 - Magic checks: 825 of 825 frames match in every field.
-- Frames drawn per 100 (worst / median), measured on 08b (this build differs
-  only in the version text). One player: stage 1 route 100/100; bridge
-  collapse worst windows 81 and 62; stage 5 interior top 25/89 (the accepted
-  spearman crowd); stage 6 point 2 82/100. Two players: stage 1 56/100; stage
-  5 point 10 98/100; stage 5 interior top 25/25; stage 6 point 2 48/57.
-  Updates per 100 stay 92-100 everywhere.
+- Frames drawn per 100 (worst / median, updates per 100 worst), measured
+  on 10a (this build differs only in the version text). One player: stage 1
+  route 100/100 (100); bridge collapse 61/100 (100); stage 5 interior top
+  30/98 (96, the accepted spearman crowd); stage 6 point 2 82/100 (100). Two
+  players: stage 1 53/100 (95); stage 5 point 10 98/100; stage 5 interior
+  top 25/25 (93); stage 6 point 2 49/57 (99). As V0.7 within run-to-run
+  noise.
 
 ## Open issues and what is needed to close them
 
-- No result on a real console or cart for any build since 06d. Needed: V0.7
+- No result on a real console or cart for any build since 06d. Needed: V0.8
   run on an EverDrive MD v2.6 and on a Mega EverDrive PRO (and other carts
   people have), with the console model, cart model and firmware version; does
   it boot, any warning on boot, is the top of stage 1 clean, does the stage 1
   boss look right, do stage 6 and the ending play, do high scores survive a
   power cycle.
-- Stage 1 bridge collapse: still uneven (62 of 100 frames drawn at the worst
-  moment). More speed work; nothing needed from players.
+- Stage 1 bridge collapse: still uneven (about 61 of 100 frames drawn at the
+  worst moment). Each update plus drawing there is about 15% over one frame;
+  it needs its own speed round. Nothing needed from players.
+- Stage 5 interior top dips to about 25-30 frames drawn per 100 at its worst
+  (the accepted spearman crowd); two players are slower at the heaviest spots.
 - Corrupted world map after a death (BUG 5): not reproduced; two likely
-  causes removed (06i, 06k). Needed: whether it still happens on V0.7, with
+  causes removed (06i, 06k). Needed: whether it still happens on V0.8, with
   the stage, emulator or cart, and a screenshot.
 - Stage 3 "scrolls wildly then gets stuck": not reproduced. Needed: where in
   stage 3, what the player did just before, emulator or cart and version; a
@@ -135,18 +155,12 @@ Speed:
 - Random tiles on the stage 1 boss in the attract demo: not reproduced; it
   matches an emulator or cart that does not switch banks for a 5 MiB ROM
   ("SEGA SSF" header). Needed: the emulator and version.
-- Stage 2 shopkeeper hard to reach: not looked at yet. Needed: which
-  shopkeeper (first or second door) and what stops the player.
-- Scenery in front of the characters on stages 1 and 3 (as done on stage 2):
-  not applied (1,139 and 4,400 cells, mostly water on stage 3); the user's
-  decision.
-- Suggestions waiting for the user's decision: more contrast in stage 1's
-  earth tiles (an art change); fewer enemies in stage 2's fight (a change to
-  the arcade's content).
+- Stage 2 shop door: the door-opening animation is not shown yet.
+- Stage 1 earth: the lower band of the path is still olive.
+- Suggestion not taken up: fewer enemies in stage 2's fight (a change to the
+  arcade's content; needs the user's decision).
 - Small: the HUD's GOLD and TIME read blue in the shop; the story picture's
   robe shades are one green step off across cells.
-- Stage 5 interior top dips to 25 frames drawn per 100 at its worst (the
-  accepted spearman crowd); two players are slower at the heaviest spots.
 
 ## Known differences
 
@@ -187,4 +201,4 @@ in 2P (both on the sled, alternate coins, either player brakes, the other
 hero lands beside the snowball); 2P heaviest spots "Draw every 4th update";
 art pass "B, the blend"; story text and titles "Text as sprites"; titles
 "like in the arcade"; "Yes, match both" (HUD during titles, story
-mid-screen); "Yes, release 06d"; "HUD as sprites"; "Fix the costs first"; "Get route to 100"; publish V0.6 and V0.7 without a cart test.
+mid-screen); "Yes, release 06d"; "HUD as sprites"; "Fix the costs first"; "Get route to 100"; publish V0.6, V0.7 and V0.8 without a cart test; "Drop stages 1/3 front".

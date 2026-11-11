@@ -3078,3 +3078,48 @@ needed to close it. Copied to dist/willow-v0.7.bin (replaces v0.6; 06o is kept
 as game/willow-native-m2-20261106o.bin), dist/RELEASE.md rewritten, devlog
 text in dist/DEVLOG-v0.7.md. Gates on this source: 24/24, magic 825/825.
 No cart result exists for any build since 06d.
+
+### Build 2026-11-10a (test): stage 2 shop door, stage 1 earth
+`game/willow-native-m2-20261110a.bin`, SHA-1
+9994ca00a919df0faa2785e6da2d391190ef27e2, on top of 08c (V0.7). dist/ stays
+V0.7. Gates 24/24, magic 825/825.
+- Stage 2 shopkeeper "hard to reach" (player report): stage 2's door is door
+  type 1 (variant 1, stage1_shops_companion.md 1.1), which src/shop.c treated
+  as type 0. Now as the arcade: nothing shows at the door; standing within
+  +-16 x, +-32 y with Up held and neither Left nor Right starts a 30-update
+  countdown (player not hittable), then the shop. Before, a player on the
+  gallery (y 80, door y 96) was outside the +-14 box and a shopkeeper figure
+  floated in the doorway. Not done: the door-opening animation (root
+  0x32CAC, not packed).
+- Stage 1 earth contrast (player suggestion): tools/earthfix.py, applied to
+  data/stage1/tiles.bin (rerun on freshly packed files only). The path
+  (arcade group 4 pens 10-14, browns) shared olive 0x466 with the stone; the
+  path's pixels in line-3 tiles now use line 3's 0x468 (56 tiles, 861
+  pixels). Line-2 path tiles stay olive: line 2 has no brown and no free
+  entry (the far layer uses pen 6), and moving them to line 3 recoloured the
+  bushes. The image differs from 08c only inside stage 1's tiles.
+- Tried and dropped (user: "Drop stages 1/3 front"): scenery in front of the
+  characters on stages 1 and 3 (tools/maskprio.py; stage 3 grass group 1 at
+  FRONT_MIN 0.9, water excluded: per-cell priority hid the raft). Priority
+  cells cover the bottom HUD band (plane B). Keeping the band shown cost
+  speed every way tried: window rows 26-27 (8 pose-cache tiles: bridge
+  62 -> 48), rewriting the band's plane rows without the bit (route 100 ->
+  89, bridge 54). Stage 1 and 3 maps are back to 08c's.
+- Bridge collapse: not improved. Profile 1300-1400: VDP_waitVBlank 22%
+  (update ~120 + drawing ~140 + VBlank ~30 lines > 262: each drawn frame
+  takes two VBlanks). Every frame drawn there needs ~15% less work.
+- Frames drawn per 100 worst/median (updates worst): 1P route 100/100 (100);
+  bridge 61/100 (100); stage 5 top 30/98 (96); stage 6 a2 82/100 (100); 2P
+  stage 1 53/100 (95); 2P stage 5 p10 98/100; 2P stage 5 top 25/25 (93); 2P
+  stage 6 a2 49/57 (99). As 08b within run-to-run noise.
+
+### Build 2026-11-11a: V0.8, published without a cart result
+`game/willow-native-m2-20261111a.bin`, SHA-1
+374f6afb04a9ecb5c28906607723467ac37c8498, 5,242,880 bytes: 10a with only the
+opening screen's version text V0.7 -> V0.8 (2 bytes differ: the digit and the
+header checksum). The user asked (2026-11-11): "create new v / merge, push,
+deploy to git. create bin, push to itch. Publish New devlog". Copied to
+dist/willow-v0.8.bin (replaces v0.7; 08c is kept as
+game/willow-native-m2-20261108c.bin), dist/RELEASE.md rewritten, devlog text
+in dist/DEVLOG-v0.8.md. Gates and speed as 10a. No cart result exists for any
+build since 06d.

@@ -586,18 +586,45 @@ u16 shop_draw(VDPSprite *sat, u16 first)
     return n + hud_draw(sat, first + n);
 }
 
-/* ---- The shopkeeper at a shop door (class 12 kind 8, 0x32BE6). */
+/* ---- The shopkeeper at a shop door (class 12 kind 8, 0x32BE6).
+ * Door type (variant low nibble) 0, stage 1: the shopkeeper stands at the
+ * door and touching him (+-12 x, +-14 y) opens the shop. Type 1, stage 2's
+ * door (stage1_shops_companion.md 1.1): nothing shows; standing at it
+ * (+-16 x, +-32 y) with Up held and neither Left nor Right starts a 30-update
+ * countdown with the player not hittable, then the shop. The arcade shows
+ * the door opening then (root 0x32CAC, not packed: the door stays as drawn). */
 void shopkeeper_update(Actor *a)
 {
     s16 px = player.x >> 8, py = player.y >> 8;
+    bool type1 = (a->variant & 15) == 1;
     if (!a->state)
     {
         if (shop_used & (1 << (a->variant >> 4))) { actor_free(a); return; }
         a->state = 2;
-        a->active = 2;
+        a->active = type1 ? 0 : 2;
         a->pose = 0;
+        a->timer = 0;
     }
-    if ((u16)(px - AX(a) + 12) <= 24 && (u16)(py - AY(a) + 14) <= 28 && hud.hp && game_mode == GM_PLAY)
+    if (a->timer)
+    {
+        player.vuln = 2;
+        if (!--a->timer) { shop_enter(a->facing); actor_free(a); }
+        return;
+    }
+    if (!hud.hp || game_mode != GM_PLAY) return;
+    if (type1)
+    {
+        u16 held = player.last_held;
+        if ((u16)(px - AX(a) + 16) <= 32 && (u16)(py - AY(a) + 32) <= 64 &&
+            (held & BUTTON_UP) && !(held & (BUTTON_LEFT | BUTTON_RIGHT)))
+        {
+            shop_used |= 1 << (a->variant >> 4);
+            player.vuln = 2;
+            a->timer = 30;
+        }
+        return;
+    }
+    if ((u16)(px - AX(a) + 12) <= 24 && (u16)(py - AY(a) + 14) <= 28)
     {
         shop_used |= 1 << (a->variant >> 4);
         shop_enter(a->facing);

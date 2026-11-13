@@ -22,6 +22,8 @@ typedef struct
     u8 debug_stage;         /* DEBUG: stage index 0..5 */
     u8 debug_cp;            /* DEBUG: checkpoint (stages 2-5) or area (stage 6) */
     u8 invincible;          /* DEBUG: no damage, pits bounce */
+    u8 sorsha;              /* DEBUG (Home, 1P): play as Sorsha (Home-only custom character, AGENTS.md) */
+    u8 quest;               /* Home: SORSHA'S QUEST (src/quest.c) */
 } FrontEnd;
 extern FrontEnd fe;
 

@@ -29,6 +29,7 @@
 #include "packed.h"
 #include "screens.h"
 #include "bank.h"
+#include "quest.h"
 #include "../data/stage1/layout.h"
 #include "../data/intro/intro_text.h"
 
@@ -41,13 +42,18 @@ extern const u8 intro_map3_tiles[], intro_map4_tiles[], intro_map5_tiles[], intr
 extern const u16 intro_map3_map[], intro_map3_pal[], intro_map3_alt[], intro_map4_map[], intro_map4_pal[], intro_map4_alt[], intro_map5_map[], intro_map5_pal[], intro_map5_alt[], intro_map6_map[], intro_map6_pal[], intro_map6_alt[];
 /* The world map before a stage (4.2; stage2.md 1.2): picture, blinking cells. */
 typedef struct { const u8 *tiles; const u16 *map, *pal, *alt; u16 ntiles, nalt; } WorldMap;
+#define MAP2_XTILES 115
+#define MAP3_XTILES 136
+#define MAP4_XTILES 115
+#define MAP5_XTILES 154
+#define MAP6_XTILES 150
 static const WorldMap maps[6] = {
     { intro_map_tiles, intro_map_map, intro_map_pal, intro_map_alt, INTRO_MAP_TILES, INTRO_MAP_ALT },
-    { intro_map2_tiles, intro_map2_map, intro_map2_pal, intro_map2_alt, INTRO_MAP2_TILES, INTRO_MAP2_ALT },
-    { intro_map3_tiles, intro_map3_map, intro_map3_pal, intro_map3_alt, INTRO_MAP3_TILES, INTRO_MAP3_ALT },
-    { intro_map4_tiles, intro_map4_map, intro_map4_pal, intro_map4_alt, INTRO_MAP4_TILES, INTRO_MAP4_ALT },
-    { intro_map5_tiles, intro_map5_map, intro_map5_pal, intro_map5_alt, INTRO_MAP5_TILES, INTRO_MAP5_ALT },
-    { intro_map6_tiles, intro_map6_map, intro_map6_pal, intro_map6_alt, INTRO_MAP6_TILES, INTRO_MAP6_ALT },
+    { intro_map2_tiles, intro_map2_map, intro_map_pal, intro_map2_alt, MAP2_XTILES, INTRO_MAP2_ALT },
+    { intro_map3_tiles, intro_map3_map, intro_map_pal, intro_map3_alt, MAP3_XTILES, INTRO_MAP3_ALT },
+    { intro_map4_tiles, intro_map4_map, intro_map_pal, intro_map4_alt, MAP4_XTILES, INTRO_MAP4_ALT },
+    { intro_map5_tiles, intro_map5_map, intro_map_pal, intro_map5_alt, MAP5_XTILES, INTRO_MAP5_ALT },
+    { intro_map6_tiles, intro_map6_map, intro_map_pal, intro_map6_alt, MAP6_XTILES, INTRO_MAP6_ALT },
 };
 
 #define FONT_BASE 1664      /* the HUD's tiles (reloaded at play start) */
@@ -213,6 +219,8 @@ static const char *const title[6][2] = { { "STAGE1", "CROSSROAD" }, { "STAGE2", 
                                           { "STAGE3", "FIN RAZIEL'S ISLAND" }, { "STAGE4", "SORSHA'S CAMP" },
                                           { "STAGE5", "TIR ASLEEN CASTLE" }, { "STAGE6", "NOCKMAAR CASTLE" } };
 
+static const char *ttl(u16 k) { return fe.quest ? quest_title(k) : title[stage_index][k]; }   /* Sorsha's Quest: her chapters' titles */
+
 /* Tiles the stage's title letters need (4 per distinct letter). */
 static u16 title_tiles(void)
 {
@@ -221,7 +229,7 @@ static u16 title_tiles(void)
     const char *t;
     memset(seen, 0, sizeof seen);
     for (k = 0; k < 2; k++)
-        for (t = title[stage_index][k]; *t; t++)
+        for (t = ttl(k); *t; t++)
         {
             u16 c = (u8)*t - 32;
             if (c < 64 && font_title[c] && !seen[c]) { seen[c] = 1; n += 4; }
@@ -267,7 +275,7 @@ static void title_glyphs(u16 dst)
     for (l = 0; l < 2; l++)
     {
         const char *c;
-        for (c = title[stage_index][l]; *c; c++)
+        for (c = ttl(l); *c; c++)
         {
             u16 a0 = (u8)*c - 32, q;
             if (a0 >= 64 || !font_title[a0] || letter_tile[a0]) continue;
@@ -365,9 +373,11 @@ static void wait_frames(u16 n)
     }
 }
 
+static u16 altw[40];
 void intro_world_map(u16 stage)
 {
     const WorldMap *m = maps + stage;
+    const u16 *mm;
     u16 i;
     /* Plane B a still picture first: this also stops the H interrupt's
      * scroll splits, which must not write the VDP during the CPU palette
@@ -379,16 +389,20 @@ void intro_world_map(u16 stage)
     VDP_setWindowVPos(FALSE, 0);
     VDP_clearPlane(BG_A, TRUE);
     VDP_setVerticalScroll(BG_A, 0); VDP_setVerticalScroll(BG_B, 0);
-    load_packed(m->tiles, 16, m->ntiles);   /* aPLib (tools/pack_compress.sh) */
+    load_packed(intro_map_tiles, 16, INTRO_MAP_TILES);   /* the shared map (map 1) */
+    if (m->tiles != intro_map_tiles) load_packed(m->tiles, 16 + INTRO_MAP_TILES, m->ntiles);   /* this screen's own tiles (tools/mapshare.py) */
+    mm = map_open(m->map);
     {
         static u16 w[40];
         u16 r, c;
         for (r = 0; r < 28; r++)
         {
-            for (c = 0; c < 40; c++) w[c] = m->map[r * 40 + c] + 16;
+            for (c = 0; c < 40; c++) w[c] = mm[r * 40 + c] + 16;
             VDP_setTileMapDataRow(BG_B, w, r, 0, 40, CPU);
         }
     }
+    for (i = 0; i < m->nalt; i++) altw[i] = mm[m->alt[i * 2]];   /* the blinking cells' own words */
+    map_close();
     VDP_fillTileMapRect(BG_A, 0, 0, 0, 64, 32);
     {
         VDPSprite s = { 0 };
@@ -407,7 +421,7 @@ void intro_world_map(u16 stage)
             for (k = 0; k < m->nalt; k++)
             {
                 u16 cell = m->alt[k * 2];
-                u16 w = ((i / 10) & 1) ? m->alt[k * 2 + 1] : m->map[cell];
+                u16 w = ((i / 10) & 1) ? m->alt[k * 2 + 1] : altw[k];
                 VDP_setTileMapXY(BG_B, w + 16, cell % 40, cell / 40);
             }
         SYS_doVBlankProcess();
@@ -542,12 +556,12 @@ static void scene_update(void)
     case S_CROSSROAD:
         {
             static const u8 col[6][2] = { { 14, 10 }, { 14, 0 }, { 14, 1 }, { 14, 7 }, { 14, 3 }, { 14, 5 } };   /* stage3.md 1.3, stage4.md 1.4, stage5.md 1.4, stage6.md 1.4 (48-column grid less 4) */
-            const char *t = title[stage_index][step - S_STAGE1];
+            const char *t = ttl(step - S_STAGE1);
             if (title_due) { title_due = 0; title_glyphs(FONT_BASE + INTRO_TITLE0); }   /* stage 1: below 1792 (plane A), 80 tiles */
             if (timer) { timer--; return; }
             if (!t[typed]) { step++; typed = 0; if (step == S_GAP5) timer = stage_index ? 5 : 30; return; }   /* stage2.md 1.3: 5 updates, stage 1 30 (intro.md 6.3) */
             sound_post(SND_TYPE);
-            band_big(step == S_STAGE1 ? 11 : 14, col[stage_index][step - S_STAGE1] + typed * 2, t[typed]);   /* the arcade's rows 13-14 and 16-17 (screen y 88, 112) */
+            band_big(step == S_STAGE1 ? 11 : 14, (fe.quest ? 20 - strlen(t) : col[stage_index][step - S_STAGE1]) + typed * 2, t[typed]);   /* the arcade's rows 13-14 and 16-17 (screen y 88, 112) */
             typed++;
             timer = 3;
         }
@@ -574,8 +588,9 @@ static void scene_update(void)
 void stage_enter_next(void)
 {
     u16 i;
-    intro_world_map(stage_index + 1);
-    if (stage_index + 1 == 4) { extern u8 stage5_form; stage5_form = two_players ? player.form : select_screen(); }   /* stage5.md 1.3; co-op: no choice (both heroes play) */
+    if (fe.quest) quest_map(TRUE);          /* Sorsha's Quest: her map and the chapter's page */
+    else intro_world_map(stage_index + 1);
+    if (stage_index + 1 == 4) { extern u8 stage5_form; stage5_form = fe.quest ? 1 : two_players ? player.form : select_screen(); }   /* the quest: Sorsha (Madmartigan's numbers) */   /* stage5.md 1.3; co-op: no choice (both heroes play) */
     VDP_setBackgroundColor(32);             /* a blanked display shows the backdrop entry: scenery line 2 entry 0, black in every stage */
     VDP_setEnable(FALSE);                   /* the stage loads unseen (stage_init sets its colours at once) */
     memset(stage_hudrow, 0, sizeof stage_hudrow);    /* no HUD until play (hud_init): the old rows name tiles the new stage overwrites */
@@ -607,7 +622,7 @@ void stage_enter_next(void)
     for (i = 0; i < 32; i++) fade[i] = stage_sprpal()[i];
     for (i = 0; i < 32; i++) fade[32 + i] = sd->pal[i];
     SYS_doVBlankProcess();
-    if (stage_index == 3)
+    if (stage_index == 3 && !fe.quest)
     {
         /* Stage 4: the horse with Willow and a soldier gallops by, Madmartigan runs in after it. */
         u16 k;
@@ -651,6 +666,7 @@ void stage_enter_next(void)
  * point. */
 void game_begin(void)
 {
+    if (fe.quest) { quest_start(); return; }   /* src/quest.c */
     if (!fe.debug || !fe.debug_stage) { intro_start(); return; }
     PAL_setColors(0, palette_black, 64, CPU);   /* the stages streamed on the way stay dark */
     game_new();

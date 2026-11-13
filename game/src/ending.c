@@ -26,7 +26,8 @@
 #include "../data/ending/end.h"
 #include "../data/ending/portraits.h"
 
-extern const u16 end_por_map[], end_por_pal[], end_sky_map[], end_castle_map[], end_card_map[], end_card_pal[];
+extern const u16 end_por_pal[], end_sky_map[], end_castle_map[], end_card_map[], end_card_pal[];
+extern const u16 *const end_por_map[];   /* per portrait: its packed map */
 extern const u32 end_por_tiles[];
 extern const u8 end_sky_tiles[], end_castle_tiles[], end_card_tiles[];
 extern const u16 end_seq[];
@@ -80,11 +81,13 @@ static void text_row(VDPPlane p, u16 row, u16 x, const char *s, u16 n)
 static void picture(VDPPlane p, const u16 *map, u16 add)
 {
     u16 w[40], r, i;
+    map = map_open(map);                    /* aPLib-packed (src/packed.c) */
     for (r = 0; r < 28; r++)
     {
         for (i = 0; i < 40; i++) w[i] = map[r * 40 + i] ? map[r * 40 + i] + add : 0;
         VDP_setTileMapDataRow(p, w, r, 0, 40, CPU);
     }
+    map_close();
 }
 
 /* One update: actors (the whirlwind, the smoke), sprites, fades, VBlank. */
@@ -239,7 +242,7 @@ void ending_run(void)
     for (i = 0; i < 6; i++)
     {
         load_packed((const u8 *)end_por_tiles + end_por_tiles[i], TILE0, end_por_ntiles[i]);
-        picture(BG_A, end_por_map + i * 1120, TILE0);
+        picture(BG_A, end_por_map[i], TILE0);
         memcpy(pal_to, end_por_pal + i * 64, sizeof pal_to);
         fade_k = 0; fade_to(1, 2);
         for (k = 0; k < 414; k++)
@@ -260,7 +263,7 @@ void ending_run(void)
     picture(BG_B, end_sky_map, 0);
     {
         u16 w[40], r;
-        for (r = 0; r < 32; r++) { for (k = 0; k < 40; k++) w[k] = end_castle_map[r * 40 + k]; VDP_setTileMapDataRow(BG_A, w, r, 0, 40, CPU); }
+        { const u16 *cm = map_open(end_castle_map); for (r = 0; r < 32; r++) { for (k = 0; k < 40; k++) w[k] = cm[r * 40 + k]; VDP_setTileMapDataRow(BG_A, w, r, 0, 40, CPU); } map_close(); }
     }
     /* Lines: 0 the hills (scroll1 palette 17), 1 the smoke and text, 2 the
      * castle (scroll2 palette 14), 3 the sky (scroll3 palette 12). */

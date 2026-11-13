@@ -217,6 +217,8 @@ s4_soldier_sat: .incbin "data/s4spr/soldier/sat.bin"
     .align 2
 s4_soldier_tiles: .incbin "data/s4spr/soldier/tiles.bin"
     .align 2
+    .pushsection .rodata
+    .align 2
     .global s4_sorsha_poses
     .align 2
 s4_sorsha_poses: .incbin "data/s4spr/sorsha/poses.bin"
@@ -233,6 +235,7 @@ s4_sorsha_sat: .incbin "data/s4spr/sorsha/sat.bin"
     .align 2
 s4_sorsha_tiles: .incbin "data/s4spr/sorsha/tiles.bin"
     .align 2
+    .popsection
     .global s4_spark_tiles
     .align 2
 s4_spark_tiles: .incbin "data/s4spr/spark/tiles.bin"

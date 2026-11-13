@@ -16,6 +16,7 @@
 #include "hud.h"
 #include "actor.h"
 #include "spell.h"
+#include "quest.h"
 #include "../data/willow/layout.h"
 
 extern const u8 willow_poses[];
@@ -24,6 +25,8 @@ extern const u8 willow_nodes[];    /* per pose: u16 ticks (FFFF hold), u8 next, 
 extern const s16 willow_boxes[];   /* per pose: hurt box (ROM 0x3B1C2 geometry) */
 extern const u8 mad_poses[], mad_tiles[], mad_nodes[];
 extern const s16 mad_boxes[];
+extern const u8 sorsha_poses[], sorsha_nodes[], s4_sorsha_tiles[], sorsha_poses2p[], sorsha_tiles2p[];
+extern u8 coop_partner;             /* src/coop.c: 2 = Sorsha plays the Madmartigan role (Home) */   /* Home-only Sorsha (tools/sorsha_player.py) */
 
 #define COL_ROWS 32
 #define COL_COLS (sd->col_cols)
@@ -47,7 +50,7 @@ typedef struct
     u8 swing;               /* updates of sword / attack pose */
 } Form;
 
-static const Form forms[2] = {
+static const Form forms[4] = {
     /* Willow (specs/player.md 5, 6) */
     { willow_poses, willow_tiles, willow_nodes, willow_boxes,
       0, 6, 12, 14, 20, 24, 28, 32, 34, 37, 42, 52, 3, 58, 60, 5,
@@ -56,7 +59,18 @@ static const Form forms[2] = {
     { mad_poses, mad_tiles, mad_nodes, mad_boxes,
       0, 6, 12, 14, 16, 20, 24, 28, 30, 33, 38, 48, 2, 52, 58, 6,
       12, -24, 10, 24, 8, -16, 40, 13 },
+    /* Sorsha (Home only): Madmartigan's moves, timing, boxes and probes;
+     * her stage 4 poses in his slots (tools/sorsha_player.py) */
+    { sorsha_poses, s4_sorsha_tiles, sorsha_nodes, mad_boxes,
+      0, 6, 12, 14, 16, 20, 24, 28, 30, 33, 38, 48, 2, 52, 58, 6,
+      12, -24, 10, 24, 8, -16, 40, 13 },
+    /* Sorsha in co-op: the same, her tiles in the shared line 0 (Willow + Sorsha) */
+    { sorsha_poses2p, sorsha_tiles2p, sorsha_nodes, mad_boxes,
+      0, 6, 12, 14, 16, 20, 24, 28, 30, 33, 38, 48, 2, 52, 58, 6,
+      12, -24, 10, 24, 8, -16, 40, 13 },
 };
+/* The drawing table of a form: Sorsha in co-op has her shared-line tiles. */
+static inline const Form *form_art(u8 f) { return &forms[f == 2 && two_players ? 3 : f]; }
 static const Form *pf = &forms[0];
 
 /* Poses (right; left: drop +4, climb +5, slide per form, death per form). */
@@ -177,6 +191,21 @@ static u16 foot(s16 dx, s16 dy)
             }
         }
         return 1;
+    }
+    if (qrev && player.action == A_GROUND)
+    {
+        /* Sorsha's Quest walking up a slope the arcade only rides down
+         * (stage 4): the leading foot can step under a one-cell slope sheet;
+         * the surface in the cell above (within 16 px) is the floor. */
+        const u8 *u = desc(px, py + 16);
+        s16 h2 = floor_height(u, px & 15);
+        if (h2 >= 0 && 16 + h2 - in <= 16)
+        {
+            player.y = (player.y & ~0xFF) + ((s32)(16 + h2 - in) << 8);
+            player.y &= ~0xFF;
+            player.material = u[0];
+            return 1;
+        }
     }
     /* Bridge logs, platforms, the wagon (class 6): the surface pass places
      * the player's origin the same for both forms (the wagon deck at y + 32,
@@ -304,6 +333,8 @@ static u16 jump_press(u16 held)
 
 void player_form(u16 form)
 {
+    if ((fe.sorsha || fe.quest) && fe.mode == FE_HOME && !two_players) form = 2;   /* (and Sorsha's Quest) */   /* Home only: Sorsha (study, phase 1) */
+    if (form == 1 && coop_partner == 2) form = 2;                     /* Home co-op picked Sorsha for Madmartigan's role */
     form = coop_form(form);                 /* co-op: each player keeps its hero (src/coop.c) */
     player.form = form;
     pf = &forms[form];
@@ -438,7 +469,8 @@ static void camera(void)
         if (cx > player.cam_x + 3) cx = player.cam_x + 3;
         else player.cam_catch = 0;
     }
-    if (cx - 768 > player.cam_min_x) player.cam_min_x = cx - 768;
+    if (qrev) { if (cx + 768 < player.cam_max_x) player.cam_max_x = cx + 768; }   /* Sorsha's Quest reversed: the limit runs the other way */
+    else if (cx - 768 > player.cam_min_x) player.cam_min_x = cx - 768;
     player.cam_x = cx;
 
     d = py - player.cam_y;
@@ -1125,13 +1157,13 @@ static inline u16 draw_rec(Player *p, const Form *f, VDPSprite *sat, u16 first, 
 
 u16 player_draw(VDPSprite *sat, u16 first, u16 base, s16 view_x, s16 view_y)
 {
-    return draw_rec(&player, pf, sat, first, base, view_x, view_y);
+    return draw_rec(&player, form_art(player.form), sat, first, base, view_x, view_y);
 }
 
 /* Another record's pose (co-op: the second player, src/coop.c). */
 u16 player_draw_of(Player *p, VDPSprite *sat, u16 first, u16 base, s16 view_x, s16 view_y)
 {
-    return draw_rec(p, &forms[p->form], sat, first, base, view_x, view_y);
+    return draw_rec(p, form_art(p->form), sat, first, base, view_x, view_y);
 }
 
 /* A form's pose at screen (sx, sy) on CRAM line pal, its tiles at VRAM base

@@ -32,7 +32,7 @@ boss_furflash: .incbin "data/boss1/furflash.bin"
     .global intro_map_tiles, intro_map_map, intro_map_pal, intro_sky_tiles, intro_sky_map, intro_sky_pal, intro_font
     .balign 2
 intro_map_tiles: .incbin "data/intro/map_tiles.apj"
-intro_map_map:   .incbin "data/intro/map_map.bin"
+intro_map_map:   .incbin "data/intro/share/map_map.apj"
 intro_map_pal:   .incbin "data/intro/map_pal.bin"
 intro_sky_tiles: .incbin "data/intro/sky_tiles.bin"
 intro_sky_map:   .incbin "data/intro/sky_map.bin"
@@ -45,22 +45,22 @@ intro_font_spr:  .incbin "data/intro/font_spr.bin"   /* tools/fontspr.py */
 intro_box_tiles: .incbin "data/intro/box_tiles.bin"
 intro_box_map:   .incbin "data/intro/box_map.bin"
 intro_map_alt:   .incbin "data/intro/map_alt.bin"
-story_map:       .incbin "data/intro/story_map.bin"
+story_map:       .incbin "data/intro/share/intro_story_map.apj"
     .global intro_map2_tiles, intro_map2_map, intro_map2_pal, intro_map2_alt
-intro_map2_map:  .incbin "data/intro/map2_map.bin"
-intro_map2_alt:  .incbin "data/intro/map2_alt.bin"
-intro_map2_pal:  .incbin "data/intro/map2_pal.bin"
-intro_map2_tiles: .incbin "data/intro/map2_tiles.apj"
+intro_map2_map:  .incbin "data/intro/share/map2_map.apj"
+intro_map2_alt:  .incbin "data/intro/share/map2_alt.bin"
+intro_map2_pal:
+intro_map2_tiles: .incbin "data/intro/share/map2_xtiles.apj"
     .global intro_map3_tiles, intro_map3_map, intro_map3_pal, intro_map3_alt
-intro_map3_map:  .incbin "data/intro/map3_map.bin"
-intro_map3_alt:  .incbin "data/intro/map3_alt.bin"
-intro_map3_pal:  .incbin "data/intro/map3_pal.bin"
-intro_map3_tiles: .incbin "data/intro/map3_tiles.apj"
+intro_map3_map:  .incbin "data/intro/share/map3_map.apj"
+intro_map3_alt:  .incbin "data/intro/share/map3_alt.bin"
+intro_map3_pal:
+intro_map3_tiles: .incbin "data/intro/share/map3_xtiles.apj"
     .global intro_map4_tiles, intro_map4_map, intro_map4_pal, intro_map4_alt
-intro_map4_map:  .incbin "data/intro/map4_map.bin"
-intro_map4_alt:  .incbin "data/intro/map4_alt.bin"
-intro_map4_pal:  .incbin "data/intro/map4_pal.bin"
-intro_map4_tiles: .incbin "data/intro/map4_tiles.apj"
+intro_map4_map:  .incbin "data/intro/share/map4_map.apj"
+intro_map4_alt:  .incbin "data/intro/share/map4_alt.bin"
+intro_map4_pal:
+intro_map4_tiles: .incbin "data/intro/share/map4_xtiles.apj"
 story_pal:       .incbin "data/intro/story_pal.bin"
 story_tiles:     .incbin "data/intro/story_tiles.apj"
 /* The menus' font (tools/fontpack.py). */
@@ -71,18 +71,18 @@ font_big:        .incbin "data/font/big.bin"
 font_textpal:    .incbin "data/font/textpal.bin"
 /* Stage 2's story page: Cherlindrea (tools/storypack2.py). */
     .align 2
-story2_map:      .incbin "data/intro/story2_map.bin"
+story2_map:      .incbin "data/intro/share/intro_story2_map.apj"
 story2_pal:      .incbin "data/intro/story2_pal.bin"
 story2_tiles:    .incbin "data/intro/story2_tiles.apj"
 /* Stage 3's story page: Fin Raziel (tools/storypack2.py, STORY=3). */
     .global story3_tiles, story3_map, story3_pal
     .align 2
-story3_map:      .incbin "data/intro/story3_map.bin"
+story3_map:      .incbin "data/intro/share/intro_story3_map.apj"
 story3_pal:      .incbin "data/intro/story3_pal.bin"
 story3_tiles:    .incbin "data/intro/story3_tiles.apj"
     .align 2
     .global shop_tiles, shop_map, shop_alt, shop_pal, shop_spr
-shop_map:        .incbin "data/shop/map.bin"
+shop_map:        .incbin "data/intro/share/shop_map.apj"
 shop_alt:        .incbin "data/shop/alt.bin"
 shop_pal:        .incbin "data/shop/pal.bin"
 shop_tiles:      .incbin "data/shop/tiles.apj"
@@ -99,6 +99,20 @@ willow_tiles: .incbin "data/willow/tiles.bin"
 /* Madmartigan (stage 2: tools/posepack.py NODE_FIRST=70, specs/madmartigan.md 4); his colours are
  * the stage's sprite line 0 (tools/pack_stage2.sh). */
 mad_pal:     .incbin "data/mad/pal.bin"
+    .global sorsha_poses, sorsha_nodes, sorsha_pal, sorsha_flash
+    .align 2
+sorsha_poses: .incbin "data/sorsha/poses.bin"   /* Home-only Sorsha (tools/sorsha_player.py) */
+    .align 2
+sorsha_nodes: .incbin "data/sorsha/nodes.bin"
+    .align 2
+sorsha_pal:   .incbin "data/sorsha/pal.bin"
+sorsha_flash: .incbin "data/sorsha/flash.bin"
+    .global sorsha_poses2p, sorsha_tiles2p, sorsha_line0_2p
+    .align 2
+sorsha_line0_2p: .incbin "data/sorsha/line0_2p.bin"   /* co-op Willow + Sorsha line 0 */
+sorsha_poses2p: .incbin "data/sorsha/poses2p.bin"
+    .align 2
+sorsha_tiles2p: .incbin "data/sorsha/tiles2p.bin"   /* her player tiles in that line's pens */
 mad_poses:   .incbin "data/mad/poses.bin"
 mad_nodes:   .incbin "data/mad/nodes.bin"
     .align 2
@@ -202,31 +216,31 @@ s3_tiles:    .incbin "data/stage3/tiles.bin"
 /* The Arcade attract loop's pictures (tools/attractpack.py). */
     .global att_cave_tiles, att_cave_map, att_cave_pal, att_willow_tiles, att_willow_map, att_willow_pal, att_mad_tiles, att_mad_map, att_mad_pal, att_logo_tiles, att_logo_map, att_logo_pal, att_capcom_tiles, att_capcom_map, att_capcom_pal, att_fbi_tiles, att_fbi_map, att_fbi_pal, att_dragon_tiles, att_dragon_map, att_dragon_pal
     .balign 2
-att_cave_map:  .incbin "data/attract/att_cave_map.bin"
+att_cave_map:  .incbin "data/intro/share/att_cave_map.apj"
 att_cave_pal:  .incbin "data/attract/att_cave_pal.bin"
 att_cave_tiles: .incbin "data/attract/att_cave_tiles.apj"
     .balign 2
-att_willow_map:  .incbin "data/attract/att_willow_map.bin"
+att_willow_map:  .incbin "data/intro/share/att_willow_map.apj"
 att_willow_pal:  .incbin "data/attract/att_willow_pal.bin"
 att_willow_tiles: .incbin "data/attract/att_willow_tiles.apj"
     .balign 2
-att_mad_map:  .incbin "data/attract/att_mad_map.bin"
+att_mad_map:  .incbin "data/intro/share/att_mad_map.apj"
 att_mad_pal:  .incbin "data/attract/att_mad_pal.bin"
 att_mad_tiles: .incbin "data/attract/att_mad_tiles.apj"
     .balign 2
-att_logo_map:  .incbin "data/attract/att_logo_map.bin"
+att_logo_map:  .incbin "data/intro/share/att_logo_map.apj"
 att_logo_pal:  .incbin "data/attract/att_logo_pal.bin"
 att_logo_tiles: .incbin "data/attract/att_logo_tiles.apj"
     .balign 2
-att_capcom_map:  .incbin "data/attract/att_capcom_map.bin"
+att_capcom_map:  .incbin "data/intro/share/att_capcom_map.apj"
 att_capcom_pal:  .incbin "data/attract/att_capcom_pal.bin"
 att_capcom_tiles: .incbin "data/attract/att_capcom_tiles.apj"
     .balign 2
-att_fbi_map:  .incbin "data/attract/att_fbi_map.bin"
+att_fbi_map:  .incbin "data/intro/share/att_fbi_map.apj"
 att_fbi_pal:  .incbin "data/attract/att_fbi_pal.bin"
 att_fbi_tiles: .incbin "data/attract/att_fbi_tiles.apj"
     .balign 2
-att_dragon_map:  .incbin "data/attract/att_dragon_map.bin"
+att_dragon_map:  .incbin "data/intro/share/att_dragon_map.apj"
 att_dragon_pal:  .incbin "data/attract/att_dragon_pal.bin"
 att_dragon_tiles: .incbin "data/attract/att_dragon_tiles.apj"
 
@@ -278,10 +292,10 @@ hud5_tiles:  .incbin "data/hud5/tiles.bin"
 hud5_partial: .incbin "data/hud5/partial.bin"
     .balign 2
     .balign 2
-intro_map5_map:  .incbin "data/intro/map5_map.bin"
-intro_map5_alt:  .incbin "data/intro/map5_alt.bin"
-intro_map5_pal:  .incbin "data/intro/map5_pal.bin"
-intro_map5_tiles: .incbin "data/intro/map5_tiles.apj"
+intro_map5_map:  .incbin "data/intro/share/map5_map.apj"
+intro_map5_alt:  .incbin "data/intro/share/map5_alt.bin"
+intro_map5_pal:
+intro_map5_tiles: .incbin "data/intro/share/map5_xtiles.apj"
 
 /* Stage 5's boss: the re-tiled arena and the necks' pictures (tools/bosspack5.py). */
     .global boss5_arena_map, boss5_neck_maps, boss5_arena_pal, boss5_neck_pal, boss5_arena_tiles, boss5_neck_tiles
@@ -300,11 +314,11 @@ boss5_neck_relay:  .incbin "data/boss5/neck_relay.bin"
  * them again with stage 6's banks in (specs/stage6.md 7.3). */
     .section .rodata
     .balign 2
-story4_map:  .incbin "data/intro/story4_map.bin"
+story4_map:  .incbin "data/intro/share/intro_story4_map.apj"
 story4_pal:  .incbin "data/intro/story4_pal.bin"
 story4_tiles: .incbin "data/intro/story4_tiles.apj"
     .balign 2
-story5_map:  .incbin "data/intro/story5_map.bin"
+story5_map:  .incbin "data/intro/share/intro_story5_map.apj"
 story5_pal:  .incbin "data/intro/story5_pal.bin"
 story5_tiles: .incbin "data/intro/story5_tiles.apj"
     .balign 2
@@ -314,10 +328,10 @@ story5_tiles: .incbin "data/intro/story5_tiles.apj"
     .section .rodata
     .global intro_map6_tiles, intro_map6_map, intro_map6_pal, intro_map6_alt
     .balign 2
-intro_map6_map:  .incbin "data/intro/map6_map.bin"
-intro_map6_alt:  .incbin "data/intro/map6_alt.bin"
-intro_map6_pal:  .incbin "data/intro/map6_pal.bin"
-intro_map6_tiles: .incbin "data/intro/map6_tiles.apj"
+intro_map6_map:  .incbin "data/intro/share/map6_map.apj"
+intro_map6_alt:  .incbin "data/intro/share/map6_alt.bin"
+intro_map6_pal:
+intro_map6_tiles: .incbin "data/intro/share/map6_xtiles.apj"
     .balign 2
     .section .rodata
 /* The continue screen's figures (tools/contpack.py; tiles aPLib-packed). */
@@ -340,4 +354,38 @@ contfig_anim:   .incbin "data/contfig/anim.bin"
 logo_tiles: .incbin "data/frontend/logo_tiles.bin"
 logo_map:   .incbin "data/frontend/logo_map.bin"
 logo_pal:   .incbin "data/frontend/logo_pal.bin"
+    .balign 2
+/* Sorsha's Quest: her world map (tools/questmap.py, tools/questpack.sh). */
+    .global quest_map_map, quest_map_xtiles, quest_map_diff, quest_map_alt
+    .balign 2
+quest_map_map:    .incbin "data/quest/qmap_map.apj"
+    .balign 2
+quest_map_xtiles: .incbin "data/quest/qmap_xtiles.apj"
+    .balign 2
+quest_map_diff:   .incbin "data/quest/qmap_diff.bin"
+    .balign 2
+quest_map_alt:    .incbin "data/quest/qmap_alt.bin"
+    .balign 2
+/* Sorsha's Quest: Madmartigan as her rival (tools/rival.py). */
+    .global rival_anim, rival_sat, rival_boxes
+    .balign 2
+rival_anim:  .incbin "data/rival/anim.bin"
+    .balign 2
+rival_sat:   .incbin "data/rival/sat.bin"
+rival_boxes: .incbin "data/rival/boxes.bin"
+    .balign 2
+/* Sorsha's figure on her map (tools/questfig.py). */
+    .global quest_fig_tiles, quest_fig_spr
+    .balign 2
+quest_fig_tiles: .incbin "data/quest/qfig_tiles.bin"
+quest_fig_spr:   .incbin "data/quest/qfig_spr.bin"
+    .balign 2
+/* Sorsha's Quest's picture before chapter VI (stage 2-5 data is in then). */
+    .global qpic6_tiles, qpic6_map, qpic6_pal
+    .balign 2
+qpic6_tiles: .incbin "data/quest/p6_return_tiles.apj"
+    .balign 2
+qpic6_map:   .incbin "data/quest/p6_return_map.apj"
+    .balign 2
+qpic6_pal:   .incbin "data/quest/p6_return_pal.bin"
     .balign 2

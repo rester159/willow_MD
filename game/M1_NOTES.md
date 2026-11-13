@@ -3123,3 +3123,287 @@ dist/willow-v0.8.bin (replaces v0.7; 08c is kept as
 game/willow-native-m2-20261108c.bin), dist/RELEASE.md rewritten, devlog text
 in dist/DEVLOG-v0.8.md. Gates and speed as 10a. No cart result exists for any
 build since 06d.
+
+### Test build 2026-11-11 Sorsha phase 1 (Home-only, study; not released)
+User (2026-11-11): Sorsha's Quest study, then "Yes, prove it first" (5 MiB
+storage proof, out/audit/sorsha_feasibility.md 15) and "Yes, start phase 1".
+- Room: world maps 2-6 drawn with map 1's tiles and colours plus their own
+  extra tiles (tools/mapshare.py -> data/intro/share/; ~36.5 KB; hero map
+  figures and a few cells about one colour step off); 13 picture layouts
+  (6 world maps, 7 attract pictures) aPLib-packed, unpacked into the DMA
+  buffer when shown (src/packed.c map_open; 15.1 KB, lossless). Free: 57.1 KB
+  in banks 0-7 (was 5.6), 6.0 KB in banks 8-9. RAM +80 bytes.
+- Sorsha's stage 4 art moved to always-mapped ROM (src/s4spr.s .rodata), so
+  every stage can read it; the stage 4 boss uses the same copy.
+- Sorsha as player form 2 (src/player.c forms[2]): Madmartigan's moves,
+  timing, nodes, hurt boxes, probes and sword actor (its swing image hidden:
+  her poses carry the blade; the charged extension still shows); her poses
+  in his 70 slots (tools/sorsha_player.py -> data/sorsha/); 1P line 0 = her
+  own 16 colours (exact); hurt flash from her colours. Not yet drawn (near
+  poses used): crouch sword, drop, climb, real jump/fall; walk 4 frames.
+- Chosen on the Debug page: HERO SORSHA (row below START GAME, so the test
+  key scripts are unchanged); Home 1P only; cleared on leaving the page;
+  Arcade and 2P unchanged.
+- Headless: stages 2-6 (incl. stage 6 tower and Bavmorda) play as Sorsha;
+  stage 4's arena then shows two Sorshas (the Madmartigan rival is phase
+  2+). Stage 2 run, same keys: frames drawn per 100 worst/median Sorsha
+  52/80, Madmartigan 50/79 (updates 99/100 both).
+- `game/willow-native-m2-20261111-sorsha1.bin`, SHA-1
+  2279d079490b01bdbef0e264a6a19386256def01, 5,242,880 bytes. Gates: trace
+  24/24, magic 825/825. dist/ unchanged (V0.8).
+
+### Test build 2026-11-11 Sorsha phase 1b: Sorsha as Willow's co-op partner
+User (relayed): "also, sorsha should be selectable as a second player, instead
+of Madmartigan".
+- Home 2 PLAYERS pick screen: Up/Down swaps Willow's partner between
+  Madmartigan and Sorsha (figure, name, line 3 colours; hint row 25); Left/
+  Right still picks who plays whom. src/screens.c select_run, src/coop.c
+  coop_partner (1 Madmartigan, 2 Sorsha; reset to 1 at each game start, so
+  drop-in joins and Arcade keep Madmartigan). Sorsha takes Madmartigan's
+  role everywhere in that game (player_form maps form 1 to 2).
+- Colours: co-op line 0 = data/coop/line0.bin with Madmartigan's own slots
+  2, 5, 7, 11 (Willow never uses them) holding four of her colours
+  (data/sorsha/line0_2p.bin); her other pens map to the nearest slot: 27% of
+  her pixels a shade off (Madmartigan's shared-line figure: ~24%); Willow
+  unchanged. Her 2P tiles are a second copy in that layout (576 tiles,
+  18,432 bytes, data/sorsha/tiles2p.bin, poses2p.bin; the stage 4 boss keeps
+  the originals). player.c form_art(): forms[3] while two_players; coop
+  line0_now() marks both poses for reload.
+- HUD: unchanged (no hero names; her bar and sword icon are Madmartigan's).
+- Not changed (user's decision): the stage 4 shield sled and snowball art
+  still show Madmartigan; her stage 4 boss fight with Sorsha as a player.
+- Frames drawn per 100 worst/median (updates worst), -DCOOP_AUTOJOIN, partner
+  Madmartigan -> Sorsha (-DCOOP_SORSHA, test only): 2P stage 1 55/100 (95)
+  -> 55/100 (95); 2P stage 5 top 25/25 (99) -> 25/25 (99); 2P stage 6 a2
+  49/55 (99) -> 49/55 (99).
+- ROM: banks 0-7 32.5 KB free, banks 8-9 6.0 KB (38.5 KB; was 63.1 after
+  phase 1 space work).
+- `game/willow-native-m2-20261111-sorsha2.bin`, SHA-1
+  10fa9aac43e8a903d053e6e9d510565e9a6c88e3. Gates 24/24, magic 825/825.
+  dist/ unchanged (V0.8).
+
+### Test build 2026-11-11 Sorsha phase 1c: picture layouts packed; stage 4 walk
+- The 16 remaining picture layouts packed losslessly (user: "Yes, compress
+  now"): the six story pictures and the shop through src/packed.c map_keep
+  (one 2,240-byte RAM buffer kept while the picture is up: stage.c's b_pic;
+  heap free in play 7,088 -> ~4,848 bytes), the ending's through map_open
+  (the DMA buffer). Story pages unpack before the fade. Headless: ending
+  frames identical to V0.8 (29/29); story pages and the shop as V0.8 (frame
+  offsets only).
+- Stage 4 when Sorsha plays (Home; user: "skip the sled", then "Yes, stage
+  4's enemies"): no shield sled (the actor frees itself); after the camp she
+  walks down the ride's slope (camera floor lifted, the ride's music and 86
+  coins); soldiers as the camp's event 26 (same caps and waits, variant 1,
+  dropped in from the screen top: off-screen sides lie far above or below a
+  45-degree slope), a swooping hawk every 1024 px; at x 15776 the crash's
+  village scene and the stage clear. Headless: the whole walk, enemies on
+  screen in 73% (soldiers) / 33% (hawks) of samples, frames drawn per 100
+  100/100 (updates 100). Not done: the Madmartigan rival (colour choice
+  pending with the user); restarts after the camp start at the camp.
+- Free: banks 0-7 38.6 KB, banks 8-9 18.1 KB (56.7 KB). Gates 24/24, magic
+  825/825. `game/willow-native-m2-20261111-sorsha3.bin`, SHA-1
+  786c1a9fc02f7c566b511d7dcb9c8f892b779cd9. dist/ unchanged (V0.8).
+
+### Test build 2026-11-11 V0.8 bug fixes (v08fix1) and Sorsha build sorsha4
+Player report on V0.8 (relayed: "bugs in v0.8"). Headless, Genesis Plus GX and
+PicoDrive, V0.8 (dist/willow-v0.8.bin):
+- Stage 2-1 endless enemies: reproduced in both cores. Standing at the
+  start, soldiers pile up to 22 (the enemy pool) and stay. Cause: event 2's
+  soldier pairs (0x384F6, stage2.md 4.1) spawn every 240 frames; the arcade
+  holds that timer while enemies are visible (FF9802 + FF9803 + FF789A, the
+  collision pass's class-4 lanes), which was never implemented. Fix
+  (src/game.c enemies_shown): the timer is held while a collidable enemy is
+  in the camera box. Standing still: soldiers level at ~10 (placed ones plus
+  the capped edge soldiers). Fighting through 2-1: counts as V0.8. Not a
+  security-chip effect.
+- Opening sky pan: reproduced in both cores (identical; not the mapper).
+  The sky's 15 line-2 cells (a far castle, trees at the band's foot) were
+  colour-fitted against stage 1's line 2 before the V0.8 earth fix
+  re-coloured it, so they showed as dark green blocks. Fix (data only,
+  tools/skyfix.py, run once on the V0.8 files): sky line-0 pens 14-15 (unused)
+  get two dark colours from the source picture and the 15 cells are refitted
+  to line 0 (data/intro/sky_*.bin; V0.8 copies kept in the notes folder).
+- Stage 1 boss "disembodied arm": reproduced (both cores). The rise's end
+  creates the head and paw at once while the first beast picture streams in
+  over the next frames, so they float over the red silhouette for ~3 frames.
+  Fix (fam_boss.c boss_draw_adjust): not drawn until the beast picture shows
+  (drawing only; boxes and timing unchanged).
+- Sorceress at the waterfall bridge: no corruption beyond the arcade's own
+  sparkle effect seen in either core; she enters partly above the screen top
+  under the HUD text. Needs the player's screenshot and emulator/cart.
+- "Same bugs that were photographed before": no photos with this report.
+- Gates (both builds): trace 24/24, magic 825/825.
+- `game/willow-native-m2-20261111-v08fix1.bin` (V0.8 + these three fixes
+  only), SHA-1 9ac0431a62f45659c158327e55964120dbf2b5de; free as V0.8.
+- `game/willow-native-m2-20261111-sorsha4.bin` (sorsha3 + the same fixes),
+  SHA-1 9a4f7c84dde843be7c5a6f830995a47804543736.
+- dist/ unchanged (V0.8).
+
+### Test build 2026-11-12 Sorsha's Quest, step 1-2 (quest1, V0.9 text)
+User decisions (relayed, asked directly by the main session): "Build as
+planned (Recommended)" (out/audit/quest/PLAN.md) and rival colours "A: switch
+colours (Recommended)". Home only; Arcade and the normal Home game untouched
+(fe.quest 0: every hook is behind it; qrev is 0 outside the quest).
+- Home page row SORSHA'S QUEST (src/frontend.c). src/quest.c: chapter table,
+  her map, pages, chapter ends; src/screens.c quest_page; hooks in game.c,
+  intro.c, player.c, coop.c (no pad-2 join in the quest), fam_stage4.c.
+- Chapters: I stage 6 area 1 then area 0, right to left (no doors: her way
+  out is left); II stage 2's fort right to left (no wagon); III stage 3; IV
+  stage 4 from the village (16100, 73) up the slope to the camp (ends at x
+  7400 for now); V stage 5 (Sorsha, Madmartigan's numbers, no select
+  screen); VI stage 6 from area 2 (doors, Kael, Bavmorda afresh). Bavmorda
+  beaten: her ending page, then the scores (the arcade's ending is not run).
+- Reversed play: start at a late restart record facing left (stage 4: its
+  own start); the camera's 768-px limit runs the other way (player.c);
+  restarts step back to the record behind (game.c life_lost); enemies left
+  >640 px right of the camera's reach are retired; edge soldiers mostly from
+  the left; the clear walks out left. Stage 4: walk_up_update (coins from
+  the ride's bottom, soldiers ahead, a hawk every 1024 px).
+- The fort's pillar (x 736-767) is a wall to the floor and the arcade's way
+  past it only goes down (over its top, onto the shelves): in the quest its
+  foot is opened, collision only (10 cells, actor.c patches); she walks in
+  front of the trunk.
+- Her map: tools/questmap.py over the shared map tiles (map 1 + map 6's
+  extras) + 39 new tiles; disc I at the castle, II-V on the arcade's discs,
+  VI at the castle; finished discs dark, the current one blinks; no figure
+  yet (new art). Packed by tools/questpack.sh (data/quest/).
+- Titles "CHAPTER1".."CHAPTER6" (the title font has no V for roman numerals)
+  and the chapter names; results read CHAPTER n.
+- Pages: the plan's text; pictures: prologue the cave, II Willow, III Fin
+  Raziel's page, IV Madmartigan, V the Eborsisk; stand-ins for the three new
+  pictures: I and the ending Bavmorda's page, VI stage 4's page.
+- Headless (invincible test builds, -DQUEST_CH): chapters I, II, IV walked
+  through reversed to their ends; III-VI chained by forced clears
+  (-DTEST_CLEAR_AT). Not played through: III, V, VI with Sorsha to their
+  bosses; a death/restart in a reversed part.
+- Frames drawn per 100 worst/median (updates worst): I 71/100 (99), II
+  78/100 (99), IV 100/100 (100); the dips are the chapter clear (I) and the
+  page before play (II), not play.
+- Not done: the Madmartigan rival at the camp, her missing frames, her map
+  figure, the three pictures (prompts in PLAN.md).
+- ROM (byte scan as sorsha4): banks 0-7 28.5 KB free (sorsha4 37.7), banks
+  8-9 17.7 KB. Gates 24/24, magic 825/825.
+- `game/willow-native-m2-20261112-quest1.bin`, SHA-1
+  0da5041a28978f3e163c14a8e32d0a2913962604. dist/ unchanged (V0.8).
+
+### Test build 2026-11-12 Sorsha's Quest quest2: the rival, the uphill walk, her map figure
+(Main session relay: carry on under "Build as planned".)
+- Madmartigan at the camp (chapter IV): stage 4's Sorsha-boss logic
+  (fam_stage4.c sorsha_update, same energy, moves, parry) drawn with his
+  player poses and tiles as they are (tools/rival.py: chains, sat on CRAM
+  line 1, boxes; families_rival swaps F_SORSHA's family for the chapter and
+  game_new swaps it back). Option A: when he wakes (camera stopped at the
+  arcade's arena, 6528) line 1 takes stage 4's line 0 (his colours) and the
+  boss music plays; his lines "YOU FIGHT WELL, SORSHA." / "MY SWORD AND MY
+  HEART ARE YOURS."; then line 1 back and the chapter's clear. Headless: he
+  fights, is beaten, chapter V follows.
+- The uphill walk fell through the slope near x 14070 into a ledge layer
+  under it (the slope is a one-cell sheet; a foot stepping under it found no
+  floor). Fix (player.c foot, only while qrev and on the ground): the
+  surface in the cell above within 16 px is the floor. Headless: village to
+  camp (y 73 -> 5431) with no fall. Arcade/1P untouched (qrev 0).
+- Her map figure: her stage 4 standing pose (tools/questfig.py), each of its
+  4 pieces recoloured to the map line that fits it best (the map uses all
+  four lines; colours approximate: hair warm brown), beside the chapter's
+  disc. A drawn small figure would still be better.
+- Her moves: her substitutes reviewed against her own art: crouch (sword
+  held forward) for the crouched sword, her airborne pose for the drop,
+  jump -> crouch -> stand for the ledge pull-up (Madmartigan's "climb" is a
+  pull-up, specs/madmartigan.md 2.8). No new frames drawn: only the crouched
+  swing has no matching frame of hers.
+- Bosses as Sorsha (invincible test builds, scripted/random input, started
+  at the arena with -DQUEST_CP / -DQUEST_AREA; energies lowered by the
+  existing test defines): the stage 3 sorcerer (BOSS3_HP 16) beaten -> chapter
+  IV; Kael (KAEL_HP 16) beaten -> the tower; the Eborsisk takes sword damage
+  (full energy; not finished in time by the bot); Bavmorda takes sword
+  damage (30 -> her final phase at <= 24) but the bot never finished her:
+  she spends long stretches high up, out of sword reach. Whether a player
+  can finish her with the sword needs a hands-on check (or a choice). The
+  ending path itself checked (bav_end poked): her ending page, then Home.
+- Death and restart, reversed chapter I (normal build): the restart record
+  steps back (checkpoint 4 -> 3 -> 2, restart x 736 just ahead of the fall),
+  she carries on left; lives out -> game over -> Home.
+- Frames drawn per 100 worst/median (updates worst), from each chapter's
+  start, 12,000 frames: III 74/100 (99), dips 74-94 in play (stage 3's own
+  cost); V 86/100 (100), dips only before play; VI 61/100 (99), dips only
+  before play (page/title).
+- ROM: banks 0-7 21.7 KB free (quest1 28.5), banks 8-9 17.7 KB. Gates 24/24,
+  magic 825/825.
+- `game/willow-native-m2-20261112-quest2.bin`, SHA-1
+  bd09858ee7b76b62bff1cb1f2adb3407daead876. dist/ unchanged (V0.8).
+
+### Test build 2026-11-12 Sorsha's Quest quest3: the user's three pictures
+The user's Gemini ("Nano Banana Pro") pictures (out/audit/quest/in/,
+generated by the main session, out/audit/quest/gemini_gen.py) for pages 1
+(before chapter I), 6 (before VI) and 7 (her ending), replacing the stand-ins.
+- tools/questpic.py: 1024x1024 source, 3% cropped top and bottom (p6 also its
+  drawn frame, 16 px a side), box-filtered to 128x120; two 15-colour lines
+  (2, 3; pen 0 the black backdrop) on the 9-bit grid: tiles split in two by
+  mean colour, then palettes (weighted k-means, farthest-point start) and
+  tile assignment alternate. Around it the arcade portraits' gold frame band
+  (att_mad's pens, 7 px, bevelled corners) on line 1: 18x17 cells at column
+  11, row 1; text on line 0 at rows 20-24. Tiles deduplicated with flips.
+- Unique tiles 201 / 227 / 173; packed (tools/questpack.sh): tiles 3,796 /
+  4,460 / 3,538, maps 450 / 502 / 408, palettes 3 x 128: 13.5 KB in all
+  (16 KB held). p1 and p7 in banks 8-9 (in when those pages show), p6 with
+  the always-mapped data (stage 2-5 data is in before chapter VI).
+- Before/after: out/audit/quest/pictures_before_after.png; in the game:
+  pictures_in_game.png (headless frames of pages 1, 6, 7).
+- ROM: banks 0-7 16.2 KB free (quest2 21.7), banks 8-9 9.4 KB (17.7). Gates
+  24/24, magic 825/825.
+- `game/willow-native-m2-20261112-quest3.bin`, SHA-1
+  27cebb37d593964680a0fb9834fe104ba9f20d2b. dist/ unchanged (V0.8).
+
+### Test build 2026-11-12 Sorsha's Quest quest4: the film-style pictures, digitised
+The user rejected quest3's pictures as cartoonish ("they look AI"; "look at
+the style of the original pictures... digitized with a much more simplified
+color scheme"). The main session made a new film-style set (Gemini,
+out/audit/quest/gemini_gen_v2.py; old set in quest/in_cartoon_v1/).
+- tools/questpic.py now converts them the arcade portraits' "digitised" way
+  (the main session's prototype quest/gemini_digit.py, Homebrew python3 with
+  Pillow): 3% cropped top and bottom, median filter 9 px at 1024, contrast
+  x1.15, Lanczos to 128x120, median cut + k-means to 20, no dither, 9-bit
+  grid. Result 14 / 15 / 12 flat colours with black, so each picture uses
+  one 15-colour line (line 2); line 3 stays unused, no shades added. The p6
+  frame crop is gone (the new p6 has no drawn frame). Same gold frame band.
+- Unique tiles 133 / 185 / 134 (were 201 / 227 / 173); packed tiles 2,654 /
+  3,916 / 2,564, maps 322 / 408 / 302, palettes 3 x 128: 10.3 KB (16 KB held).
+- Before/after: out/audit/quest/pictures_before_after.png (source | game);
+  in the game: pictures_in_game.png (headless frames of pages 1, 6, 7).
+- ROM: banks 0-7 16.7 KB free, banks 8-9 11.7 KB. Gates 24/24, magic 825/825.
+- `game/willow-native-m2-20261112-quest4.bin`, SHA-1
+  42d2690e8bc41dd3620ad1454ea118bafa1be7b2. dist/ unchanged (V0.8).
+
+### Test build 2026-11-12 Sorsha's Quest quest5: comic-style repaints
+User on quest4 (relayed): the arcade portraits' shading is "a lot starker,
+almost like a comic book"; quest4 "feels digitized, poorly digitized". The
+main session had Gemini repaint the sources in the portraits' style
+(quest/gemini_restyle_v3.py; quest4's set in quest/in_digitised_v2/).
+- tools/questpic.py follows quest/gemini_digit_v3.py: no median filter (it
+  smeared the flat art), contrast x1.08, box filter to 128x120, median cut +
+  k-means to 20, no dither, 9-bit grid. p1 has 16 colours plus black: two
+  lines (tiles split by mean colour, each line its tiles' 15 most used
+  colours; mapping error 0). p6 and p7 fit one line.
+- Unique tiles 142 / 180 / 140; packed tiles 3,188 / 4,236 / 3,076, maps
+  342 / 392 / 310, palettes 3 x 128: 11.6 KB (16 KB held).
+- p6's blue tunic and gold armour come out green and brown at 20 colours
+  (as in the comparison the user saw, quest/gemini_comic_vs_arcade.png);
+  line 3 is free if those should be kept.
+- ROM: banks 0-7 16.5 KB free, banks 8-9 10.7 KB. Gates 24/24, magic 825/825.
+- `game/willow-native-m2-20261112-quest5.bin`, SHA-1
+  d4ee5f1620589709124195f0a01d522af8ea99dc. dist/ unchanged (V0.8).
+
+### Test build 2026-11-12 Sorsha's Quest quest6: page 6's blue and gold back
+quest5 lost p6's blue tunics and Madmartigan's gold armour (a conversion
+defect, main session). tools/questpic.py (RAMPS) now quantizes p6 in three
+hue groups: blue (hue .5-.75) 5 tones, gold (hue .05-.17) 5 tones, the rest
+20, each flat (median cut + k-means, no dither); the two ramps snap to the
+9-bit grid keeping their hue (strongest channel up, weakest down), as plain
+rounding turned the dark navy grey. 20 colours plus black on lines 2 and 3.
+p1 and p7 unchanged.
+- p6: 180 unique tiles; packed tiles 4,614, map 396, palette 128 (5.0 KB).
+  All three pictures 12.0 KB (16 KB held).
+- In the game: out/audit/quest/page6_in_game.png (headless, after chapter V).
+- ROM: banks 0-7 16.0 KB free, banks 8-9 10.7 KB. Gates 24/24, magic 825/825.
+- `game/willow-native-m2-20261112-quest6.bin`, SHA-1
+  2e75186f951881baa1a763a26a70d6a748939b04. dist/ unchanged (V0.8).

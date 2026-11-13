@@ -574,7 +574,8 @@ bool continue_screen(void)
  * colours, the cursor on the stage's sprite line 1. Arcade positions: cursor
  * (64 / 224, 40), Willow (112, 72), Madmartigan (272, 80); screen x = x - 32,
  * y = 239 - y. Returns the form (0 Willow, 1 Madmartigan). */
-extern const u16 willow_pal[], mad_pal[], s5_sprpal[];
+extern const u16 willow_pal[], mad_pal[], s5_sprpal[], sorsha_pal[];
+extern u8 coop_partner;                     /* src/coop.c: Willow's partner in Home co-op (1 Madmartigan, 2 Sorsha) */
 #define SEL_VRAM (BIG + 144)
 
 static u16 sel_cursor(VDPSprite *sat, u16 first, s16 sx, s16 sy)
@@ -599,7 +600,7 @@ static u16 sel_cursor(VDPSprite *sat, u16 first, s16 sx, s16 sy)
 static u16 select_run(bool two)
 {
     static const char prompt[] = "LET'S SELECT PLAYERS.";
-    u16 choice = 0, typed = 0, wait = 3, timer = 320, hold = 0, chosen = 0, t = 0, n, last2 = 0xFFFF, shown = 2;
+    u16 choice = 0, typed = 0, wait = 3, timer = 320, hold = 0, chosen = 0, t = 0, n, last2 = 0xFFFF, shown = 2, partner = 1;
     char d[3] = "10";
     begin();
     {
@@ -615,6 +616,7 @@ static u16 select_run(bool two)
     big_text(18, 9, d, 0);
     put(2, 23, "WILLOW UFGOOD", 0);
     put(25, 23, "MADMARTIGAN", 0);
+    if (two) put(6, 25, "UP/DOWN  MADMARTIGAN OR SORSHA", 0);
     pad_prev = JOY_readJoypad(JOY_1);
     for (;;)
     {
@@ -623,7 +625,7 @@ static u16 select_run(bool two)
         if (two) { u16 p2 = coop_pad2(); e2 = p2 & ~last2; last2 = p2; }
         n = 0;
         if (two || !chosen || choice == 0) n += player_pose_put(0, player_form_stand(0), sat, n, SEL_VRAM + 64, 80, 167, PAL2);
-        if (two || !chosen || choice == 1) n += player_pose_put(1, player_form_stand(1), sat, n, SEL_VRAM + 160, 240, 159, PAL3);
+        if (two || !chosen || choice == 1) n += player_pose_put(partner, player_form_stand(partner), sat, n, SEL_VRAM + 160, 240, 159, PAL3);
         if (!chosen && (t & 4)) n += sel_cursor(sat, n, choice ? 192 : 32, 199);
         if (!n) { sat[0].y = 0; sat[0].link = 0; n = 1; }
         sat[n - 1].link = 0;
@@ -648,6 +650,12 @@ static u16 select_run(bool two)
             continue;
         }
         if (wait) { wait--; continue; }
+        if (two && (e & (BUTTON_UP | BUTTON_DOWN)))   /* Home co-op: Willow's partner, Madmartigan or Sorsha (user) */
+        {
+            partner ^= 3;
+            put(25, 23, partner == 2 ? "SORSHA     " : "MADMARTIGAN", 0);
+            PAL_setColors(48, partner == 2 ? sorsha_pal : mad_pal, 16, DMA_QUEUE);
+        }
         if (e & BUTTON_RIGHT) choice = 1;
         if (e & BUTTON_LEFT) choice = 0;
         if (e & (BUTTON_A | BUTTON_B)) { chosen = 1; continue; }
@@ -661,6 +669,7 @@ static u16 select_run(bool two)
     }
     PAL_fadeOutAll(16, FALSE);
     VDP_resetSprites(); VDP_updateSprites(1, DMA);
+    if (two) coop_partner = partner;
     return choice;
 }
 
@@ -721,11 +730,13 @@ static void att_picture(const u8 *tiles, u16 ntiles, const u16 *map)
     static u16 w[40];
     u16 r, c;
     load_packed(tiles, PIC, ntiles);       /* aPLib (tools/pack_compress.sh) */
+    map = map_open(map);
     for (r = 0; r < 28; r++)
     {
         for (c = 0; c < 40; c++) w[c] = map[r * 40 + c] + PIC;
         VDP_setTileMapDataRow(BG_B, w, r, 0, 40, CPU);
     }
+    map_close();
 }
 
 /* Fade in a picture's lines 1-3 (line 0: text palette tp; FBI: all four). */
@@ -897,3 +908,108 @@ void attract_home(void)
 }
 
 bool attract_exit_menu(void) { return att_exit == 2; }
+
+/* ---- Sorsha's Quest story pages (src/quest.c, out/audit/quest/PLAN.md):
+ * a picture with the page's lines typed under it, 4 updates a letter (A, B
+ * or C: the rest at once; then any press goes on). Pictures marked NEW in
+ * the plan are the user's pictures (pages 1, 6, 7; banks 8-9 are in for
+ * pages 1 and 7, stage 2-5 data for page 6). */
+#include "../data/intro/story3.h"
+#include "../data/intro/story4.h"
+#include "../data/intro/story6.h"
+extern const u8 story3_tiles[], story4_tiles[], story6_tiles[];
+extern const u16 story3_map[], story3_pal[], story4_map[], story4_pal[], story6_map[], story6_pal[];
+extern const u8 qpic1_tiles[], qpic6_tiles[], qpic7_tiles[];
+extern const u16 qpic1_map[], qpic6_map[], qpic7_map[], qpic1_pal[], qpic6_pal[], qpic7_pal[];
+#include "../data/quest/quest.h"
+void quest_page(u16 n)
+{
+    static const char *const text[8][4] = {
+        { "QUEEN BAVMORDA FEARS A CHILD", "WHO WILL END HER REIGN.", "SHE SENDS HER DAUGHTER SORSHA", "TO FIND IT." },
+        { "SORSHA RIDES OUT OF NOCKMAAR", "AT THE HEAD OF HER MOTHER'S", "ARMY.", NULL },
+        { "A DAIKINI AND A NELWYN HAVE", "TAKEN THE CHILD TO THE", "CROSSROADS FORT.", NULL },
+        { "THE CHILD IS HIDDEN ON", "FIN RAZIEL'S ISLAND.", "SORSHA CROSSES THE LAKE.", NULL },
+        { "AT THE SNOW CAMP A PRISONER", "CALLS HER NAME AND SPEAKS OF", "LOVE. SHE DRAWS HER SWORD.", NULL },
+        { "AT TIR ASLEEN THE CURSE FALLS.", "SORSHA TURNS HER SWORD", "AGAINST HER MOTHER'S BEAST.", NULL },
+        { "WITH WILLOW AND MADMARTIGAN", "SHE RIDES BACK TO NOCKMAAR", "TO FACE HER MOTHER.", NULL },
+        { "BAVMORDA IS GONE.", "THE CHILD IS SAFE.", "SORSHA IS FREE.", NULL },
+    };
+    static const struct { const u8 *tiles; const u16 *map, *pal; u16 ntiles; u8 line, tp, row, step; } pic[8] = {
+        { att_cave_tiles, att_cave_map, att_cave_pal, ATT_CAVE_TILES, 0, 3, 19, 2 },
+        { story6_tiles, story6_map, story6_pal, STORY6_TILES, 1, 0, 22, 1 },
+        { att_willow_tiles, att_willow_map, att_willow_pal, ATT_WILLOW_TILES, 0, 0, 22, 2 },
+        { story3_tiles, story3_map, story3_pal, STORY3_TILES, 1, 0, 22, 1 },
+        { att_mad_tiles, att_mad_map, att_mad_pal, ATT_MAD_TILES, 0, 0, 19, 2 },
+        { att_dragon_tiles, att_dragon_map, att_dragon_pal, ATT_DRAGON_TILES, 0, 0, 19, 2 },
+        { story4_tiles, story4_map, story4_pal, STORY4_TILES, 1, 0, 22, 1 },
+        { story6_tiles, story6_map, story6_pal, STORY6_TILES, 1, 0, 22, 1 },
+    };
+    u16 i, k, fast = 0, last = JOY_readJoypad(JOY_1);
+    extern u8 game_hide_sprites;
+    game_hide_sprites = 1;                  /* the play's sprites stay off (main.c) */
+    /* The user's pictures (tools/questpic.py): 18 x 17 cells with the gold
+     * frame, lines 1-3; text on line 0 below. */
+    static const u8 *const qtiles[3] = { qpic1_tiles, qpic6_tiles, qpic7_tiles };
+    static const u16 *const qmap[3] = { qpic1_map, qpic6_map, qpic7_map }, *const qpal[3] = { qpic1_pal, qpic6_pal, qpic7_pal };
+    static const u16 qn[3] = { QPIC1_TILES, QPIC6_TILES, QPIC7_TILES };
+    s16 q = n == 1 ? 0 : n == 6 ? 1 : n == 7 ? 2 : -1;
+    u16 row0 = q >= 0 ? 20 : pic[n].row, step = q >= 0 ? 2 : pic[n].step, line = q >= 0 ? 0 : pic[n].line;
+    PAL_fadeOutAll(16, FALSE);
+    begin();
+    if (q >= 0)
+    {
+        const u16 *m;
+        u16 r, c, w[18];
+        load_packed(qtiles[q], PIC, qn[q]);
+        m = map_open(qmap[q]);
+        for (r = 0; r < 17; r++)
+        {
+            for (c = 0; c < 18; c++) w[c] = m[r * 18 + c] + PIC;
+            VDP_setTileMapDataRow(BG_B, w, r + 1, 11, 18, CPU);
+        }
+        map_close();
+        memcpy(fade_to, qpal[q], 128);
+        memcpy(fade_to, font_textpal, 32);
+    }
+    else
+    {
+        att_picture(pic[n].tiles, pic[n].ntiles, pic[n].map);
+        memcpy(fade_to, pic[n].pal, 128);
+        memcpy(fade_to + pic[n].line * 16, font_textpal + pic[n].tp * 16, 32);
+    }
+    fade_to[0] = 0;
+    PAL_fadeInAll(fade_to, 16, FALSE);
+    for (i = 0; i < 4 && text[n][i]; i++)
+    {
+        const char *t = text[n][i];
+        u16 x = 20 - (strlen(t) + 1) / 2, y = row0 + i * step;
+        for (k = 1; t[k - 1]; k++)
+        {
+            char s[2] = { t[k - 1], 0 };
+            put(x + k - 1, y, s, line);
+            if (fast) continue;
+            {
+                u16 w = 4;
+                while (w--)
+                {
+                    u16 h = JOY_readJoypad(JOY_1);
+                    SYS_doVBlankProcess();
+                    if (h & ~last & (BUTTON_A | BUTTON_B | BUTTON_C | BUTTON_START)) fast = 1;
+                    last = h;
+                }
+                if (s[0] != ' ') sound_post(0x2F);
+            }
+        }
+    }
+    for (i = 0; i < 300; i++)               /* about 5 s, or a press */
+    {
+        u16 h = JOY_readJoypad(JOY_1);
+        SYS_doVBlankProcess();
+        if (i > 20 && (h & ~last & (BUTTON_A | BUTTON_B | BUTTON_C | BUTTON_START))) break;
+        last = h;
+    }
+    PAL_fadeOutAll(16, FALSE);
+    VDP_clearPlane(BG_A, TRUE);
+    VDP_clearPlane(BG_B, TRUE);
+    game_hide_sprites = 0;
+}

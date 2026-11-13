@@ -38,6 +38,7 @@ u8 coop_state;
 u8 coop_cur;
 u8 coop_lead_pad;
 u8 coop_owner;
+u8 coop_partner = 1;                /* Home: who plays Madmartigan's role (1 him, 2 Sorsha; the pick screen) */
 static Ctx other;                   /* the player not in the globals */
 static u16 p2_base;                 /* the second player's pose VRAM (0: not carved yet) */
 static u8 in_swap;
@@ -174,7 +175,7 @@ static COLD bool join(bool fresh)   /* out of line: coop_pads runs every update 
     if (fresh)
     {
         memset(&other, 0, sizeof other);
-        other.p.form = player.form ^ 1;     /* the other hero */
+        other.p.form = player.form ? 0 : coop_partner == 2 ? 2 : 1;   /* the other hero (Willow's partner: Madmartigan or Sorsha) */
         other.max_hp = s->vitality;
     }
     if (!fresh) { home_credits--; game_count_continue(); }      /* an out player continuing (Home NEW GAME PLUS needs none) */
@@ -238,7 +239,7 @@ u16 coop_pads(u16 *joy)
     }
     if (coop_state != CO_IN)
     {
-        if (start && game_mode == GM_PLAY && !fe.paused && !player.script && !player.dead && !scene_lock) { coop_join(); join_held = 1; }
+        if (start && !fe.quest && game_mode == GM_PLAY && !fe.paused && !player.script && !player.dead && !scene_lock) { coop_join(); join_held = 1; }
         return 0;
     }
     if (!(second & BUTTON_START)) join_held = 0;
@@ -520,14 +521,25 @@ COLD const u16 *stage_sprpal(void)
 {
     extern const u16 coop_line0[];
     static u16 buf[32];
+    if (!two_players && player.form == 2)   /* Home-only Sorsha: her own line 0 */
+    {
+        extern const u16 sorsha_pal[];
+        memcpy(buf, sorsha_pal, 32);
+        memcpy(buf + 16, sd->sprpal + 16, 32);
+        return buf;
+    }
     if (!two_players) return sd->sprpal;
-    memcpy(buf, coop_line0, 32);
+    {
+        extern const u16 sorsha_line0_2p[];
+        memcpy(buf, coop_partner == 2 ? sorsha_line0_2p : coop_line0, 32);
+    }
     memcpy(buf + 16, sd->sprpal + 16, 32);
     return buf;
 }
 
 static COLD void line0_now(void)
 {
+    player.pose_dirty = other.p.pose_dirty = 1;   /* Sorsha's tiles differ in 1P and co-op: reload */
     PAL_setColors(0, stage_sprpal(), 16, DMA_QUEUE);
 }
 

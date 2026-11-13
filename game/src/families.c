@@ -289,6 +289,14 @@ static const Family fam_dragon = { dragon_update, &ps4_dragon, s4_dragon_boxes, 
 static const Family fam_dragonp = { dragonp_update, &ps4_dragon, s4_dragon_boxes, C_EFFECT };
 static const Family fam_fire = { fire_update, &ps4_fire, s4_fire_boxes, C_ESHOT };
 static const Family fam_sorsha = { sorsha_update, &ps4_sorsha, s4_sorsha_boxes, C_ENEMY };
+/* Sorsha's Quest: Madmartigan as her rival, the boss's logic on his player
+ * poses and tiles (tools/rival.py); families_rival swaps him in for chapter IV. */
+extern const u8 mad_poses[], mad_tiles[], rival_anim[];
+extern const s16 rival_sat[], rival_boxes[];
+static u8 hint_rival[70];
+static PoseSet ps_rival = { mad_poses, mad_tiles, rival_anim, 70, 43, 0, NULL, hint_rival, 0, rival_sat, 0 };
+static const Family fam_rival = { sorsha_update, &ps_rival, rival_boxes, C_ENEMY };
+void families_rival(bool on) { families[F_SORSHA] = on ? &fam_rival : &fam_sorsha; }
 static const Family fam_slash4 = { slash4_update, NULL, slash4_boxes, C_ESHOT };
 static const Family fam_clash = { clash_update, &ps4_clash, s4_clash_boxes, C_EFFECT };
 static const Family fam_shield = { shield_update, &ps4_shield, s4_shield_boxes, C_OBJECT };

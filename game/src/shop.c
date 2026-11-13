@@ -25,7 +25,8 @@
 #include "../data/shop/shop.h"
 
 extern const u8 shop_tiles[], shop_spr[];
-extern const u16 shop_map[], shop_alt[], shop_pal[];
+extern const u16 shop_map[], shop_alt[], shop_pal[];   /* shop_map: aPLib-packed (map_keep) */
+static const u16 *smap;                     /* the shop's unpacked map words */
 static u16 fade_pal[64];             /* the stage's colours, for the way back */
 
 #define SHOP_VRAM 16                /* background tiles: the stage pool and far layer's VRAM */
@@ -262,8 +263,8 @@ static void owl_show(u16 f)
         while (k < SHOP_OWL_CELLS && shop_owl_cell[k] / 40 == r)
         {
             u16 c = shop_owl_cell[k] % 40;
-            while (c0 + n < c) { w[n] = shop_map[r * 40 + c0 + n] + SHOP_VRAM; n++; }
-            w[n++] = (f ? shop_alt[(f - 1) * SHOP_OWL_CELLS + k] : shop_map[r * 40 + c]) + SHOP_VRAM;
+            while (c0 + n < c) { w[n] = smap[r * 40 + c0 + n] + SHOP_VRAM; n++; }
+            w[n++] = (f ? shop_alt[(f - 1) * SHOP_OWL_CELLS + k] : smap[r * 40 + c]) + SHOP_VRAM;
             k++;
         }
         stage_bput(c0, r, w, n);
@@ -378,7 +379,8 @@ void shop_enter(u16 index)
 static void build_screen(void)
 {
     u16 lo[8], hi[8], n, i, best = 0, s;
-    stage_bpicture(shop_map, SHOP_VRAM);         /* first: the scroll splits stop (the plane fill below must not be interrupted) */
+    smap = map_keep(shop_map);
+    stage_bpicture(smap, SHOP_VRAM);         /* first: the scroll splits stop (the plane fill below must not be interrupted) */
     VDP_clearPlane(BG_A, TRUE);
     load_packed(shop_tiles, SHOP_VRAM, SHOP_TILES);   /* aPLib (tools/pack_compress.sh) */
     /* Sprite art: the pose cache's largest range (forgotten on the way out). */

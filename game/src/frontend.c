@@ -229,8 +229,8 @@ static const struct { u8 cmd; char name[13]; } tracks[] = {
 
 static u16 rows(void)
 {
-    static const u8 n[P_PAGES] = { 2, 2, 4, 7, 9, 0, 0, 2, 4 };   /* no BACK rows: B backs out (user) */
-    return n[pg] + (pg == P_HOME ? rec.plus + COOP_ROW : 0);
+    static const u8 n[P_PAGES] = { 2, 2, 4, 7, 9, 0, 0, 2, 5 };   /* no BACK rows: B backs out (user) */
+    return n[pg] + (pg == P_HOME ? rec.plus + COOP_ROW + 1 : 0);   /* + SORSHA'S QUEST */
 }
 
 /* Home/Arcade page row -> its action: 0 start, 1 options, 2 scores, 3
@@ -242,7 +242,8 @@ static u16 home_row(u16 r)
     if (pg != P_HOME || !r) return r;
     if (COOP_ROW) { if (r == 1) return 6; r--; }
     if (rec.plus) { if (r == 1) return 5; r--; }
-    return r;
+    if (r == 1) return 7;                   /* SORSHA'S QUEST */
+    return r - 1;
 }
 
 static u16 idle_wait;                       /* frames without a press on the Home page */
@@ -277,7 +278,7 @@ static void draw(void)
         /* Credit centred and version at the right on row 25 (lines
          * 200-207), inside the picture on displays that crop the edges. */
         text(12, 25, "RESTER159, 2026", FALSE);
-        text(35, 25, "V0.8", FALSE);
+        text(35, 25, "V0.9", FALSE);
     }
     else if (pg != P_HOME)                      /* Home: the big logo above */
     {
@@ -288,12 +289,13 @@ static void draw(void)
     {
         char st[2], cp[3];
         labels[0] = "STAGE"; labels[1] = fe.debug_stage == 5 ? "AREA" : "START POINT"; labels[2] = "INVINCIBLE";
-        labels[3] = "START GAME";
+        labels[3] = "START GAME"; labels[4] = "HERO";
         put_number(st, fe.debug_stage + 1);
         cp[0] = fe.debug_cp >= 10 ? '1' : '0' + fe.debug_cp; cp[1] = fe.debug_cp >= 10 ? '0' + fe.debug_cp - 10 : 0; cp[2] = 0;
         text(25, 8, st, TRUE);
         text(25, 10, cp, TRUE);
         text(25, 12, fe.invincible ? "ON" : "OFF", TRUE);
+        text(25, 16, fe.sorsha ? "SORSHA" : "STAGE'S", TRUE);
         text(6, 19, "LEFT/RIGHT CHANGE", FALSE);
         text(6, 21, "SCORES ARE NOT SAVED", FALSE);
     }
@@ -302,7 +304,7 @@ static void draw(void)
         labels[0] = arcade ? "ENTER ARCADE" : "START GAME";
         labels[1] = arcade ? "DIP SWITCHES" : "OPTIONS";
         labels[2] = "HIGH SCORES"; labels[3] = "CONTROLS";
-        if (!arcade) labels[2] = 0;                 /* Home: START GAME, OPTIONS (B goes back) */
+        if (!arcade) { labels[1] = "SORSHA'S QUEST"; labels[2] = "OPTIONS"; labels[3] = 0; }   /* Home: START GAME, SORSHA'S QUEST, OPTIONS (B goes back) */
         if (!arcade && rec.plus) { for (n = 5; n > 1; n--) labels[n] = labels[n - 1]; labels[1] = "NEW GAME PLUS"; }
         if (!arcade && COOP_ROW) { for (n = 6; n > 1; n--) labels[n] = labels[n - 1]; labels[1] = "2 PLAYERS"; }
     }
@@ -399,7 +401,7 @@ static bool step(u16 edge)
     if (edge & BUTTON_B)
     {
         if (pg == P_SELECT) return FALSE;
-        if (pg == P_DEBUG) { fe.debug = 0; page(P_HOME); return FALSE; }
+        if (pg == P_DEBUG) { fe.debug = 0; fe.sorsha = 0; page(P_HOME); return FALSE; }
         if (pg == P_MUSIC) { XGM2_stop(); page(P_OPTIONS); return FALSE; }
         if (pg == P_OPTIONS || pg == P_DIPS) frontend_save();
         page(pg == P_HOME || pg == P_ARCADE ? P_SELECT : parent);
@@ -410,6 +412,8 @@ static bool step(u16 edge)
     {
         fe.debug = 0;
         fe.invincible = 0;
+        fe.sorsha = 0;
+        fe.quest = 0;
         fe.mode = row == 0 ? FE_ARCADE : FE_HOME; page(fe.mode == FE_ARCADE ? P_ARCADE : P_HOME);
         return FALSE;
     }
@@ -418,10 +422,11 @@ static bool step(u16 edge)
         /* Start points per stage index: stage 1 its start; 2-5 the
          * checkpoint records (src/game.c); stage 6 its areas. */
         static const u8 points[6] = { 1, 10, 14, 14, 19, 7 };
-        if (row == 3) { if (ok) { fe.plus = 0; return TRUE; } return FALSE; }
+        if (row == 3) { if (ok) { fe.plus = 0; fe.quest = 0; return TRUE; } return FALSE; }
         if (!adjust && !ok) return FALSE;
         if (row == 0) { fe.debug_stage = cyc(fe.debug_stage, 0, 6, d); fe.debug_cp = 0; }
         else if (row == 1) fe.debug_cp = cyc(fe.debug_cp, 0, points[fe.debug_stage], d);
+        else if (row == 4) fe.sorsha ^= 1;
         else fe.invincible ^= 1;
         dirty = 1;
         return FALSE;
@@ -429,8 +434,9 @@ static bool step(u16 edge)
     if ((pg == P_HOME || pg == P_ARCADE) && ok)
     {
         u16 r = home_row(row);
-        if (r == 0 || r == 5) { fe.plus = r == 5; coop_pick = 0; return TRUE; }
-        if (r == 6) { fe.plus = 0; coop_pick = 1; return TRUE; }   /* co-op: the pick screen, then the game */
+        if (r == 0 || r == 5) { fe.plus = r == 5; fe.quest = 0; coop_pick = 0; return TRUE; }
+        if (r == 6) { fe.plus = 0; fe.quest = 0; coop_pick = 1; return TRUE; }
+        if (r == 7) { fe.plus = 0; fe.quest = 1; coop_pick = 0; return TRUE; }   /* Sorsha's Quest (src/quest.c) */   /* co-op: the pick screen, then the game */
         page(r == 1 ? (fe.mode == FE_ARCADE ? P_DIPS : P_OPTIONS) : r == 2 ? P_SCORES : r == 3 ? P_CONTROLS : P_SELECT);
         return FALSE;
     }
@@ -527,6 +533,11 @@ void frontend_menu(bool first)
     MEM_free(scr);                              /* the last page went out in the loop's last VBlank */
     scr = NULL;
     clear();
+    { extern u8 coop_partner; coop_partner = 1;   /* Madmartigan unless the pick screen chooses Sorsha */
+#ifdef COOP_SORSHA
+      coop_partner = 2;                         /* measurement builds: Willow + Sorsha */
+#endif
+    }
     if (coop_pick) coop_pick = coop_select_screen() + 1;   /* co-op: pad 1's hero */
     VDP_setScrollingMode(HSCROLL_TILE, VSCROLL_PLANE);   /* the stage's mode (stage_init sets it again) */
     fe.start_held = 1;                          /* the launching press is not a pause */

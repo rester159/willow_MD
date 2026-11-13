@@ -471,7 +471,7 @@ u16 shot_draw(VDPSprite *sat, u16 first, s16 view_x, s16 view_y)
         n += pose_draw(&ps_shot, chain[s->variant][s->facing][1 + 2 * s->frame], &s->shown, sat, first + n,
                        (s->x >> 8) - view_x, (511 - (s->y >> 8)) - view_y, FALSE, NULL);
     }
-    if (sword.state >= SW_SWING)
+    if (sword.state >= SW_SWING && !(player.form == 2 && sword.state == SW_SWING))   /* Sorsha: the swing is in her own poses */
         n += pose_draw(&ps_sword, sword_art[sword_level] + (sword.state != SW_SWING || sword.timer <= 4) * 2 + sword.facing,
                        &sword.shown, sat, first + n, sword.x - view_x, (511 - sword.y) - view_y, FALSE, NULL);
     for (i = 0; i < MAX_SPEARS; i++)

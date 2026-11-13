@@ -19,6 +19,9 @@
 #include "shot.h"
 #include "dirmath.h"
 #include "s4spr.h"
+#include "quest.h"
+#include "frontend.h"
+#include "stagedata.h"
 
 #define FACE(a) ((a)->facing & 1)
 #define DIR(a) (FACE(a) ? -1 : 1)
@@ -29,6 +32,13 @@ extern u8 scene_lock;
 u8 dragon_beaten;           /* FF838A (stage 4): the dragon is beaten */
 u8 sorsha_beaten;           /* FF83A1 */
 static u8 arena1, arena2, ride_on, trooper4_alive, tent_alive, music_at;
+/* Home-only Sorsha (AGENTS.md): no shield sled; after the camp she walks
+ * down its slope (stage 4's soldiers and hawks on the way, the ride's
+ * coins as pickups) to the village scene. */
+static u8 walk_on, walk_hawks;
+static u16 walk_end;
+static bool sorsha_hero(void) { extern u8 coop_partner; return player.form == 2 || (two_players && coop_partner == 2); }
+
 static u16 ride_gold_next;
 
 static void chain(Actor *a, u16 c) { actor_anim(a, c + FACE(a)); }
@@ -66,6 +76,7 @@ void stage4_camera(void)
     if (player.cam_y < player.cam_min_y) player.cam_y = player.cam_min_y;
     if (checkpoint >= 7) dragon_beaten = 1;    /* checkpoints past the arena (1.7: how the arcade restores max X there is unknown) */
     player.cam_max_x = sorsha_beaten ? 16000 : dragon_beaten ? 6528 : 3584;
+    if (sorsha_beaten && sorsha_hero()) { walk_on = 1; player.cam_min_y = 0; }   /* Sorsha: the walk down (a restart after the camp) */
 }
 
 void spray_clear(void);
@@ -73,7 +84,8 @@ void spray_clear(void);
 void stage4_reset(void)
 {
     extern void flakes_clear(void);
-    arena1 = arena2 = ride_on = 0;
+    arena1 = arena2 = ride_on = walk_on = walk_hawks = 0;
+    walk_end = 0;
     trooper4_alive = tent_alive = 0;
     edge_alive = 0;
     music_at = checkpoint >= 9 ? 2 : checkpoint >= 6 ? 1 : 0;
@@ -91,8 +103,8 @@ void stage4_reset(void)
 static void stage4_flags(void)
 {
     s16 px = player.x >> 8;
-    if (CAM_X >= 2304 && player.cam_min_y < 4592 && !ride_on) player.cam_min_y = 4592;
-    if (CAM_X >= 4609 && player.cam_min_y < 5360 && !ride_on) player.cam_min_y = 5360;
+    if (CAM_X >= 2304 && player.cam_min_y < 4592 && !ride_on && !walk_on) player.cam_min_y = 4592;
+    if (CAM_X >= 4609 && player.cam_min_y < 5360 && !ride_on && !walk_on) player.cam_min_y = 5360;
     /* Music triggers (class 16 kind 8): the cave at x 2656, the stage again at 4352. */
     if (music_at == 0 && px >= 2656) { music_at = 1; sound_post(SND_MUSIC_CAVE); sound_post(0x01FA); }
     if (music_at == 1 && px >= 4352) { music_at = 2; sound_post(SND_MUSIC_STAGE4); sound_post(0x01FA); }
@@ -308,12 +320,107 @@ static void stage4_spawn_soldier(s16 x, s16 y, u16 facing)
     edge_alive++;                           /* FF0F40: the soldier's removal lowers it */
 }
 
+static void ride_gold_ahead(void);
+/* Sorsha's walk down the ride's slope (Home only). Soldiers as the camp's
+ * event 26 (same caps and waits, mostly ahead; dropped in from the top), a swooping hawk every 1024 px, the ride's coins, and at the
+ * bottom the village scene (as the crash's, src: crash_update 10-12). */
+static u16 walk_soldiers(void)
+{
+    u16 i, n = 0;
+    for (i = pool_lo[C_ENEMY]; i < pool_hi[C_ENEMY]; i++) if (actors[i].fam == F_SOLDIER) n++;
+    return n;
+}
+/* Sorsha's Quest, chapter IV (src/quest.c): the same walk the other way,
+ * from the village up the slope to the camp; the ride's coins from its
+ * bottom end, a hawk every 1024 px, the soldiers mostly ahead (left). The
+ * chapter's end at the camp is src/quest.c's. */
+static const s16 ride_gold[86][3];          /* below */
+static void walk_up_update(void)
+{
+    u16 r = rank >> 12;
+    if (!walk_hawks) { walk_hawks = (CAM_X >> 10) + 1; ride_gold_next = 85; }
+    while (ride_gold_next != 0xFFFF && ride_gold[ride_gold_next][1] > CAM_X - 80)
+    {
+        Actor *g = actor_new(F_REWARD);
+        if (!g) break;
+        g->x = (s32)ride_gold[ride_gold_next][1] << 8;
+        g->y = (s32)ride_gold[ride_gold_next][2] << 8;
+        g->variant = ride_gold[ride_gold_next][0] & 15;
+        ride_gold_next = ride_gold_next ? ride_gold_next - 1 : 0xFFFF;
+    }
+    if (CAM_X > 7600 && walk_soldiers() < ev25_cap[r])
+    {
+        if (!ev26_timer) ev26_timer = ev25_wait[rnd() & 15];
+        else if (!--ev26_timer)
+        {
+            u16 ahead = (rnd() & 15) < 14;
+            s16 x = ahead ? CAM_X + 32 + (rnd() & 63) : CAM_X + 224 + (rnd() & 31);
+            Actor *o = actor_new(F_SOLDIER);
+            if (o) { o->variant = 1; o->facing = !ahead; o->x = (s32)x << 8; o->y = (s32)(CAM_Y + 232) << 8; }
+        }
+    }
+    if ((u16)(CAM_X >> 10) + 1 < walk_hawks && CAM_X > 7800)
+    {
+        Actor *h = actor_new(F_HAWK4);
+        walk_hawks = (CAM_X >> 10) + 1;
+        if (h) { h->x = (s32)(CAM_X + 160) << 8; h->y = (s32)(CAM_Y + 256) << 8; h->variant = 2; }
+    }
+}
+
+static void walk_update(void)
+{
+    u16 r = rank >> 12;
+    s16 px = player.x >> 8;
+    if (qrev) { walk_up_update(); return; }
+    if (walk_end)
+    {
+        if (--walk_end == 130)
+        {
+            Actor *h = actor_new(F_ENDING);
+            if (h) { h->x = (s32)16256 << 8; h->y = (s32)80 << 8; h->variant = 2; }
+            h = actor_new(F_ENDING);
+            if (h) { h->x = (s32)16256 << 8; h->y = (s32)96 << 8; h->variant = 3; }
+            player_script(22);
+            player_script_x = 16162;
+            player.cam_max_x = 16384;
+        }
+        if (!walk_end) game_stage_clear();
+        return;
+    }
+    if (px >= 15776) { sound_post(0xA0); walk_end = 72 + 130; encounter_clear = 1; return; }
+    ride_gold_ahead();
+    if (CAM_X < 15200 && walk_soldiers() < ev25_cap[r])
+    {
+        if (!ev26_timer) ev26_timer = ev25_wait[rnd() & 15];
+        else if (!--ev26_timer)
+        {
+            /* dropped in from the screen's top (as event 25's soldiers):
+             * off-screen sides are far above or below a 45-degree slope */
+            u16 right = (rnd() & 15) < 14;
+            s16 x = right ? CAM_X + 240 + (rnd() & 63) : CAM_X + 96 + (rnd() & 31);
+            Actor *o = actor_new(F_SOLDIER);
+            if (o)                          /* variant 1: wakes where placed (variant 0 moves to the screen's edge) */
+            {
+                o->variant = 1; o->facing = right;
+                o->x = (s32)x << 8; o->y = (s32)(CAM_Y + 232) << 8;
+            }
+        }
+    }
+    if ((u16)(CAM_X >> 10) > walk_hawks && CAM_X < 15000)
+    {
+        Actor *h = actor_new(F_HAWK4);
+        walk_hawks = CAM_X >> 10;
+        if (h) { h->x = (s32)(CAM_X + 160) << 8; h->y = (s32)(CAM_Y + 256) << 8; h->variant = 2; }
+    }
+}
+
 void stage4_events(void)
 {
     u16 r = rank >> 12, k;
     stage4_flags();
     flakes_update();
     spray_update();
+    if (walk_on) { walk_update(); return; }
     if (encounter_clear) return;
     /* Event 25: while camera x < 1280. */
     if (CAM_X < 1280 && edge_alive < ev25_cap[r])
@@ -901,6 +1008,8 @@ enum { SC_INTRO = 0, SC_STAND = 2, SC_WALK = 4, SC_CROUCH = 6, SC_JUMP = 8, SC_S
        SC_AWIND = 14, SC_ASLASH = 16, SC_TWIND = 18, SC_THRUST = 20, SC_HIGH = 22, SC_BACK = 24, SC_BACK2 = 26, SC_DOWN = 28 };
 enum { SP_WAIT, SP_INTRO, SP_DECIDE, SP_IN, SP_OUT, SP_SWORD, SP_JUMP, SP_GUARD, SP_PARRY, SP_DEFEAT, SP_TALK, SP_GONE };
 static const char *const sorsha_text[2] = { "I LOST.", "KAEL HAS TAKEN THE BABY." };
+static const char *const rival_text[2] = { "YOU FIGHT WELL, SORSHA.", "MY SWORD AND MY HEART ARE YOURS." };   /* Sorsha's Quest: Madmartigan */
+#define RIVAL (fe.quest)                     /* Sorsha's Quest chapter IV: the boss is Madmartigan (src/families.c families_rival) */
 
 static void slash_box(Actor *a, s16 dx, s16 dy)
 {
@@ -945,13 +1054,22 @@ void sorsha_update(Actor *a)
     s16 dx = (player.x >> 8) - AX(a), adx = dx < 0 ? -dx : dx;
     if (!a->state)
     {
-        if (sorsha_beaten) { actor_free(a); return; }
+        if (sorsha_beaten && !RIVAL) { actor_free(a); return; }
         a->state = 2; a->active = 0; a->phase = SP_WAIT;
         return;
     }
     if (a->phase == SP_WAIT)
     {
         if (AX(a) - CAM_X > 384) return;
+        if (RIVAL)
+        {
+            /* her way up ends at the camp: the camera stops at the arcade's
+             * arena (6528) and his colours take stage 4's sprite line 1 */
+            if (CAM_X > 6528) return;
+            player.cam_min_x = player.cam_max_x = 6528;
+            PAL_setColors(16, sd->sprpal, 16, DMA_QUEUE);
+            sound_post(SND_MUSIC_BOSS);
+        }
         a->active = 1;
         a->hp = a->last_hp = 96;
         hud_boss(96);
@@ -1062,17 +1180,33 @@ void sorsha_update(Actor *a)
         {
             hud_message(NULL, 4); hud_message(NULL, 6);
             scene_lock = 0;
+            if (RIVAL)
+            {
+                PAL_setColors(16, sd->sprpal + 16, 16, DMA_QUEUE);   /* line 1 the stage's again */
+                hud_boss(-1);
+                player.script = 0;
+                a->phase = SP_GONE;
+                game_stage_clear();             /* chapter IV's end (src/quest.c) */
+                return;
+            }
             sorsha_beaten = 1;
             encounter_clear = 0;
             hud_boss(-1);
             player.cam_max_x = 16000;
             player.cam_min_x = CAM_X;
             player_script_x = 7232;         /* the walk to the shield (6.11) */
+            if (sorsha_hero())              /* Home Sorsha: no sled; she walks down the slope */
+            {
+                player.script = 0;
+                player.cam_min_y = 0;
+                walk_on = 1;
+                sound_post(SND_MUSIC_RIDE);
+            }
             a->phase = SP_GONE;
             return;
         }
         {
-            const char *t = sorsha_text[a->sub];
+            const char *t = (RIVAL ? rival_text : sorsha_text)[a->sub];
             a->v[1]++;
             hud_text(t, a->v[1], 2, 4 + a->sub * 2);
             if (t[a->v[1] - 1] != ' ') sound_post(0x2F);
@@ -1112,12 +1246,27 @@ static const u16 ride_min[16] = { 1024, 1280, 1408, 1408, 0, 2, 1, 0, 12334, 44,
 static const u16 ride_shift[16] = { 0, 2, 1, 0, 12334, 44, 18624, 57728, 53678, 6, 18990, 62, 26390, 12334, 44, 12846 };   /* 0x31146 */
 static const s16 ride_jump[16] = { 896, 1024, 1152, 1280, 20152, 8012, 4141, 25, 512, 7, 26164, 20152, 11164, 26414, 6524, 1 };
 
+static void ride_gold_ahead(void)
+{
+    while (ride_gold_next < 86 && ride_gold[ride_gold_next][1] < CAM_X + 400)
+    {
+        Actor *g = actor_new(F_REWARD);
+        if (!g) break;
+        g->x = (s32)ride_gold[ride_gold_next][1] << 8;
+        g->y = (s32)ride_gold[ride_gold_next][2] << 8;
+        g->variant = ride_gold[ride_gold_next][0] & 15;
+        if (two_players) g->pad[2] = 1 + (ride_gold_next & 1);   /* co-op: the ride's coins alternate between the players */
+        ride_gold_next++;
+    }
+}
+
 void shield_update(Actor *a)
 {
     s16 top;
     switch (a->state)
     {
     case 0:
+        if (sorsha_hero()) { actor_free(a); return; }   /* Home Sorsha: no sled (AGENTS.md) */
         a->state = 2; a->active = 2; a->v[0] = 0; a->vy = 0;
         actor_anim(a, 0);
         return;
@@ -1185,17 +1334,7 @@ void shield_update(Actor *a)
             a->t2 = player.last_held;
             player.x = a->x; player.y = a->y;
             spray_ride(a);
-            /* The pickups ahead. */
-            while (ride_gold_next < 86 && ride_gold[ride_gold_next][1] < CAM_X + 400)
-            {
-                Actor *g = actor_new(F_REWARD);
-                if (!g) break;
-                g->x = (s32)ride_gold[ride_gold_next][1] << 8;
-                g->y = (s32)ride_gold[ride_gold_next][2] << 8;
-                g->variant = ride_gold[ride_gold_next][0] & 15;
-                if (two_players) g->pad[2] = 1 + (ride_gold_next & 1);   /* co-op: the ride's coins alternate between the players */
-                ride_gold_next++;
-            }
+            ride_gold_ahead();                      /* the pickups ahead */
             if (AX(a) >= 14936)
             {
                 Actor *c = actor_new(F_CRASH);

@@ -149,7 +149,7 @@ hud6_partial: .incbin "data/hud6/partial.bin"
 /* Bavmorda's picture after Kael (stage6.md 2.5, door variant 10; tools/storypack2.py STORY=6). */
     .global story6_tiles, story6_map, story6_pal
     .balign 2
-story6_map:  .incbin "data/intro/story6_map.bin"
+story6_map:  .incbin "data/intro/share/intro_story6_map.apj"
 story6_pal:  .incbin "data/intro/story6_pal.bin"
 story6_tiles: .incbin "data/intro/story6_tiles.apj"
     .balign 2
@@ -158,13 +158,15 @@ story6_tiles: .incbin "data/intro/story6_tiles.apj"
     .global end_por_map, end_por_pal, end_por_tiles
     .global end_sky_tiles, end_sky_map, end_castle_tiles, end_castle_map, end_seq, end_card_tiles, end_card_map, end_card_pal
     .balign 2
-end_por_map:
-    .incbin "data/ending/storye0_map.bin"
-    .incbin "data/ending/storye1_map.bin"
-    .incbin "data/ending/storye2_map.bin"
-    .incbin "data/ending/storye3_map.bin"
-    .incbin "data/ending/storye4_map.bin"
-    .incbin "data/ending/storye5_map.bin"
+end_por_map:                    /* the six portraits' maps, aPLib-packed (src/packed.c map_open) */
+    .long pm0, pm1, pm2, pm3, pm4, pm5
+pm0: .incbin "data/intro/share/ending_storye0_map.apj"
+pm1: .incbin "data/intro/share/ending_storye1_map.apj"
+pm2: .incbin "data/intro/share/ending_storye2_map.apj"
+pm3: .incbin "data/intro/share/ending_storye3_map.apj"
+pm4: .incbin "data/intro/share/ending_storye4_map.apj"
+pm5: .incbin "data/intro/share/ending_storye5_map.apj"
+    .balign 2
 end_por_pal:
     .incbin "data/ending/storye0_pal.bin"
     .incbin "data/ending/storye1_pal.bin"
@@ -194,14 +196,14 @@ por5: .incbin "data/ending/storye5_tiles.apj"
     .balign 2
 end_sky_tiles:    .incbin "data/ending/end_sky_tiles.apj"
     .balign 2
-end_sky_map:      .incbin "data/ending/end_sky_map.bin"
+end_sky_map:      .incbin "data/intro/share/ending_end_sky_map.apj"
 end_castle_tiles: .incbin "data/ending/end_castle_tiles.apj"
     .balign 2
-end_castle_map:   .incbin "data/ending/end_castle_map.bin"
+end_castle_map:   .incbin "data/intro/share/ending_end_castle_map.apj"
 end_seq:          .incbin "data/ending/end_seq.bin"
 end_card_tiles:   .incbin "data/ending/end_card_tiles.apj"
     .balign 2
-end_card_map:     .incbin "data/ending/end_card_map.bin"
+end_card_map:     .incbin "data/intro/share/ending_end_card_map.apj"
 end_card_pal:     .incbin "data/ending/end_card_pal.bin"
     .balign 2
 
@@ -246,4 +248,19 @@ s6a3_anim_tiles: .incbin "data/stage6/a3/anim_tiles.bin"
     .balign 2
 far6_words: .incbin "data/stage6/a6/far6_words.bin"
 far6_cells: .incbin "data/stage6/a6/far6_cells.bin"
+    .balign 2
+/* Sorsha's Quest's pictures shown while banks 8-9 are in: before chapter I
+ * (after the new game's stage 1 set-up) and her ending (tools/questpic.py). */
+    .global qpic1_tiles, qpic1_map, qpic1_pal, qpic7_tiles, qpic7_map, qpic7_pal
+    .balign 2
+qpic1_tiles: .incbin "data/quest/p1_nockmaar_tiles.apj"
+    .balign 2
+qpic1_map:   .incbin "data/quest/p1_nockmaar_map.apj"
+    .balign 2
+qpic1_pal:   .incbin "data/quest/p1_nockmaar_pal.bin"
+qpic7_tiles: .incbin "data/quest/p7_ending_tiles.apj"
+    .balign 2
+qpic7_map:   .incbin "data/quest/p7_ending_map.apj"
+    .balign 2
+qpic7_pal:   .incbin "data/quest/p7_ending_pal.bin"
     .balign 2

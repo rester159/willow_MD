@@ -594,6 +594,11 @@ void boss_paw_update(Actor *a)
 bool boss_draw_adjust(const Actor *a, s16 *sx, s16 *sy)
 {
     u16 c, sc;
+    /* The rise's end creates the head and paw at once; the first beast
+     * picture streams in over the next frames: until it shows, the red
+     * silhouette is up, so they are not drawn (V0.8 player report: "starts
+     * with a disembodied arm"). Drawing only. */
+    if (body && body->fam == F_BOSS_BODY && body->state <= B_WAIT && body_shown < 4) return FALSE;
     if (!body || body->fam != F_BOSS_BODY || body->state != B_IDLE || body_shown < 4 || body_shown > 11) return TRUE;
     c = CONTROL(body);
     sc = body_shown - 4;

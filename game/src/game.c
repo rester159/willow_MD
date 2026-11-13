@@ -5,6 +5,7 @@
 #include <genesis.h>
 #include "stagedata.h"
 #include "game.h"
+#include "quest.h"
 #include "actor.h"
 #include "coop.h"
 #include "player.h"
@@ -140,7 +141,7 @@ static void spawn_objects(void)
         const StageObject *o = tab + i;
         u16 f = family_of(o);
         Actor *a;
-        if (!f || !families[f]) continue;
+        if (!f || !families[f] || quest_family_off(f)) continue;   /* (Sorsha's Quest: no wagon, no chapter I doors) */
 #ifdef PROF_NOLOGS
         if (f == F_LOG) continue;
 #endif
@@ -186,6 +187,19 @@ static const u8 beast_wait[4] = { 64, 96, 128, 180 };
 
 u8 beast_quota[2];          /* restored by the event's beast when it dies */
 
+/* The arcade's visible-enemy counts (FF9802 + FF9803 + FF789A: the
+ * collision pass's class-4 lanes): collidable enemies inside the camera box. */
+static bool enemies_shown(void)
+{
+    u16 i;
+    for (i = pool_lo[C_ENEMY]; i < pool_hi[C_ENEMY]; i++)
+    {
+        const Actor *a = actors + i;
+        if (a->fam && a->active == 1 && (u16)(AX(a) - CAM_X) < 384 && (u16)(AY(a) - CAM_Y) < 256) return TRUE;
+    }
+    return FALSE;
+}
+
 static void events_update(void)
 {
     u16 i;
@@ -204,6 +218,7 @@ static void events_update(void)
         if (e->kind == EV_PAIRS && stage_index == 1)             /* soldier pairs every 240 frames (0x384F6) */
         {
             if (CAM_X < e->start_x || CAM_X >= e->end_x) continue;
+            if (enemies_shown()) { e->timer = 0; continue; }   /* held while enemies are visible (FF9802/FF9803/FF789A, stage2.md 4.1; V0.8 bug: endless pairs) */
             if (++e->timer < 240) continue;
             e->timer = 0;
             {
@@ -232,7 +247,7 @@ static void events_update(void)
                 Actor *a = actor_new(F_SOLDIER);
                 if (!a) continue;
                 a->variant = 0;
-                a->facing = edge_side[rnd() & 15];
+                a->facing = edge_side[rnd() & 15] ^ qrev;   /* (Sorsha's Quest reversed: mostly ahead, from the left) */
                 a->y = (s32)e->y << 8;
                 edge_alive++;
             }
@@ -555,6 +570,7 @@ static void stage_start(void)
     if (stage_index == 4) stage5_camera();                  /* stage 5 (stage5.md 2.3) */
     if (stage_index == 5) stage6_camera();                  /* stage 6: the area's window (stage6.md 2.3) */
     if (player.cam_x < r[3]) player.cam_x = r[3];
+    if (fe.quest) quest_place();            /* reversed parts: facing left, the camera's limits */
     hud.min = r[2] >> 8;
     hud.sec = r[2] & 0xFF;
     hud.div = 0;
@@ -601,7 +617,7 @@ void game_form_palette(void)
 void game_next_stage(void)
 {
     stage_index++;
-    if (stage_index == 1 && bank_s6) bank_stage6(FALSE);   /* stage 2-5's data back in slots 6-7 (stage 1's boss body was in banks 8-9) */
+    if (stage_index >= 1 && stage_index <= 4 && bank_s6) bank_stage6(FALSE);   /* (only stage 2 in the arcade order; Sorsha's Quest comes from stage 6 too) */   /* stage 2-5's data back in slots 6-7 (stage 1's boss body was in banks 8-9) */
     checkpoint = 0;
     gate5_open = 0;
     gate_open = 0;
@@ -641,6 +657,7 @@ void game_next_stage(void)
         if (stage_index == 5) { if (fe.debug_cp) { area6 = fe.debug_cp; stage6_select(); game_form_palette(); } }
         else checkpoint = fe.debug_cp;
     }
+    if (fe.quest) quest_stage_setup();      /* Sorsha's Quest: the part's area and start (src/quest.c) */
 #ifndef S2_FORM
 #define S2_FORM 1                           /* test builds: 0 plays stage 2 as Willow */
 #endif
@@ -654,6 +671,7 @@ void game_next_stage(void)
     if (stage_index == 3) stage4_camera();
     if (stage_index == 4) { stage5_reset(); stage5_camera(); player.cam_min_x = cp_rec5[checkpoint][3]; }
     if (stage_index == 5) { stage6_camera(); player.cam_min_x = stage6_rec(checkpoint)[3]; }
+    if (fe.quest) quest_place();
     stage_init(player.cam_x + 32, 272 - player.cam_y);
     stage_start();
     game_mode = GM_PLAY;
@@ -679,6 +697,8 @@ void game_stage_reset(void)
 
 void game_new(void)
 {
+    qrev = 0;                               /* (Sorsha's Quest sets it per part) */
+    { extern void families_rival(bool on); families_rival(FALSE); }   /* stage 4's boss is Sorsha again */
     game_stage_reset();
     sword_level = 0;                        /* hud.md 5: sword level 0 */
     stage_index = 0;
@@ -765,10 +785,11 @@ static void story6_page(void)
 {
     static const char *const text[3] = { "I WILL NOW SEND ELORA TO THE WORLD OF", "DARKNESS. HA, HA, HA,...", "THEN THE WORLD WILL BE MINE." };
     u16 t, line = 0, at = 0, wait = 0;
+    const u16 *pic = map_keep(story6_map);  /* unpacked before the fade */
     PAL_fadeOutAll(30, FALSE);
     sat_blank();
     actor_clear();                          /* the gold left on the bridge (the area changes after) */
-    stage_bpicture(story6_map, 16);
+    stage_bpicture(pic, 16);
     VDP_clearPlane(BG_A, TRUE);
     game_hide_sprites = 1;
     load_packed(story6_tiles, 16, STORY6_TILES);
@@ -859,6 +880,21 @@ static void game_area6(u16 v)
     game_reload();
 }
 
+/* Sorsha's Quest: the next area of a chapter (stage 6's corridors). */
+void game_goto_area6(u16 area, u16 cp)
+{
+    extern void stage6_select(void);
+    sound_post(0x10FB);
+    PAL_fadeOutAll(30, FALSE);
+    area6 = area;
+    stage6_select();
+    checkpoint = cp;
+    game_form_palette();
+    player_init(stage6_rec(cp)[0], stage6_rec(cp)[1]);
+    stage6_camera();
+    game_reload();
+}
+
 static void game_reload(void)
 {
     sat_blank();
@@ -901,8 +937,8 @@ static void game_reload(void)
  * lives, score and energy (2CEE), magic, gold and items stay. */
 static void life_lost(void)
 {
-    u16 c = checkpoint_of(player.safe_x, player.safe_y);
-    if (c > checkpoint) checkpoint = c;
+    u16 c = checkpoint_of(player.safe_x + (qrev ? 256 : 0), player.safe_y);
+    if (qrev ? c < checkpoint : c > checkpoint) checkpoint = c;   /* (Sorsha's Quest reversed: the record behind, to the right) */
     rank = rank >= 0x0D00 ? rank - 0x0D00 : 0;
     if (hud.lives) hud.lives = (hud.lives & 15) ? hud.lives - 1 : hud.lives - 7;
     sound_post(SND_STOP);
@@ -918,7 +954,7 @@ static void life_lost(void)
         hud.hp = hud.max_hp;
         if (continues < 255) continues++;
     }
-    intro_world_map(stage_index);
+    if (fe.quest) quest_map(FALSE); else intro_world_map(stage_index);
     game_reload();
     game_mode = GM_PLAY;
 }
@@ -943,7 +979,7 @@ static void flash(void)
     u8 want = player.hurt_timer && !(((128 - player.hurt_timer) >> 2) & 1) && !two_players;
     if (want == shown) return;
     shown = want;
-    PAL_setColors(1, want ? (player.form ? mad_flash : flash_pal) : stage_sprpal() + 1, 15, DMA_QUEUE);
+    { extern const u16 sorsha_flash[]; PAL_setColors(1, want ? (player.form == 2 ? sorsha_flash : player.form ? mad_flash : flash_pal) : stage_sprpal() + 1, 15, DMA_QUEUE); }
 }
 
 /* ---- Stage clear (top mode 4, A5E4; specs/stage1_boss.md 6.1, 6.2). */
@@ -971,7 +1007,7 @@ void game_play_start(void)
 {
     game_mode = GM_PLAY;
     if (player.script == 22) player.script = 0;   /* stage 4: the walk-in's stand */
-    player_stand(FALSE);
+    player_stand(qrev);                     /* (Sorsha's Quest reversed: facing left) */
     gate_timer = 16;
 }
 
@@ -986,7 +1022,7 @@ bool game_player_runs(u16 *joy)
     }
     if (game_mode == GM_CLEAR && clear_step == CL_WALK)
     {
-        *joy = BUTTON_RIGHT;            /* scripted input (stream 0x47E8E): walk out */
+        *joy = qrev ? BUTTON_LEFT : BUTTON_RIGHT;   /* scripted input (stream 0x47E8E): walk out (Sorsha's Quest reversed: to the left) */
         return TRUE;
     }
     return FALSE;
@@ -1050,7 +1086,7 @@ static void clear_update(void)
             bonus_life = (u32)(8 * (hud.hp + hud.armor) & 0xFF) * k;
         }
         count_time = count_life = 0;
-        { char t[7] = "STAGE1"; t[5] += stage_index; hud_message(t, 6); }
+        { char t[7] = "STAGE1"; t[5] += stage_index; hud_message(fe.quest ? quest_title(0) : t, 6); }
         hud_message("CLEAR POINTS", 9);
         results_rows();
         clear_step = CL_RESULTS;
@@ -1078,11 +1114,15 @@ static void clear_update(void)
         return;
     case CL_HOLD:
         if (--mode_timer) return;
+        if (fe.quest) { PAL_fadeOutAll(30, FALSE); quest_chapter_clear(); return; }   /* Sorsha's Quest: her map and page, not Willow's story */
+        {
+        const u16 *pic = map_keep(stage_index == 4 ? story5_map : stage_index == 3 ? story4_map : stage_index == 2 ? story3_map : stage_index ? story2_map : story_map);   /* unpacked before the fade (no frame waits on it after) */
         PAL_getColors(0, fade_pal, 64);
         PAL_fadeOutAll(30, FALSE);
         /* The story page (6.1 steps 14-18): Madmartigan's portrait (plane
          * B picture, tools/intropack.py) and the text typed over its foot. */
-        stage_bpicture(stage_index == 4 ? story5_map : stage_index == 3 ? story4_map : stage_index == 2 ? story3_map : stage_index ? story2_map : story_map, 16);   /* a still picture on plane B, under the HUD (first: the scroll splits stop) */
+        stage_bpicture(pic, 16);
+        }   /* a still picture on plane B, under the HUD (first: the scroll splits stop) */
         VDP_clearPlane(BG_A, TRUE);
         game_hide_sprites = 1;
         if (stage_index == 4) load_packed(story5_tiles, 16, STORY5_TILES);
@@ -1178,7 +1218,8 @@ void game_update(u16 held)
         if (shop_safe && !--shop_safe && !player.hurt_timer && !player.dead) player.vuln = 1;   /* post-shop safety (0x965E) */
         if (player.dead == 2) { magic.hold = 0; if (!coop_life_lost()) life_lost(); break; }
         { extern u8 door6_go; if (door6_go) { game_area6(door6_go - 1); break; } }
-        { extern u8 bav_end; extern void ending_run(void); if (bav_end) { bav_end = 0; ending_run(); break; } }   /* stage6.md 7 */
+        { extern u8 bav_end; extern void ending_run(void); if (bav_end) { bav_end = 0; if (fe.quest) quest_end(); else ending_run(); break; } }
+        if (fe.quest) quest_update();   /* stage6.md 7 */
 #ifdef SHOP_AT
         { extern void shop_enter(u16 index); if (game_frame == SHOP_AT) { shop_enter(0); break; } }   /* test builds: the shop opened at a set frame */
 #endif

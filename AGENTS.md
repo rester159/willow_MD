@@ -601,3 +601,82 @@ story mid-screen); asked whether to release 06d, the user chose "Yes,
 release 06d": game/willow-native-m2-20261106d.bin (SHA-1
 dc487b504ee13f08b88a3f1c09e2e8036ced9ac0, 5,242,880 bytes) is the
 accepted release, copied to dist/willow-v0.5.bin with dist/RELEASE.md.
+
+## Sorsha as a Home character: under study (user request, 2026-11-11)
+
+Relayed by the main session: "can we technically make sorsha a playable
+character in home? the sprite sheet already exists (she is a boss)", then
+"Yes, check it" to a feasibility check first. Status: study only, nothing
+built; a Home-only custom character if ever built (Arcade stays exact; the
+custom-Sorsha work stays off the arcade-faithful path, as the arcade
+behaviour requirement says). Findings on V0.8 (build 2026-11-11a):
+game/out/audit/sorsha_feasibility.md. Any build needs the user's decisions
+listed there (new art, ROM room, her stage 4 fight).
+Then (relayed) the user's idea "Sorsha's Quest": a separate Home campaign
+reusing stages reversed and mirrored in an order that follows her story,
+story pages with pictures before (and between) levels, and her own world
+map with her own stage numbers. Also study only; addendum in the same file.
+Then (2026-11-11, asked directly in the Sorsha study session) the user
+decided: (1) the proposed chapter order, "ideally all reverse for more
+gameplay variety"; (2) "madmartigan as rival" in her stage 4 fight (new
+boss behaviour, Home only); (3) story pictures made with "nano banana"
+(Google's image model) "using style in game", the concern being space;
+(4) "we canno exceed 5mb": the 5 MiB limit stands, room must be freed
+inside it; (5) "let's try to draw" the missing Sorsha frames; (6) page text
+drafted by Claude "based on the style of the game". Not yet built.
+Then the user: "if we cannot fit in 5mb, this is dead". A full 5 MiB
+storage proof (shared world-map packing, Sorsha's art moved rather than
+copied, room for the quest) comes before any Sorsha's Quest building.
+Then the user: "the sleight should not appear in the sorsha campaign as
+that does not happen in the movie": no shield sled in her campaign (her
+stage 4 chapter ends at the camp and the Madmartigan duel; no sled frames).
+Then: "i don't need all the stages. I want stages that make sense with
+Sorsha's story" and "all the scenes like the accariage, the sleight should
+not be there bc thsoe things did not happen to her": only stages that fit her
+film story (no Nelwyn forest, stage 1); no wagon chase and no sled.
+Storage proof (2026-11-11, scratch copy, game/ unchanged): shared world
+maps (~36.5 KB, small colour change on maps 2-6) and packed picture
+layouts (15.1 KB, lossless) give 63.1 KB free; the image links at 5 MiB
+with 57 KB of quest space held (41 KB always-mapped, 16 KB pictures), gates
+24/24 and 825/825. Details: game/out/audit/sorsha_feasibility.md section 15.
+Then the user: "Yes, start phase 1". Test build
+game/willow-native-m2-20261111-sorsha1.bin (SHA-1 2279d079..., M1_NOTES.md):
+the space changes applied for real, and Sorsha playable in Home 1P from the
+Debug page (HERO SORSHA) with Madmartigan's moves and her own poses; missing
+moves use near poses until drawn. Not released; dist/ stays V0.8.
+Then (relayed): "also, sorsha should be selectable as a second player,
+instead of Madmartigan". Test build sorsha2 (SHA-1 10fa9aac..., M1_NOTES.md):
+the Home 2 PLAYERS pick screen swaps Willow's partner between Madmartigan
+and Sorsha (Up/Down); Willow + Madmartigan stays available. 2P speed same.
+Then (relayed by the main session, asked directly there): stage 4 boss when
+Sorsha plays in Home: "Madmartigan as rival (Recommended)" (Home only); sled
+and snowball art: "Keep Madmartigan (Recommended)" (he stays drawn in); ROM:
+"Yes, compress now (Recommended)" (the remaining story, ending and shop
+layouts packed losslessly).
+Then (2026-11-11, directly): "skip the sled... can sorsha just walk down the
+path (or even better, if we flip the level it's a slope up)" and "in general
+I like levels played in reverse bc they feel fresh". Whenever Sorsha plays
+stage 4 there is no sled: the ride's ground is one continuous slope (no
+gaps, steps or walls, at most 45 degrees; game/out/perf/sorsha/ride.py).
+Walking down works as is; walking up needs a fix to the uphill foot check
+(the hero drops through near x 14000), for Sorsha only. Prefer reversed
+stages in her quest.
+Then (relayed, 2026-11-11): "Fix and add Sorsha's story": v08fix1 is not
+released alone; the fixes go out with her story. Plan and mock-ups (map per
+chapter, story pages, picture prompts, rival colour options):
+game/out/audit/quest/PLAN.md. Awaiting the user's review of the mock-ups.
+Then (relayed): "In v0.9": V0.9 = the three V0.8 fixes plus Sorsha's story;
+the version text reads V0.9 in those builds. No release, commit or dist/
+change until the user approves the finished build (the main session does
+git, itch and the devlog).
+Then (relayed, asked directly by the main session): the plan "Build as
+planned (Recommended)" and Madmartigan's rival colours "A: switch colours
+(Recommended)" (stage 4's sprite line takes his colours during the duel; no
+ROM; other stage 4 enemies on screen then take his colours too). The three
+new pictures stay stand-ins until the user's Nano Banana images arrive in
+game/out/audit/quest/in/. First test build quest1 (M1_NOTES.md).
+Then (2026-11-12, after the cartoon set (quest3), the digitised film set (quest4)
+and the comic-style repaints (quest5/quest6) were shown) the user said of quest6
+(game/willow-native-m2-20261112-quest6.bin, SHA-1 2e75186f...): "let's keep this
+for now": its three story pictures stay as they are; not released, nothing
+committed.

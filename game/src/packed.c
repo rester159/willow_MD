@@ -25,3 +25,25 @@ void load_packed(const u8 *src, u16 vram, u16 ntiles)
     }
     DMA_releaseTemp(4096);
 }
+
+/* A picture's 40x28 map stored aPLib-packed (proof build): unpacked into
+ * the DMA buffer (as load_packed does); valid until map_close(). */
+const u16 *map_open(const void *src)
+{
+    u16 *buf;
+    DMA_flushQueue();
+    buf = (u16 *)DMA_allocateTemp(1280);
+    aplib_unpack((u8 *)src, (u8 *)buf);
+    return buf;
+}
+void map_close(void) { DMA_releaseTemp(1280); }
+
+/* A packed 40x28 map that must stay readable while its picture is up (the
+ * story pictures and the shop: stage.c's b_pic redraws HUD rows over it):
+ * one RAM buffer, valid until the next map_keep. */
+static u16 keepbuf[1120];
+const u16 *map_keep(const void *src)
+{
+    aplib_unpack((u8 *)src, (u8 *)keepbuf);
+    return keepbuf;
+}
